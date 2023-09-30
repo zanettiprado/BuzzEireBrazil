@@ -50,7 +50,7 @@ class Comment(models.Model):
     The 'post' attribute links the comment to a specific blog post.
     The 'name' and 'email' capture the commenter's details.
     The 'body' contains the main content of the comment.
-    Inspired in the Code institute I think Therefore I blog
+    nspired in the Code institute I think Therefore I blog
     """
 
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
