@@ -1,0 +1,111 @@
+.body {
+    font-family: Lato, sans-serif;
+    background-color: #28a745; 
+}
+
+.main-bg {
+    background-color: #e9ecef; 
+}
+
+.card-title {
+    color: #28a745; 
+}
+
+.link:hover,
+.link:active {
+    color: #343a40;
+    text-decoration: underline;
+}
+
+
+.page-link {
+    background-color: #28a745; /* Modified Green */
+    color: white;
+}
+
+.author {
+    color: #f8f9fa; /* Light background text for better visibility on translucent orange */
+    background-color: rgba(253, 126, 20, 0.7);
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.post-link:hover,
+.page-link {
+    color: #fd7e14; /* Modified Orange */
+    text-decoration: underline;
+}
+
+.image-flash {
+    background-color: rgba(40, 167, 69, 0.7); 
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fd7e14; 
+    color: #f8f9fa; 
+}
+
+.card-text {
+    color: #fd7e14; 
+}
+
+.light-bg {
+    background-color: #f8f9fa;
+}
+
+.image-container {
+    position: relative;
+}
+
+.dark-bg {
+    background-color: #343a40;
+}
+
+.link {
+    color: #fd7e14; 
+    text-decoration: none;
+}
+
+.page-link:hover {
+    background-color: #fd7e14; 
+}
+
+
+
+.btn-signup {
+    background-color: #28a745; 
+    color: #f8f9fa; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.card-green-orange {
+    border: 1px solid #fd7e14; 
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #28a745; 
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fd7e14; 
+}
+
+.card {
+    border: none;
+    background-color: #f8f9fa; 
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
