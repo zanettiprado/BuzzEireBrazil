@@ -1,10 +1,9 @@
 # views.py
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.http import HttpResponseRedirect, JsonResponse  # Add JsonResponse import
+from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
-
 
 class PostLike(View):
     
@@ -80,12 +79,14 @@ class PostDetail(View):
 
 
 class CommentLike(View):
-    
     def post(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
-        if comment.likes.filter(id=request.user.id).exists():
-            comment.likes.remove(request.user)
-        else:
-            comment.likes.add(request.user)
+        liked = request.POST.get("liked")
 
-        return JsonResponse({"message": "Comment liked/unliked successfully"})
+        if liked == "liked" and request.user not in comment.likes.all():
+            comment.likes.add(request.user)
+        elif liked == "unliked" and request.user in comment.likes.all():
+            comment.likes.remove(request.user)
+
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+

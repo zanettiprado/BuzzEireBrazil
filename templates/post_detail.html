@@ -25,7 +25,7 @@
                             <p>{{ post.content | safe }}</p>
                         </div>
                     </div>
-
+                        <!-- post likes -->
                     <div class="row mt-3">
                         <div class="col-1">
                             <strong>
@@ -49,7 +49,6 @@
                         <div class="col-1">
                             {% with comments.count as total_comments %}
                             <strong class="text-secondary"><i class="far fa-comments"></i>
-                                
                                 {{ total_comments }}</strong>
                             {% endwith %}
                         </div>
@@ -59,49 +58,57 @@
         </div>
     </div>
 
-    
     <div class="row">
         <div class="col-md-12 card mb-4 mt-3">
             <h3 class="card-header">Comments:</h3>
             <div class="card-body">
-                
                 {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        
-                        {{ comment.name }}
-                        <span class="text-muted font-weight-normal">
-                            
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    
-                    {{ comment.body | linebreaks }}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ comment.name }} <small
+                                class="text-muted">{{ comment.created_on }}</small></h5>
+                        <p class="card-text">{{ comment.body | linebreaks }}</p>
+
+                        <!-- comments likes -->
+                        <div class="comment-like">
+                            <strong class="text-secondary"><i class="far fa-thumbs-up"></i> <span
+                                    id="comment-likes-count-{{ comment.id }}">{{ comment.likes.count }}</span></strong>
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" action="{% url 'comment_like' comment.id %}" method="POST">
+                                {% csrf_token %}
+                                {% if user in comment.likes.all %}
+                                <button type="submit" name="liked" value="unliked" class="btn-like liked"><i
+                                        class="fas fa-thumbs-up"></i></button>
+                                {% else %}
+                                <button type="submit" name="liked" value="liked" class="btn-like"><i
+                                        class="far fa-thumbs-up"></i></button>
+                                {% endif %}
+                            </form>
+                            {% endif %}
+                            <span class="like-count">{{ comment.likes.count }}</span>
+                        </div>
+                    </div>
                 </div>
-                
                 {% endfor %}
             </div>
         </div>
     </div>
 
-    <!-- Container for Leave a Comment -->
     <div class="row">
         <div class="col-md-12 card mb-4 mt-3">
             <div class="card-body">
-            
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
                     Your comment is awaiting approval
                 </div>
                 {% else %}
                 {% if user.is_authenticated %}
-
-                <h3>Leave a comment:</h3>
+                <h3 class="card-header">Leave a Comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
+                <form method="post">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
                 {% endif %}
                 {% endif %}
