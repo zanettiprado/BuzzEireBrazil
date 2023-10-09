@@ -1,10 +1,10 @@
 # views.py
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
-from .forms import CommentForm
-
+from .forms import CommentForm 
+#ss
 class PostLike(View):
     
     def post(self, request, slug, *args, **kwargs):
@@ -87,6 +87,19 @@ class CommentLike(View):
             comment.likes.add(request.user)
         elif liked == "unliked" and request.user in comment.likes.all():
             comment.likes.remove(request.user)
+
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+
+class CommentDislike(View):
+    def post(self, request, comment_id, *args, **kwargs):
+        comment = get_object_or_404(Comment, id=comment_id)
+        disliked = request.POST.get("disliked")
+
+        if disliked == "disliked" and request.user not in comment.dislikes.all():
+            comment.dislikes.add(request.user)
+        elif disliked == "undisliked" and request.user in comment.dislikes.all():
+            comment.dislikes.remove(request.user)
 
         return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 

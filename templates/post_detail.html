@@ -25,7 +25,7 @@
                             <p>{{ post.content | safe }}</p>
                         </div>
                     </div>
-                        <!-- post likes -->
+                    <!-- like post  -->
                     <div class="row mt-3">
                         <div class="col-1">
                             <strong>
@@ -69,7 +69,7 @@
                                 class="text-muted">{{ comment.created_on }}</small></h5>
                         <p class="card-text">{{ comment.body | linebreaks }}</p>
 
-                        <!-- comments likes -->
+                        <!-- like comment -->
                         <div class="comment-like">
                             <strong class="text-secondary"><i class="far fa-thumbs-up"></i> <span
                                     id="comment-likes-count-{{ comment.id }}">{{ comment.likes.count }}</span></strong>
@@ -84,8 +84,21 @@
                                         class="far fa-thumbs-up"></i></button>
                                 {% endif %}
                             </form>
-                            {% endif %}
                             <span class="like-count">{{ comment.likes.count }}</span>
+                            {% endif %}
+                            
+                            <!-- Dislike button -->
+                            <form class="d-inline" action="{% url 'comment_dislike' comment.id %}" method="POST">
+                                {% csrf_token %}
+                                {% if user in comment.dislikes.all %}
+                                <button type="submit" name="disliked" value="undisliked" class="btn-dislike disliked"><i
+                                        class="fas fa-thumbs-down"></i></button>
+                                {% else %}
+                                <button type="submit" name="disliked" value="disliked" class="btn-dislike"><i
+                                        class="far fa-thumbs-down"></i></button>
+                                {% endif %}
+                            </form>
+                            <span class="dislike-count">{{ comment.dislikes.count }}</span>
                         </div>
                     </div>
                 </div>
