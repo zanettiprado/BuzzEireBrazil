@@ -17,7 +17,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
@@ -60,18 +60,9 @@
 
     <div class="container-fluid mt-4">
         <div class="row">
-            
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <main class="flex-shrink-0 main-bg">
-                    {% block content %}
-                    <!-- Content Goes here -->
-                    {% endblock content %}
-                </main>
-            </div>
 
-            <!-- Sidebar on the right side -->
-            <div class="col-md-3 bg-light py-3 sidebar">
+            <!-- Sidebar on the right side (position fixed) to be changed -->
+            <div class="col-md-4 order-md-last bg-light sidebar-scroll">
                 <h5 class="mb-3">Main Sponsors</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -83,7 +74,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">sponsor 3</a>
                     </li>
+                    <!-- Add more sidebar content if needed - check if will need this-->
                 </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-8">
+                <main class="flex-shrink-0 main-bg">
+                    {% block content %}
+                    <!-- Content Goes here -->
+                    {% endblock content %}
+                </main>
             </div>
         </div>
     </div>
