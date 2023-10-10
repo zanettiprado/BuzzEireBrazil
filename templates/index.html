@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -43,6 +44,93 @@
 
     </div>
 
+    <!-- User Suggestion Section ------------------------------------------------------------------>
+    <div class="suggestion-section">
+        <h3 class="brand">What would you like to see here in the blog?</h3>
+        <ul class="suggestions-list">
+            {% for suggestion in suggestions %}
+                <li>
+                    {{ suggestion.suggestion_text }}
+                    <span class="likes">Likes: {{ suggestion.total_likes }}</span>
+                    <span class="dislikes">Dislikes: {{ suggestion.total_dislikes }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'submit_suggestion' %}">
+                {% csrf_token %}
+                {{ suggestion_form.suggestion_text.label_tag }}
+                {{ suggestion_form.suggestion_text }}
+                <button type="submit" class="btn btn-signup">Submit</button>
+            </form>
+        {% endif %}
+    </div>
+    <!-- End of User Suggestion Section ------------------------------------------------------->
+
+    <!-- Comment Section ----------------------------------------------------------------------->
+    <div class="comment-section">
+        <h3 class="brand">Comments:</h3>
+        <div class="comments">
+            {% for comment in comments %}
+            <div class="comment card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title comment-author">{{ comment.name }} <small
+                            class="text-muted">{{ comment.created_on }}</small></h5>
+                    <p class="card-text comment-body">{{ comment.body | linebreaks }}</p>
+                    <div class="comment-like">
+                        <strong class="text-secondary"><i class="far fa-thumbs-up"></i> <span
+                                id="comment-likes-count-{{ comment.id }}">{{ comment.likes.count }}</span></strong>
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'comment_like' comment.id %}" method="POST">
+                            {% csrf_token %}
+                            {% if user in comment.likes.all %}
+                            <button type="submit" name="liked" value="unliked" class="btn-like liked"><i
+                                    class="fas fa-thumbs-up"></i></button>
+                            {% else %}
+                            <button type="submit" name="liked" value="liked" class="btn-like"><i
+                                    class="far fa-thumbs-up"></i></button>
+                            {% endif %}
+                        </form>
+                        <span class="like-count">{{ comment.likes.count }}</span>
+    
+                        <!-- Dislike button -->
+                        <form class="d-inline" action="{% url 'comment_dislike' comment.id %}" method="POST">
+                            {% csrf_token %}
+                            {% if user in comment.dislikes.all %}
+                            <button type="submit" name="disliked" value="undisliked" class="btn-dislike disliked"><i
+                                    class="fas fa-thumbs-down"></i></button>
+                            {% else %}
+                            <button type="submit" name="disliked" value="disliked" class="btn-dislike"><i
+                                    class="far fa-thumbs-down"></i></button>
+                            {% endif %}
+                        </form>
+                        <span class="dislike-count">{{ comment.dislikes.count }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    
+        {% if commented %}
+        <div class="alert alert-success" role="alert">
+            Your comment is awaiting approval
+        </div>
+        {% else %}
+        {% if user.is_authenticated %}
+        <h3 class="comment-header"></h3>
+        <p class="text-muted">Posting as: {{ user.username }}</p>
+        <form method="post" class="d-flex">
+            {{ comment_form | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-signup">Submit</button>
+        </form>
+        {% endif %}
+        {% endif %}
+    </div>
+    <!-- End of Comment Section --------------------------------------------------------------->
+
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -55,7 +143,6 @@
         </ul>
     </nav>
     {% endif %}
-
 </div>
 
-{% endblock %}
+{% endblock content %}

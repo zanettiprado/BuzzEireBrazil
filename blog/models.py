@@ -67,3 +67,16 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+class UserSuggestion(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    suggestion_text = models.TextField()
+    likes = models.ManyToManyField(User, related_name='suggestion_likes')
+    dislikes = models.ManyToManyField(User, related_name='suggestion_dislikes')
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def total_likes(self):
+        return self.likes.count()
+
+    def total_dislikes(self):
+        return self.dislikes.count()

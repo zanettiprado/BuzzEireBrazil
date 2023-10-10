@@ -1,10 +1,9 @@
-# views.py
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post, Comment
-from .forms import CommentForm 
-#ss
+from .models import Post, Comment, UserSuggestion
+from .forms import CommentForm, UserSuggestionForm
+
 class PostLike(View):
     
     def post(self, request, slug, *args, **kwargs):
@@ -16,13 +15,17 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 9
-
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['suggestion_form'] = UserSuggestionForm()
+        context['suggestions'] = UserSuggestion.objects.all()
+        return context
 
 class PostDetail(View):
 
@@ -77,7 +80,6 @@ class PostDetail(View):
             },
         )
 
-
 class CommentLike(View):
     def post(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
@@ -89,7 +91,6 @@ class CommentLike(View):
             comment.likes.remove(request.user)
 
         return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
-
 
 class CommentDislike(View):
     def post(self, request, comment_id, *args, **kwargs):
@@ -103,3 +104,17 @@ class CommentDislike(View):
 
         return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
+class UserSuggestionView(View):
+    def post(self, request, *args, **kwargs):
+        suggestion_form = UserSuggestionForm(request.POST)
+        if suggestion_form.is_valid():
+            suggestion = suggestion_form.save(commit=False)
+            suggestion.user = request.user
+            suggestion.save()
+            return redirect('home')  # check if the error is here. It should be home or index?  
+        return redirect('home')  # check if the error is here
+
+    def get(self, request, *args, **kwargs):
+        suggestions = UserSuggestion.objects.all()
+        suggestion_form = UserSuggestionForm()
+        return render(request, 'suggestions.html', {'suggestions': suggestions, 'suggestion_form': suggestion_form})
