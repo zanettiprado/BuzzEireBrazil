@@ -119,7 +119,8 @@
                 <h3 class="card-header">Leave a Comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post">
-                    {{ comment_form | crispy }}
+                    {{ comment_form.comment_text.label_tag }}
+                    <textarea name="{{ comment_form.comment_text.name }}" class="custom-textarea" rows="4" cols="50"></textarea>
                     {% csrf_token %}
                     <button type="submit" class="btn btn-success">Submit</button>
                 </form>
