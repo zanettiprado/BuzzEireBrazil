@@ -111,8 +111,8 @@ class UserSuggestionView(View):
             suggestion = suggestion_form.save(commit=False)
             suggestion.user = request.user
             suggestion.save()
-            return redirect('home')  # check if the error is here. It should be home or index?  
-        return redirect('home')  # check if the error is here
+            return redirect('home')
+        return redirect('home')
 
     def get(self, request, *args, **kwargs):
         suggestions = UserSuggestion.objects.all()
