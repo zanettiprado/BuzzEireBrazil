@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, UserSuggestion
 from .forms import CommentForm, UserSuggestionForm
+from django.contrib.auth.decorators import login_required
 
 
 class PostLike(View):
@@ -141,3 +142,20 @@ class SuggestionDislike(View):
             suggestion.dislikes.add(request.user)
 
         return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+    
+@login_required
+def edit_suggestion(request, suggestion_id):
+    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id, user=request.user)
+    if request.method == 'POST':
+        suggestion.suggestion_text = request.POST['suggestion_text']
+        suggestion.save()
+        return redirect('your_suggestions_page')
+    return render(request, 'edit_suggestion.html', {'suggestion': suggestion})
+
+@login_required
+def delete_suggestion(request, suggestion_id):
+    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id, user=request.user)
+    if request.method == 'POST':
+        suggestion.delete()
+        return redirect('your_suggestions_page')
+    return render(request, 'delete_suggestion.html', {'suggestion': suggestion})   

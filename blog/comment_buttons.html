@@ -19,4 +19,10 @@
     {% endif %}
 </form>
 <span class="dislike-count">{{ comment.dislikes.count }}</span>
+
+<!-- Display Edit and Delete links/buttons if the logged-in user is the author -->
+{% if user.is_authenticated and comment.user == user %}
+    <a href="{% url 'edit_comment' comment.id %}" class="btn btn-sm btn-primary">Edit</a>
+    <a href="{% url 'delete_comment' comment.id %}" class="btn btn-sm btn-danger">Delete</a>
+{% endif %}
 {% endif %}

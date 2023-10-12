@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <h2>Edit Your Suggestion</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.suggestion_text.label_tag }}
+        {{ form.suggestion_text|crispy }}
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+{% endblock %}
