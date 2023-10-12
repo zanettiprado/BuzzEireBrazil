@@ -96,7 +96,7 @@
                     {% endif %}
                 </form>
                 <span class="likes">{{ suggestion.total_likes }}</span>
-    
+        
                 <!-- Dislike button for suggestions -->
                 <form class="d-inline" action="{% url 'suggestion_dislike' suggestion.id %}" method="POST">
                     {% csrf_token %}
@@ -107,6 +107,19 @@
                     {% endif %}
                 </form>
                 <span class="dislikes">{{ suggestion.total_dislikes }}</span>
+        
+                <!-- Edit and Delete buttons for suggestions -->
+                {% if user.is_authenticated and user == suggestion.user %}
+                <a href="{% url 'edit_suggestion' suggestion.id %}" class="btn btn-sm btn-warning">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <form class="d-inline" action="{% url 'delete_suggestion' suggestion.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </button>
+                </form>
+                {% endif %}
             </li>
             {% endfor %}
         </ul>
@@ -122,10 +135,26 @@
                     <h5 class="card-title comment-author">{{ comment.name }} <small
                             class="text-muted">{{ comment.created_on }}</small></h5>
                     <p class="card-text comment-body">{{ comment.body | linebreaks }}</p>
-
-                    <!-- reach comment_buttons.html for like and dislike -->
+    
+                    <!-- Like and Dislike buttons for comments -->
                     {% include 'blog/comment_buttons.html' %}
-
+    
+                    <!-- Edit button -->
+                    {% if user.is_authenticated and user == comment.user %}
+                    <a href="{% url 'edit_comment' comment.id %}" class="btn btn-sm btn-warning">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    {% endif %}
+    
+                    <!-- Delete button -->
+                    {% if user.is_authenticated and user == comment.user %}
+                    <form class="d-inline" action="{% url 'delete_comment' comment.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </button>
+                    </form>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

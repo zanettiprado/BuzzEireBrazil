@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, UserSuggestion
-from .forms import CommentForm, UserSuggestionForm
+from .forms import CommentForm, UserSuggestionForm, SuggestionForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -145,12 +145,18 @@ class SuggestionDislike(View):
     
 @login_required
 def edit_suggestion(request, suggestion_id):
-    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id, user=request.user)
+    suggestion = get_object_or_404(UserSuggestion, pk=suggestion_id)
+
     if request.method == 'POST':
-        suggestion.suggestion_text = request.POST['suggestion_text']
-        suggestion.save()
-        return redirect('your_suggestions_page')
-    return render(request, 'edit_suggestion.html', {'suggestion': suggestion})
+        form = SuggestionForm(request.POST, instance=suggestion)
+        if form.is_valid():
+            form.save()
+            return redirect('suggestion_list')
+    else:
+        form = SuggestionForm(instance=suggestion)
+
+    return render(request, 'edit_suggestion.html', {'form': form, 'suggestion': suggestion})
+
 
 @login_required
 def delete_suggestion(request, suggestion_id):
@@ -158,4 +164,23 @@ def delete_suggestion(request, suggestion_id):
     if request.method == 'POST':
         suggestion.delete()
         return redirect('your_suggestions_page')
-    return render(request, 'delete_suggestion.html', {'suggestion': suggestion})   
+    return render(request, 'delete_suggestion.html', {'suggestion': suggestion}) 
+  
+
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect('your_comment_list_view')
+    else:
+        form = CommentForm(instance=comment)
+    return render(request, 'edit_comment.html', {'form': form})
+
+
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.method == 'POST' and request.user == comment.user:
+        comment.delete()
+    return redirect('your_comment_list_view')
