@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment, UserSuggestion
 from .forms import CommentForm, UserSuggestionForm
 
+
 class PostLike(View):
     
     def post(self, request, slug, *args, **kwargs):
@@ -118,3 +119,25 @@ class UserSuggestionView(View):
         suggestions = UserSuggestion.objects.all()
         suggestion_form = UserSuggestionForm()
         return render(request, 'suggestions.html', {'suggestions': suggestions, 'suggestion_form': suggestion_form})
+    
+class SuggestionLike(View):
+    def post(self, request, suggestion_id, *args, **kwargs):
+        suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
+        
+        if suggestion.likes.filter(id=request.user.id).exists():
+            suggestion.likes.remove(request.user)
+        else:
+            suggestion.likes.add(request.user)
+
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+class SuggestionDislike(View):
+    def post(self, request, suggestion_id, *args, **kwargs):
+        suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
+        
+        if suggestion.dislikes.filter(id=request.user.id).exists():
+            suggestion.dislikes.remove(request.user)
+        else:
+            suggestion.dislikes.add(request.user)
+
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))

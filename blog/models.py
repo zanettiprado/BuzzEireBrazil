@@ -80,3 +80,7 @@ class UserSuggestion(models.Model):
 
     def total_dislikes(self):
         return self.dislikes.count()
+
+    @classmethod
+    def total_suggestions(cls):
+        return cls.objects.count()
