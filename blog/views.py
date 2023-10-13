@@ -151,7 +151,7 @@ def edit_suggestion(request, suggestion_id):
         form = SuggestionForm(request.POST, instance=suggestion)
         if form.is_valid():
             form.save()
-            return redirect('suggestion_list')
+            return redirect('home')
     else:
         form = SuggestionForm(instance=suggestion)
 
@@ -163,7 +163,7 @@ def delete_suggestion(request, suggestion_id):
     suggestion = get_object_or_404(UserSuggestion, id=suggestion_id, user=request.user)
     if request.method == 'POST':
         suggestion.delete()
-        return redirect('your_suggestions_page')
+        return redirect('home')
     return render(request, 'delete_suggestion.html', {'suggestion': suggestion}) 
   
 

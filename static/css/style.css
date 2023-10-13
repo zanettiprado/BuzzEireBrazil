@@ -163,6 +163,12 @@
 }
 
 /* Suggestion Item */
+
+.suggestions-list {
+    list-style-type: none; 
+    padding: 10px; 
+}
+
 .suggestion-item {
     margin-bottom: 20px;
     padding: 10px;
@@ -178,13 +184,13 @@
 }
 
 /* Likes and Dislikes */
-/* .likes, .dislikes {
+.btn-likes, .btn-dislikes {
     margin-right: 10px;
     font-weight: bold;
     color: #333333;
     cursor: pointer;
     transition: color 0.2s;
-} */
+}
 
 .likes:hover, .dislikes:hover {
     color: #fd7e14;
