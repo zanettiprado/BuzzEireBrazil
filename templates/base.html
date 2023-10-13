@@ -48,11 +48,15 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
-                    Connecting Brazilians in Ireland since 2023
-                </span>
             </div>
+            {% if user.is_authenticated %}
+            <span class="navbar-text">
+                Welcome, {{ user.username }}!
+            </span>
+            <br>         
+        {% endif %}
         </div>
+
     </nav>
 
     <div class="container-fluid mt-4">

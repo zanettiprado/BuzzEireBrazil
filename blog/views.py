@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment, UserSuggestion
 from .forms import CommentForm, UserSuggestionForm, SuggestionForm
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.admin.views.decorators import staff_member_required
 
 class PostLike(View):
     
@@ -144,6 +144,7 @@ class SuggestionDislike(View):
         return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
     
 @login_required
+@staff_member_required
 def edit_suggestion(request, suggestion_id):
     suggestion = get_object_or_404(UserSuggestion, pk=suggestion_id)
 
@@ -157,10 +158,10 @@ def edit_suggestion(request, suggestion_id):
 
     return render(request, 'edit_suggestion.html', {'form': form, 'suggestion': suggestion})
 
-
 @login_required
+@staff_member_required
 def delete_suggestion(request, suggestion_id):
-    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id, user=request.user)
+    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
     if request.method == 'POST':
         suggestion.delete()
         return redirect('home')
