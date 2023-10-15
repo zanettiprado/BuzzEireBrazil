@@ -23,6 +23,7 @@
 /* Text Colors */
 .card-title {
     color: #28a745;
+    text-decoration: none;
 }
 
 .author {

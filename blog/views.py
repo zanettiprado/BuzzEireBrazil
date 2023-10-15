@@ -2,9 +2,25 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, UserSuggestion
-from .forms import CommentForm, UserSuggestionForm, SuggestionForm
+from .forms import CommentForm, UserSuggestionForm, SuggestionForm, PostForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.forms.utils import ErrorList  
+
+def create_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Save the new post
+            new_post = form.save(commit=False)
+            new_post.author = request.user  # Set the author to the currently logged-in user
+            new_post.save()
+            return redirect('post_detail', slug=new_post.slug)  # Redirect to the new post's detail page
+    else:
+        # Initialize the form with initial values as empty strings ('') and status as "Draft" (0)
+        form = PostForm(initial={'title': '', 'slug': '', 'excerpt': '', 'content': '', 'status': 0})
+
+    return render(request, 'create_post.html', {'form': form})
 
 class PostLike(View):
     
@@ -47,7 +63,7 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
             },
         )
 
@@ -58,9 +74,9 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-            
+
         comment_form = CommentForm(data=request.POST)
-        
+
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
@@ -78,7 +94,7 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": True,
                 "liked": liked,
-                "comment_form": comment_form
+                "comment_form": comment_form,
             },
         )
 
@@ -184,27 +200,55 @@ def edit_suggestion(request, suggestion_id):
     else:
         return redirect('home')
 
+@login_required
+def edit_comment(request, slug, comment_id):
+    # Get the comment and perform authorization checks
+    comment = get_object_or_404(Comment, id=comment_id)
+    
+    # Ensure that the user editing the comment is the comment owner
+    if request.user == comment.name:
+        if request.method == "POST":
+            # Process the form for editing the comment
+            comment_form = CommentForm(data=request.POST, instance=comment)
+            if comment_form.is_valid():
+                comment_form.save()
+                return redirect('post_detail', slug=slug)
+        else:
+            # Display the form for editing the comment
+            comment_form = CommentForm(instance=comment)
+            
+        return render(
+            request,
+            "edit_comment.html",
+            {
+                "comment_form": comment_form,
+                "comment": comment,
+            },
+        )
+    else:
+        # Handle the case where the user is not allowed to edit the comment
+        return redirect('post_detail', slug=slug)
 
 @login_required
-def delete_suggestion(request, suggestion_id):
-    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
-   
-    if request.user == suggestion.user:
-        if request.method == 'POST':
-            suggestion.delete()
-        return redirect('home')
+def delete_comment(request, slug, comment_id):
+    # Get the comment and perform authorization checks
+    comment = get_object_or_404(Comment, id=comment_id)
+    
+    # Ensure that the user deleting the comment is the comment owner
+    if request.user == comment.name:
+        if request.method == "POST":
+            # Process the deletion of the comment
+            comment.delete()
+            return redirect('post_detail', slug=slug)
+        else:
+            # Display the confirmation page for deleting the comment
+            return render(
+                request,
+                "delete_comment.html",
+                {
+                    "comment": comment,
+                },
+            )
     else:
-        return redirect('home')
-
-
-@login_required
-def delete_suggestion(request, suggestion_id):
-    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
-
-    if request.user == suggestion.user:
-        if request.method == 'POST':
-            suggestion.delete()
-            return redirect('home')
-        return redirect('home')  
-    else:
-        return redirect('home')
+        # Handle the case where the user is not allowed to delete the comment
+        return redirect('post_detail', slug=slug)

@@ -77,6 +77,8 @@ ROOT_URLCONF = 'buzzeirebrazil.urls'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+COMMENTS_MODERATION = 'None'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -1,7 +1,19 @@
-from .models import Comment, UserSuggestion
+from .models import Comment, UserSuggestion, Post
 from django import forms
 
+from django import forms
+from .models import Comment, UserSuggestion, Post
 
+class PostForm(forms.ModelForm):
+    title = forms.CharField(max_length=200, required=True)
+    slug = forms.SlugField(max_length=200, required=True)
+    content = forms.CharField(widget=forms.Textarea, required=True)
+
+    class Meta:
+        model = Post
+        fields = ['title', 'slug', 'author', 'featured_image', 'excerpt', 'content']
+        
+        
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
