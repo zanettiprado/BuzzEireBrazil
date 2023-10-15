@@ -86,10 +86,10 @@
             </form>
 
             <!-- Suggestions List -->
-            <ul class="list-group mt-4">
+            <ul class="list-group mt-4 suggestions-list">
                 {% for suggestion in suggestions %}
                 <li class="list-group-item suggestion-item">
-                    <div class="suggestion-text">
+                    <div class="suggestion-text user-suggestion-text">
                         {{ suggestion.suggestion_text }}
                     </div>
                     <div class="suggestion-details text-muted">
@@ -100,31 +100,36 @@
                         <form class="d-inline" action="{% url 'suggestion_like' suggestion.id %}" method="POST">
                             {% csrf_token %}
                             {% if user in suggestion.likes.all %}
-                            <button type="submit" name="liked" value="unliked" class="btn btn-sm btn-outline-success">
-                                <i class="fas fa-thumbs-up"></i>
-                            </button>
+                            <button type="submit" name="liked" value="unliked" class="btn-like"><i class="fas fa-thumbs-up"></i></button>
                             {% else %}
-                            <button type="submit" name="liked" value="liked" class="btn btn-sm btn-outline-secondary">
-                                <i class="far fa-thumbs-up"></i>
-                            </button>
+                            <button type="submit" name="liked" value="liked" class="btn-like"><i class="far fa-thumbs-up"></i></button>
                             {% endif %}
                         </form>
                         <span class="likes">{{ suggestion.total_likes }}</span>
-            
+                        
                         <!-- Dislike button for suggestions -->
                         <form class="d-inline" action="{% url 'suggestion_dislike' suggestion.id %}" method="POST">
                             {% csrf_token %}
                             {% if user in suggestion.dislikes.all %}
-                            <button type="submit" name="disliked" value="undisliked" class="btn btn-sm btn-outline-danger">
-                                <i class="fas fa-thumbs-down"></i>
-                            </button>
+                            <button type="submit" name="disliked" value="undisliked" class="btn-dislike"><i class="fas fa-thumbs-down"></i></button>
                             {% else %}
-                            <button type="submit" name="disliked" value="disliked" class="btn btn-sm btn-outline-secondary">
-                                <i class="far fa-thumbs-down"></i>
-                            </button>
+                            <button type="submit" name="disliked" value="disliked" class="btn-dislike"><i class="far fa-thumbs-down"></i></button>
                             {% endif %}
                         </form>
                         <span class="dislikes">{{ suggestion.total_dislikes }}</span>
+            
+                        <!-- Edit and Delete buttons for suggestions -->
+                        {% if user.is_authenticated and user == suggestion.user %}
+                        <a href="{% url 'edit_suggestion' suggestion.id %}" class="btn btn-sm btn-warning">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <form class="d-inline" action="{% url 'delete_suggestion' suggestion.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </form>
+                        {% endif %}
                     </div>
                 </li>
                 {% endfor %}
