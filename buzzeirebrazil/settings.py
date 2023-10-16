@@ -28,7 +28,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+X_FRAME_OPTIONS = 'SAMEORIGEN'
 
 ALLOWED_HOSTS = ['8000-zanettiprad-buzzeirebra-3u1oilhz8fl.ws-eu105.gitpod.io', '8000-zanettiprad-buzzeirebra-3u1oilhz8fl.ws-eu104.gitpod.io', 'buzzeirebrazil.herokuapp.com', 'buzzeirebrazil-4d2838e0aec6.herokuapp.com', 'localhost']
 
