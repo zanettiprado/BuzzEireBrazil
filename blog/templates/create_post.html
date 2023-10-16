@@ -8,9 +8,13 @@
             <h4 class="card-title text-white">Create a New Post</h4>
         </div>
         <div class="card-body">
+            <!-- Add the error message div -->
+            <div id="slug-error" class="alert alert-danger" style="display: none;">
+                Do not use spaces in the slug.
+            </div>
+
             <form action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data" class="suggestion-form">
                 {% csrf_token %}
-
                 <!-- Title Field -->
                 <div class="form-group mt-3">
                     {{ form.title.label_tag }}
@@ -26,7 +30,7 @@
                 </div>
 
                 <!-- Featured Image Field -->
-                <div class="form-group mt-3 ">
+                <div class="form-group mt-3">
                     {{ form.featured_image.label_tag }}
                     {{ form.featured_image }}
                 </div>
@@ -51,5 +55,28 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const slugField = document.querySelector('input[name="{{ form.slug.name }}"]');
+        const slugError = document.getElementById('slug-error');
+
+        slugField.addEventListener('blur', function () {
+            if (this.value.includes(' ')) {
+                slugError.style.display = 'block';
+            } else {
+                slugError.style.display = 'none';
+            }
+        });
+
+        // Disable form submission if the slug contains spaces
+        document.querySelector('form').addEventListener('submit', function (event) {
+            if (slugField.value.includes(' ')) {
+                event.preventDefault(); // Prevent form submission
+                slugError.style.display = 'block';
+            }
+        });
+    });
+</script>
 
 {% endblock content %}

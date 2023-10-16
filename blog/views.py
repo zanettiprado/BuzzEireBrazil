@@ -88,6 +88,8 @@ class PostDetail(View):
             print(comment)
             comment.save()
         else:
+            print("Error with form")
+            print(comment_form.errors)
             comment_form = CommentForm()
 
         return render(

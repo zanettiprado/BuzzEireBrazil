@@ -28,8 +28,6 @@ class UserSuggestionForm(forms.ModelForm):
 
     def clean_suggestion_text(self):
         suggestion_text = self.cleaned_data.get('suggestion_text')
-        if len(suggestion_text) < 10:
-            raise forms.ValidationError("Suggestion must be at least 10 characters long.")
         return suggestion_text
 
 class SuggestionForm(forms.ModelForm):

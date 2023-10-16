@@ -9,6 +9,11 @@
             <h4 class="card-title text-white">You can edit your post </h4>
         </div>
         <div class="card-body">
+            <!-- Add the error message div -->
+            <div id="slug-error" class="alert alert-danger" style="display: none;">
+                Do not use spaces in the slug.
+            </div>
+
             <form method="post" enctype="multipart/form-data" class="suggestion-form">
                 {% csrf_token %}
 
@@ -52,4 +57,29 @@
         </div>
     </div>
 </div>
+
+<!-- JavaScript validation for the slug field -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const slugField = document.querySelector('input[name="{{ form.slug.name }}"]');
+        const slugError = document.getElementById('slug-error');
+
+        slugField.addEventListener('blur', function () {
+            if (this.value.includes(' ')) {
+                slugError.style.display = 'block';
+            } else {
+                slugError.style.display = 'none';
+            }
+        });
+
+        // Disable form submission if the slug contains spaces
+        document.querySelector('form').addEventListener('submit', function (event) {
+            if (slugField.value.includes(' ')) {
+                event.preventDefault(); // Prevent form submission
+                slugError.style.display = 'block';
+            }
+        });
+    });
+</script>
+
 {% endblock content %}

@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             {% if "placeholder" in post.featured_image.url %}
-                            <img src="/media/ireland.brasil.PNG" class="img-fluid mb-3" style="width: 100%;">
+                            <img src="https://www.edublin.com.br/wp-content/webp-express/webp-images/uploads/2017/07/shutterstock_265691192.jpg.webp" class="img-fluid mb-3" style="width: 100%;">
                             {% else %}
                             <img src="{{ post.featured_image.url }}" class="img-fluid mb-3" style="width: 100%;">
                             {% endif %}
@@ -125,10 +125,6 @@
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post">
                     {{comment_form}}
-                    
-                    <!-- {{ comment_form.comment_text.label_tag }}
-                    <textarea name="{{ comment_form.comment_text.name }}" class="custom-textarea" rows="4"
-                        cols="50"></textarea> -->
                     {% csrf_token %}
                     <button type="submit" class="btn btn-success">Submit</button>
                 </form>
