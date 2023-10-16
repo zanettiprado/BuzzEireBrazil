@@ -268,14 +268,15 @@ def edit_post(request, slug):
     return render(request, 'edit_post.html', {'form': form})
 
 @login_required
-@user_passes_test(lambda u: u.is_staff)
 def delete_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    if request.method == "POST":
-        post.delete()
-        return redirect('home') # ok now working and again redirecting to home
-
-    return render(request, 'delete_post.html', {'post': post})
+    
+    # Check if the user is the author of the post or is a staff member (admin)
+    if request.user == post.author or request.user.is_staff:
+        if request.method == "POST":
+            post.delete()
+            return redirect('home')
+        return render(request, 'delete_post.html', {'post': post})
 
 @login_required
 def index_view(request):
