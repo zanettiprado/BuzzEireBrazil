@@ -15,7 +15,7 @@ def create_post(request):
             new_post = form.save(commit=False)
             new_post.author = request.user  # Set the author to the currently logged-in user
             new_post.save()
-            return redirect('post_detail', slug=new_post.slug)  # Redirect to the new post's detail page
+            return redirect(reverse('post_detail', kwargs={"slug": new_post.slug}))  # Redirect to the new post's detail page
     else:
         # Initialize the form with initial values as empty strings ('') and status as "Draft" (0)
         form = PostForm(initial={'title': '', 'slug': '', 'excerpt': '', 'content': '', 'status': 0})
@@ -48,8 +48,9 @@ class PostList(generic.ListView):
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+        # queryset = Post.objects.filter(status=1)
+        # post = get_object_or_404(queryset, slug=slug)
+        post = Post.objects.get(slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():

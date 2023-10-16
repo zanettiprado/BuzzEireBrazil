@@ -8,7 +8,7 @@
             <h4 class="card-title text-white">Create a New Post</h4>
         </div>
         <div class="card-body">
-            <form method="post" enctype="multipart/form-data" class="suggestion-form">
+            <form action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data" class="suggestion-form">
                 {% csrf_token %}
 
                 <!-- Title Field -->
@@ -45,8 +45,8 @@
                               class="form-control custom-textarea">{{ form.content.value }}</textarea>
                 </div>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-suggestion mt-5">Create Post</button>
+                <!-- input element -->
+                <input type="submit" class="btn btn-suggestion mt-5" value="Create Post">
             </form>
         </div>
     </div>
