@@ -3,9 +3,10 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, UserSuggestion
 from .forms import CommentForm, UserSuggestionForm, SuggestionForm, PostForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.admin.views.decorators import staff_member_required
 from django.forms.utils import ErrorList  
+from django.contrib.auth.models import User
 
 def create_post(request):
     if request.method == 'POST':
@@ -17,7 +18,7 @@ def create_post(request):
             new_post.save()
             return redirect(reverse('post_detail', kwargs={"slug": new_post.slug}))  # Redirect to the new post's detail page
     else:
-        # Initialize the form with initial values as empty strings ('') and status as "Draft" (0)
+        # Initialize the form with initial values as empty strings ('') and status as "Draft" (0) now the default is set to 1
         form = PostForm(initial={'title': '', 'slug': '', 'excerpt': '', 'content': '', 'status': 0})
 
     return render(request, 'create_post.html', {'form': form})
@@ -48,7 +49,7 @@ class PostList(generic.ListView):
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        # queryset = Post.objects.filter(status=1)
+        # queryset = Post.objects.filter(status=1) see if is necessary
         # post = get_object_or_404(queryset, slug=slug)
         post = Post.objects.get(slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -203,7 +204,7 @@ def edit_suggestion(request, suggestion_id):
 
 @login_required
 def edit_comment(request, slug, comment_id):
-    # Get the comment and perform authorization checks
+    # Get the comment and perform authorization checks so the user can edit their own text POSTS in this case
     comment = get_object_or_404(Comment, id=comment_id)
     
     # Ensure that the user editing the comment is the comment owner
@@ -227,20 +228,20 @@ def edit_comment(request, slug, comment_id):
             },
         )
     else:
-        # Handle the case where the user is not allowed to edit the comment
-        return redirect('post_detail', slug=slug)
+        # Handle the case where the user is not allowed to edit the comment  ok working and redirectiong correctly 
+        return redirect('home', slug=slug)
 
 @login_required
 def delete_comment(request, slug, comment_id):
-    # Get the comment and perform authorization checks
+    # Get the comment and perform authorization checks - working as expected 
     comment = get_object_or_404(Comment, id=comment_id)
     
-    # Ensure that the user deleting the comment is the comment owner
+    # Ensure that the user deleting the comment is the comment owner - ok now redirecting to home
     if request.user == comment.name:
         if request.method == "POST":
             # Process the deletion of the comment
             comment.delete()
-            return redirect('post_detail', slug=slug)
+            return redirect('home', slug=slug)
         else:
             # Display the confirmation page for deleting the comment
             return render(
@@ -253,3 +254,39 @@ def delete_comment(request, slug, comment_id):
     else:
         # Handle the case where the user is not allowed to delete the comment
         return redirect('post_detail', slug=slug)
+    
+@login_required
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('post_detail', slug=post.slug)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'edit_post.html', {'form': form})
+
+@login_required
+@user_passes_test(lambda u: u.is_staff)
+def delete_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == "POST":
+        post.delete()
+        return redirect('home') # ok now working and again redirecting to home
+
+    return render(request, 'delete_post.html', {'post': post})
+
+@login_required
+def index_view(request):
+    post_list = Post.objects.all()
+    context = {
+        'post_list': post_list,
+        'user': request.user,
+    }
+
+    if request.user.is_authenticated:
+        for post in post_list:
+            post.is_editable = request.user == post.author or request.user.is_staff
+    
+    return render(request,'index.html', context)

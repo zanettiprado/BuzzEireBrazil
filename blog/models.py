@@ -7,7 +7,7 @@ from cloudinary.models import CloudinaryField
 
 STATUS = (
     (0, "Draft"),
-    (1, "Published")
+    (1, "Published") # set to default
 )
 
 class Post(models.Model):
@@ -30,7 +30,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True
     )

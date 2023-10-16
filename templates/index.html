@@ -11,7 +11,7 @@
     <a href="{% url 'create_post' %}" class="btn btn-primary">Create Post</a>
     <div class="row">
         <!-- Blog Entries Column -->
-        
+
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
@@ -40,12 +40,39 @@
                             <!-- Post Created Date and Likes -->
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
+
+                            {% if user.is_authenticated and user == post.author or user.is_staff %}
+                                <a href="{% url 'edit_post' post.slug %}" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+                                </form>
+                            {% endif %}
+                            
+                            
+                            <!-- Additional check for is_editable related to posts on home-->
+                            {% if post.is_editable %}
+                                <a href="{% url 'edit_post' post.slug %}" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+                                </form>
+                            {% endif %}
+                            
                         </div>
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
+                </div>
+                <div class="row">
                 {% endif %}
                 {% endfor %}
             </div>
