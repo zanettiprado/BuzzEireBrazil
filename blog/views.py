@@ -14,7 +14,9 @@ from django.contrib.auth.models import User
 def create_post(request):
     """
     Create a new blog post.
+
     Allows logged-in users to create new blog posts by submitting a form.
+
     """
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)

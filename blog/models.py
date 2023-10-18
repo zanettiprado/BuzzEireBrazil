@@ -48,7 +48,6 @@ class Post(models.Model):
         """Returns the total number of likes for this post."""
         return self.likes.count()
 
-
 class Comment(models.Model):
     """
     Represents a comment made on a blog post.
@@ -79,7 +78,6 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
-
 class UserSuggestion(models.Model):
     """
     Represents a user's suggestion.
@@ -107,7 +105,6 @@ class UserSuggestion(models.Model):
     @classmethod
     def total_suggestions(cls):
         return cls.objects.count()
-
 
 class Suggestion(models.Model):
     """
