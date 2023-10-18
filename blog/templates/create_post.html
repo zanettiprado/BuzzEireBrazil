@@ -8,25 +8,32 @@
             <h4 class="card-title text-white">Create a New Post</h4>
         </div>
         <div class="card-body">
-            <!-- Add the error message div -->
+
             <div id="slug-error" class="alert alert-danger" style="display: none;">
                 Do not use spaces in the slug.
             </div>
+            
 
-            <form action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data" class="suggestion-form">
+            <div id="required-field-error" class="alert alert-danger" style="display: none;">
+                Please fill in all required fields (Title, Slug, and Content).
+            </div>
+
+            <form action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data"
+                  class="suggestion-form" id="create-post-form">
                 {% csrf_token %}
+                
                 <!-- Title Field -->
                 <div class="form-group mt-3">
-                    {{ form.title.label_tag }}
+                    <label for="{{ form.title.id_for_label }}">Title<span class="text-danger">*</span></label>
                     <input type="text" name="{{ form.title.name }}" id="{{ form.title.id_for_label }}"
-                           class="form-control" value="{{ form.title.value }}">
+                           class="form-control" value="{{ form.title.value }}" required>
                 </div>
 
                 <!-- Slug Field -->
                 <div class="form-group mt-3">
-                    {{ form.slug.label_tag }}
+                    <label for="{{ form.slug.id_for_label }}">Slug<span class="text-danger">*</span></label>
                     <input type="text" name="{{ form.slug.name }}" id="{{ form.slug.id_for_label }}"
-                           class="form-control" value="{{ form.slug.value }}">
+                           class="form-control" value="{{ form.slug.value }}" required>
                 </div>
 
                 <!-- Featured Image Field -->
@@ -44,9 +51,9 @@
 
                 <!-- Content Field -->
                 <div class="form-group mt-3">
-                    {{ form.content.label_tag }}
+                    <label for="{{ form.content.id_for_label }}">Content<span class="text-danger">*</span></label>
                     <textarea name="{{ form.content.name }}" id="{{ form.content.id_for_label }}"
-                              class="form-control custom-textarea">{{ form.content.value }}</textarea>
+                              class="form-control custom-textarea" required>{{ form.content.value }}</textarea>
                 </div>
 
                 <!-- input element -->
@@ -60,7 +67,8 @@
     document.addEventListener('DOMContentLoaded', function () {
         const slugField = document.querySelector('input[name="{{ form.slug.name }}"]');
         const slugError = document.getElementById('slug-error');
-
+        const requiredFieldError = document.getElementById('required-field-error');
+        
         slugField.addEventListener('blur', function () {
             if (this.value.includes(' ')) {
                 slugError.style.display = 'block';
@@ -70,10 +78,25 @@
         });
 
         // Disable form submission if the slug contains spaces
-        document.querySelector('form').addEventListener('submit', function (event) {
+        document.querySelector('#create-post-form').addEventListener('submit', function (event) {
             if (slugField.value.includes(' ')) {
                 event.preventDefault(); // Prevent form submission
                 slugError.style.display = 'block';
+            }
+
+            // Check if any required fields are empty
+            const requiredFields = document.querySelectorAll('[required]');
+            let hasEmptyRequiredFields = false;
+
+            requiredFields.forEach((field) => {
+                if (!field.value.trim()) {
+                    hasEmptyRequiredFields = true;
+                }
+            });
+
+            if (hasEmptyRequiredFields) {
+                event.preventDefault(); // Prevent form submission
+                requiredFieldError.style.display = 'block';
             }
         });
     });

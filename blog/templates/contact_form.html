@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Contact Us for Sponsorship</h2>
+    <form method="post" action="{% url 'sponsorship_contact' %}" class="mt-4">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock content %}

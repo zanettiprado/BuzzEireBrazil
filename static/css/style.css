@@ -1,6 +1,6 @@
 /* Typography */
 .body {
-    font-family: Lato, sans-serif;
+    font-family: 'Secular One', Karla, Lato, sans-serif;
 }
 
 /* Background Colors */
@@ -76,7 +76,7 @@
 
 .btn-submit {
     background-color: #4CAF50; 
-    color: white;"
+    color: white;
 }
 
 /* Cards */
@@ -242,4 +242,16 @@
     border: 1px solid #FFA500;
     width: 96%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+@media (max-width: 1199px) {
+    .sidebar-scroll {
+        display: none;
+    }
+    
+    /* Make the main content 100% width */
+    .col-md-8 {
+        width: 100%;
+    }
 }

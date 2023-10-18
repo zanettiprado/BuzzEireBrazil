@@ -10,10 +10,11 @@ STATUS = (
     (1, "Published") # set to default
 )
 
+
 class Post(models.Model):
     """
     Represents a blog post in the system.
-    
+
     The 'title' attribute defines the post's title.
     The 'slug' provides an SEO-friendly URL for the post.
     The 'author' links the post to a user in the system.
@@ -45,10 +46,11 @@ class Post(models.Model):
         """Returns the total number of likes for this post."""
         return self.likes.count()
 
+
 class Comment(models.Model):
     """
     Represents a comment made on a blog post.
-    
+
     The 'post' attribute links the comment to a specific blog post.
     The 'name' and 'email' capture the commenter's details.
     The 'body' contains the main content of the comment.
@@ -70,6 +72,7 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
+
 class UserSuggestion(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     suggestion_text = models.TextField()
@@ -86,3 +89,9 @@ class UserSuggestion(models.Model):
     @classmethod
     def total_suggestions(cls):
         return cls.objects.count()
+
+
+class Suggestion(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    suggestion_text = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)

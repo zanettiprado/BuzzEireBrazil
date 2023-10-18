@@ -6,7 +6,14 @@
 
 <!-- Blog Entries Container -->
 <div class="container-fluid mt-5">
-    <a href="{% url 'create_post' %}" class="btn btn-success">Create Post</a>
+    <a id="create-post-link" href="{% if user.is_authenticated %}{% url 'create_post' %}{% else %}{% url 'account_login' %}?next={% url 'create_post' %}{% endif %}"
+        class="btn btn-success">
+        {% if user.is_authenticated %}
+        <i class="fa-solid fa-plus"></i> Create a new Post
+        {% else %}
+        <i class="fas fa-sign-in-alt"></i> Login
+        {% endif %}
+    </a>
     <div class="row">
         <!-- Blog Entries Column -->
 
@@ -146,16 +153,18 @@
                         <span class="dislikes">{{ suggestion.total_dislikes }}</span>
             
                         <!-- Edit and Delete buttons for suggestions -->
-                        {% if user.is_authenticated and user == suggestion.user %}
-                        <a href="{% url 'edit_suggestion' suggestion.id %}" class="btn btn-sm btn-warning">
-                            <i class="fas fa-edit"></i> Edit
-                        </a>
-                        <form class="d-inline" action="{% url 'delete_suggestion' suggestion.id %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash-alt"></i> Delete
-                            </button>
-                        </form>
+                        {% if user.is_authenticated %}
+                            {% if user == suggestion.user or user.is_staff %}
+                                <a href="{% url 'edit_suggestion' suggestion.id %}" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <form class="d-inline" action="{% url 'delete_suggestion' suggestion.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+                                </form>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </li>
@@ -226,6 +235,18 @@
         suggestionText.addEventListener('blur', function () {
             if (this.value === '') {
                 this.value = 'Tell me what you are thinking...';
+            }
+        });
+    });
+
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const createPostLink = document.getElementById('create-post-link');
+
+        createPostLink.addEventListener('click', function (event) {
+            // Check if the user is not authenticated
+            if (!userIsAuthenticated) {
+                event.preventDefault(); // Prevent the default link behavior
             }
         });
     });
