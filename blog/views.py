@@ -8,10 +8,14 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.forms.utils import ErrorList
 from django.contrib.auth.models import User
 
-
 # Block to define posts
 
+@login_required
 def create_post(request):
+    """
+    Create a new blog post.
+    Allows logged-in users to create new blog posts by submitting a form.
+    """
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -26,7 +30,10 @@ def create_post(request):
 
 
 class PostLike(View):
-
+    """
+    Handle liking/unliking a blog post.
+    Allows users to like or unlike a blog post.
+    """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -38,6 +45,21 @@ class PostLike(View):
 
 
 class PostList(generic.ListView):
+    """
+    Display a list of published blog posts.
+    Retrieves and displays a paginated list of published blog posts.
+
+    Attributes:
+        model (Post): The model to use for retrieving posts.
+        queryset (QuerySet): The queryset to filter and order the posts.
+        template_name (str): The HTML template to use for rendering the list.
+        paginate_by (int): The number of posts to display per page.
+
+    Methods:
+        get_context_data(**kwargs): Get the context data for rendering the list.
+    Returns:
+        HttpResponse: Renders the list of blog posts.
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -51,7 +73,19 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
+    """
+    Display details of a blog post.
+    Retrieves and displays the details of a specific blog post,
+    including its comments and allows users to post comments.
 
+    Attributes:
+        template_name (str): The HTML template to use for rendering the post detail page.
+    Methods:
+        get(self, request, slug, *args, **kwargs): Handle GET requests to view the post details.
+        post(self, request, slug, *args, **kwargs): Handle POST requests to post comments.
+    Returns:
+        HttpResponse: Renders the blog post detail page.
+    """
     def get(self, request, slug, *args, **kwargs):
         post = Post.objects.get(slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -109,6 +143,10 @@ class PostDetail(View):
 
 @login_required
 def edit_post(request, slug):
+    """
+    Edit an existing blog post.
+    Allows logged-in users to edit their own blog posts.
+    """
     post = get_object_or_404(Post, slug=slug)
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
@@ -122,8 +160,11 @@ def edit_post(request, slug):
 
 @login_required
 def delete_post(request, slug):
+    """
+    Delete a blog post.
+    Allows logged-in users to delete their own blog posts.
+    """
     post = get_object_or_404(Post, slug=slug)
-    # Check if the user is the author of the post or is a staff member (admin)
     if request.user == post.author or request.user.is_staff:
         if request.method == "POST":
             post.delete()
@@ -133,6 +174,11 @@ def delete_post(request, slug):
 
 @login_required
 def index_view(request):
+    """
+    View to display a list of blog posts.
+    Retrieves and displays a list of all blog posts, allowing users to filter
+    and search for posts.
+    """
     post_list = Post.objects.all()
     context = {
         'post_list': post_list,
@@ -149,6 +195,10 @@ def index_view(request):
 # Block to define comments
 
 class CommentLike(View):
+    """
+    Handle liking/unliking a comment.
+    Allows users to like or unlike a comment.
+    """
     def post(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
         liked = request.POST.get("liked")
@@ -162,6 +212,10 @@ class CommentLike(View):
 
 
 class CommentDislike(View):
+    """
+    Handle disliking/undisliking a comment.
+    Allows users to dislike or undislike a comment.
+    """
     def post(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
         disliked = request.POST.get("disliked")
@@ -176,18 +230,19 @@ class CommentDislike(View):
 
 @login_required
 def edit_comment(request, slug, comment_id):
-    # Get the comment and perform authorization checks so the user can edit their own text POSTS in this case
+    """
+    Edit an existing comment.
+    Allows users to edit their own comments on blog posts.
+    """
     comment = get_object_or_404(Comment, id=comment_id)
-    # Ensure that the user editing the comment is the comment owner
+    
     if request.user == comment.name:
         if request.method == "POST":
-            # Process the form for editing the comment
             comment_form = CommentForm(data=request.POST, instance=comment)
             if comment_form.is_valid():
                 comment_form.save()
                 return redirect('post_detail', slug=slug)
         else:
-            # Display the form for editing the comment
             comment_form = CommentForm(instance=comment)
         return render(
             request,
@@ -198,22 +253,22 @@ def edit_comment(request, slug, comment_id):
             },
         )
     else:
-        # Handle the case where the user is not allowed to edit the comment  ok working and redirectiong correctly 
         return redirect('home', slug=slug)
 
 
 @login_required
 def delete_comment(request, slug, comment_id):
-    # Get the comment and perform authorization checks - working as expected
+    """
+    Delete a comment.
+    Allows users to delete their own comments on blog posts.
+    """
+    
     comment = get_object_or_404(Comment, id=comment_id)
-    # Ensure that the user deleting the comment is the comment owner - ok now redirecting to home
     if request.user == comment.name:
         if request.method == "POST":
-            # Process the deletion of the comment
             comment.delete()
             return redirect('home', slug=slug)
         else:
-            # Display the confirmation page for deleting the comment
             return render(
                 request,
                 "delete_comment.html",
@@ -222,13 +277,15 @@ def delete_comment(request, slug, comment_id):
                 },
             )
     else:
-        # Handle the case where the user is not allowed to delete the comment
         return redirect('post_detail', slug=slug)
 
 # Block to define suggestion section
 
-
 class UserSuggestionView(View):
+    """
+    Handle user suggestions.
+    Allows users to submit and view suggestions.
+    """
     def post(self, request, *args, **kwargs):
         suggestion_form = UserSuggestionForm(request.POST)
         if suggestion_form.is_valid():
@@ -245,6 +302,10 @@ class UserSuggestionView(View):
 
 
 class SuggestionLike(View):
+    """
+    Handle liking/unliking a suggestion.
+    Allows users to like or unlike a suggestion.
+    """
     def post(self, request, suggestion_id, *args, **kwargs):
         suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
 
@@ -257,6 +318,10 @@ class SuggestionLike(View):
 
 
 class SuggestionDislike(View):
+    """
+    Handle disliking/undisliking a suggestion.
+    Allows users to dislike or undislike a suggestion.
+    """
     def post(self, request, suggestion_id, *args, **kwargs):
         suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
 
@@ -270,6 +335,10 @@ class SuggestionDislike(View):
 
 @login_required
 def edit_suggestion(request, suggestion_id):
+    """
+    Edit a user suggestion.
+    Allows users to edit their own suggestions.
+    """
     suggestion = get_object_or_404(Suggestion, id=suggestion_id)
 
     if request.method == 'POST':
@@ -285,6 +354,10 @@ def edit_suggestion(request, suggestion_id):
 
 @login_required
 def delete_suggestion(request, suggestion_id):
+    """
+    Delete a user suggestion.
+    Allows users to delete their own suggestions
+    """
     suggestion = get_object_or_404(Suggestion, id=suggestion_id)
 
     if request.method == 'POST':
@@ -295,12 +368,14 @@ def delete_suggestion(request, suggestion_id):
 
 
 def sponsorship_contact(request):
+    """
+    Handle sponsorship contact form submission.
+    Allows users to submit sponsorship contact forms.
+    """
     if request.method == 'POST':
         form = SponsorshipContactForm(request.POST)
         if form.is_valid():
-            # Handle the form data here (e.g., send an email to yourself)
-            # After handling the data, you can redirect the user to a thank-you page.
-            return redirect('sponsorship_thank_you')  # Redirect to the thank-you page
+            return redirect('sponsorship_thank_you')
     else:
         form = SponsorshipContactForm()
 
@@ -308,4 +383,7 @@ def sponsorship_contact(request):
 
 
 def sponsorship_thank_you(request):
+    """
+    Display the sponsorship thank-you page.
+    """
     return render(request, 'sponsorship_thank_you.html')

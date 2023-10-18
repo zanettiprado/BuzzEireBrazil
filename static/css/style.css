@@ -1,10 +1,10 @@
-/* Google Fonts*/
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
-
 
 /* Typography */
 .body {
     font-family: 'Secular One', sans-serif;
+    font-weight: 400; /* Adjust the font weight for better readability */
 }
 
 /* Background Colors */
@@ -27,14 +27,12 @@
 /* Text Colors */
 .card-title-index {
     color: #28a745;
-    text-decoration: none;
-    text-shadow: #343a40;
+    /* Use a color that has better contrast for text */
 }
 
 /* Text Colors */
 .card-title {
     color: #ffffff;
-    text-decoration: none;
 }
 
 .author {
@@ -55,11 +53,6 @@
 .page-link {
     color: #fd7e14;
     text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    text-decoration: underline;
 }
 
 .page-link {
@@ -125,7 +118,7 @@
 /* Sidebar */
 .sidebar-scroll {
     position: sticky;
-    top: 60%px;
+    top: 60px; /* Fixed the typo and adjusted the value */
     width: 30%;
     border: 1px solid #FFA500;
     max-height: calc(100vh - 60px);
@@ -185,7 +178,6 @@
 }
 
 /* Suggestion Item */
-
 .suggestions-list {
     list-style-type: none;
     padding: 10px;
@@ -195,9 +187,8 @@
     margin-bottom: 20px;
     padding: 10px;
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
     border: 2px solid #FFA500;
+    border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -241,11 +232,11 @@
     background-color: #ddd;
 }
 
-/* Adicione estilo ao texto dentro do textarea */
+/* Style the text inside the textarea */
 #id_suggestion_text {
     width: 100%;
     height: 80px;
-    padding: 10px; 
+    padding: 10px;
     border: 2px solid #FFA500;
     border-radius: 5px;
     margin-top: 10px;
@@ -272,7 +263,6 @@
         border: 2px solid #FFA500;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     }
-
 
     /* Make the main content 100% width */
     .col-md-12 {

@@ -7,7 +7,7 @@
 <!-- Blog Entries Container -->
 <div class="container-fluid mt-5">
     <a id="create-post-link" href="{% if user.is_authenticated %}{% url 'create_post' %}{% else %}{% url 'account_login' %}?next={% url 'create_post' %}{% endif %}"
-        class="btn btn-success">
+        class="btn btn-success col-md-2 d-none d-lg-block">
         {% if user.is_authenticated %}
         <i class="fa-solid fa-plus"></i> Create a new Post
         {% else %}
@@ -16,7 +16,6 @@
     </a>
     <div class="row">
         <!-- Blog Entries Column -->
-
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
@@ -24,16 +23,16 @@
                     <div class="card mb-4 card-green-orange">
                         <div class="card-body">
                             <div class="image-container">
-                                <!-- Featured Image -- Change the image, it's not a good one -->
+                                <!-- Featured Image -->
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://www.edublin.com.br/wp-content/uploads/2021/07/Green_harp_flag_of_Ireland_17th_century.svg-660x440.png">
+                                    src="https://www.edublin.com.br/wp-content/uploads/2021/07/Green_harp_flag_of_Ireland_17th_century.svg-660x440.png" alt="Standart picture for any post">
                                 {% else %}
-                                <img class="card-img-top" src="{{ post.featured_image.url }}">
+                                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="Main  image of the post">
                                 {% endif %}
                                 <div class="image-flash">
                                     <!-- Author Information -->
-                                    <p class="author">Author: {{ post.author }}</p>
+                                    <p class="author">{{ post.author }}</p>
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
@@ -57,7 +56,6 @@
                                     </button>
                                 </form>
                             {% endif %}
-                            
                             
                             <!-- Additional check for is_editable related to posts on home-->
                             {% if post.is_editable %}
@@ -105,7 +103,8 @@
     <div class="row">
         <div class="col-md-12">
             <!-- Suggestion Form -->
-            <h3 class="brand">What would you like to see here at <strong>BuzzEireBrazil</strong>?</h3>
+            <h3 class="sub-title">What would you like to see here at <strong>BuzzEireBrazil</strong>?</h3>
+            
             <!-- Suggestion Submission Form -->
             {% if user.is_authenticated %}
             <form method="post" action="{% url 'submit_suggestion' %}">
@@ -124,9 +123,9 @@
                 {% for suggestion in suggestions %}
                 <li class="list-group-item suggestion-item">
                     <div class="suggestion-text user-suggestion-text">
-                        {{ suggestion.suggestion_text }}
+                        <strong>{{ suggestion.suggestion_text }}</strong>
                     </div>
-                    <div class="suggestion-details text-dark">
+                    <div class="suggestion-details text-success">
                         Suggested by {{ suggestion.user.username }} on {{ suggestion.created_on }}
                     </div>
                     <div class="suggestion-actions mt-2">
@@ -175,53 +174,6 @@
     </div>
 </div>
 
-<!-- Comment Section -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="comments">
-                {% for comment in comments %}
-                <div class="comment card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title-index comment-author">{{ comment.name }} <small
-                                class="text-muted">{{ comment.created_on }}</small></h5>
-                        <p class="card-text comment-body">{{ comment.body | linebreaks }}</p>
-
-                        <!-- Like and Dislike buttons for comments -->
-                        {% include 'blog/comment_buttons.html' %}
-
-                        <!-- Edit button -->
-                        {% if user.is_authenticated and user == comment.user %}
-                        <a href="{% url 'edit_comment' comment.id %}" class="btn btn-sm btn-warning">
-                            <i class="fas fa-edit"></i> Edit
-                        </a>
-                        {% endif %}
-
-                        <!-- Delete button -->
-                        {% if user.is_authenticated and user == comment.user %}
-                        <form class="d-inline" action="{% url 'delete_comment' comment.id %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash-alt"></i> Delete
-                            </button>
-                        </form>
-                        {% endif %}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <!-- Comment Approval Alert -->
-            {% if commented %}
-            <div class="alert alert-success" role="alert">
-                Your comment is awaiting approval
-            </div>
-            {% else %}
-            <!-- End of Comment Section -->
-            {% endif %}
-        </div>
-    </div>
-</div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var suggestionText = document.getElementById('id_suggestion_text');
@@ -243,9 +195,9 @@
         const createPostLink = document.getElementById('create-post-link');
 
         createPostLink.addEventListener('click', function (event) {
-            // Check if the user is not authenticated
+
             if (!userIsAuthenticated) {
-                event.preventDefault(); // Prevent the default link behavior
+                event.preventDefault();
             }
         });
     });

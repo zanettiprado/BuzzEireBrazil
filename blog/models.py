@@ -2,12 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-
 # Choices for the status of a blog post
-
 STATUS = (
     (0, "Draft"),
-    (1, "Published") # set to default
+    (1, "Published"),  # set to default
 )
 
 
@@ -15,26 +13,30 @@ class Post(models.Model):
     """
     Represents a blog post in the system.
 
-    The 'title' attribute defines the post's title.
-    The 'slug' provides an SEO-friendly URL for the post.
-    The 'author' links the post to a user in the system.
-    The 'content' contains the main content of the blog post.
+    Attributes:
+        title (str): The title of the blog post.
+        slug (str): An SEO-friendly URL for the post.
+        author (User): The user who authored the post.
+        featured_image (CloudinaryField): The featured image of the post.
+        excerpt (str): A brief summary or excerpt of the post.
+        updated_on (DateTime): The date and time of the last update.
+        content (str): The main content of the blog post.
+        created_on (DateTime): The date and time of creation.
+        status (int): The status of the post (Draft or Published).
+        likes (ManyToManyField): Users who have liked the post.
     """
 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="blog_posts"
-    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=1)
-    likes = models.ManyToManyField(
-        User, related_name='blogpost_like', blank=True
-    )
+    likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
+
 
     class Meta:
         ordering = ["-created_on"]
@@ -51,10 +53,15 @@ class Comment(models.Model):
     """
     Represents a comment made on a blog post.
 
-    The 'post' attribute links the comment to a specific blog post.
-    The 'name' and 'email' capture the commenter's details.
-    The 'body' contains the main content of the comment.
-    nspired in the Code institute I think Therefore I blog
+    Attributes:
+        post (Post): The blog post the comment is linked to.
+        name (str): The name of the commenter.
+        email (Email): The email of the commenter.
+        body (str): The main content of the comment.
+        created_on (DateTime): The date and time of creation.
+        approved (bool): Indicates whether the comment is approved.
+        likes (ManyToManyField): Users who have liked the comment.
+        dislikes (ManyToManyField): Users who have disliked the comment.
     """
 
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
@@ -74,6 +81,17 @@ class Comment(models.Model):
 
 
 class UserSuggestion(models.Model):
+    """
+    Represents a user's suggestion.
+
+    Attributes:
+        user (User): The user who made the suggestion.
+        suggestion_text (str): The text of the suggestion.
+        likes (ManyToManyField): Users who have liked the suggestion.
+        dislikes (ManyToManyField): Users who have disliked the suggestion.
+        created_on (DateTime): The date and time of creation.
+    """
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     suggestion_text = models.TextField()
     likes = models.ManyToManyField(User, related_name='suggestion_likes')
@@ -92,6 +110,15 @@ class UserSuggestion(models.Model):
 
 
 class Suggestion(models.Model):
+    """
+    Represents a suggestion made by a user.
+
+    Attributes:
+        user (User): The user who made the suggestion.
+        suggestion_text (str): The text of the suggestion.
+        created_on (DateTime): The date and time of creation.
+    """
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     suggestion_text = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

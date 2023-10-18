@@ -31,7 +31,7 @@
 
                 <!-- Slug Field -->
                 <div class="form-group mt-3">
-                    <label for="{{ form.slug.id_for_label }}">Slug<span class="text-danger">*</span></label>
+                    <label for="{{ form.slug.id_for_label }}">URL<span class="text-danger">*</span></label>
                     <input type="text" name="{{ form.slug.name }}" id="{{ form.slug.id_for_label }}"
                            class="form-control" value="{{ form.slug.value }}" required>
                 </div>
@@ -43,7 +43,7 @@
                 </div>
 
                 <!-- Excerpt Field -->
-                <div class="form-group mt-3">
+                <div class="form-group mt-3"> dd
                     {{ form.excerpt.label_tag }}
                     <textarea name="{{ form.excerpt.name }}" id="{{ form.excerpt.id_for_label }}"
                               class="form-control">{{ form.excerpt.value }}</textarea>

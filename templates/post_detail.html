@@ -15,7 +15,8 @@
                     <div class="row">
                         <div class="col-md-9">
                             {% if "placeholder" in post.featured_image.url %}
-                            <img src="https://www.edublin.com.br/wp-content/webp-express/webp-images/uploads/2017/07/shutterstock_265691192.jpg.webp" class="img-fluid mb-3" style="width: 100%;">
+                            <img src="https://www.edublin.com.br/wp-content/webp-express/webp-images/uploads/2017/07/shutterstock_265691192.jpg.webp"
+                                class="img-fluid mb-3" style="width: 100%;">
                             {% else %}
                             <img src="{{ post.featured_image.url }}" class="img-fluid mb-3" style="width: 100%;">
                             {% endif %}
@@ -71,7 +72,8 @@
                         <!-- like comment -->
                         <div class="comment-like">
                             <strong class="text-secondary"><i class="far fa-thumbs-up"></i> <span
-                                    id="comment-likes-count-{{ comment.id }}">{{ comment.likes.count }}</span></strong> <br>
+                                    id="comment-likes-count-{{ comment.id }}">{{ comment.likes.count }}</span></strong>
+                            <br>
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'comment_like' comment.id %}" method="POST">
                                 {% csrf_token %}
@@ -111,7 +113,7 @@
             </div>
         </div>
     </div>
-
+    <!-- approval for comments -->
     <div class="row">
         <div class="col-md-12 card mb-4 mt-3">
             <div class="card-body">
@@ -128,10 +130,10 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-4 d-flex left mt-1">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-arrow-circle-right fa-lg"></i>&nbsp;&nbsp;Submit</button>
+                            <button type="submit" class="btn btn-success"> <i
+                                    class="fa fa-arrow-circle-right fa-lg"></i>&nbsp;&nbsp;Submit</button>
                         </div>
                     </div>
-                    
                 </form>
                 {% endif %}
                 {% endif %}
