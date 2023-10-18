@@ -9,7 +9,7 @@
             <div class="card card-green-orange mb-4" style="width: 100%;">
                 <div class="card-header bg-orange">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                    <p class="text-dark">{{ post.author }} | {{ post.created_on }}</p>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -26,14 +26,14 @@
                     </div>
                     <!-- like post  -->
                     <div class="row mt-3">
-                        <div class="col-1">
+                        <div class="col-2">
                             <strong>
                                 {% if user.is_authenticated %}
                                 <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                     {% csrf_token %}
                                     {% if liked %}
                                     <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                            class="fas fa-heart"></i></button>
+                                            class="fas fa-heart text-danger"></i></button>
                                     {% else %}
                                     <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
                                             class="far fa-heart"></i></button>
@@ -45,9 +45,9 @@
                                 <span class="text-secondary">{{ post.number_of_likes }} </span>
                             </strong>
                         </div>
-                        <div class="col-1">
+                        <div class="col-2">
                             {% with comments.count as total_comments %}
-                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                            <strong class="text-secondary"><i class="far fa-comments text-info"></i>
                                 {{ total_comments }}</strong>
                             {% endwith %}
                         </div>
@@ -65,13 +65,13 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">{{ comment.name }} <small
-                                class="text-muted">{{ comment.created_on }}</small></h5>
+                                class="text-dark">{{ comment.created_on }}</small></h5>
                         <p class="card-text">{{ comment.body | linebreaks }}</p>
 
                         <!-- like comment -->
                         <div class="comment-like">
                             <strong class="text-secondary"><i class="far fa-thumbs-up"></i> <span
-                                    id="comment-likes-count-{{ comment.id }}">{{ comment.likes.count }}</span></strong>
+                                    id="comment-likes-count-{{ comment.id }}">{{ comment.likes.count }}</span></strong> <br>
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'comment_like' comment.id %}" method="POST">
                                 {% csrf_token %}
@@ -83,7 +83,7 @@
                                         class="far fa-thumbs-up"></i></button>
                                 {% endif %}
                             </form>
-                            <span class="like-count">{{ comment.likes.count }}</span>
+                            <span class="like-count col-2">{{ comment.likes.count }}</span>
                             {% endif %}
 
                             <!-- Dislike button -->
@@ -122,11 +122,16 @@
                 {% else %}
                 {% if user.is_authenticated %}
                 <h3 class="card-header">Leave a Comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <p>Posting as:&nbsp; {{ user.username }}</p>
                 <form method="post">
                     {{comment_form}}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <div class="row">
+                        <div class="col-md-4 d-flex left mt-1">
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-arrow-circle-right fa-lg"></i>&nbsp;&nbsp;Submit</button>
+                        </div>
+                    </div>
+                    
                 </form>
                 {% endif %}
                 {% endif %}

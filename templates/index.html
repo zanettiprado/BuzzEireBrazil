@@ -111,7 +111,7 @@
             <form method="post" action="{% url 'submit_suggestion' %}">
                 {% csrf_token %}
                 {{ suggestion_form.suggestion_text.label_tag }}
-                <textarea name="suggestion_text" id="id_suggestion_text" rows="4" cols="50">
+                <textarea name="suggestion_text" id="id_suggestion_text" rows="" cols="20">
                     {{ suggestion_form.suggestion_text.value|default:""}}</textarea>
                     <button type="submit" class="btn btn-success mt-1">Submit</button>
                 {% if suggestion_form.errors.suggestion_text %}
@@ -126,7 +126,7 @@
                     <div class="suggestion-text user-suggestion-text">
                         {{ suggestion.suggestion_text }}
                     </div>
-                    <div class="suggestion-details text-muted">
+                    <div class="suggestion-details text-dark">
                         Suggested by {{ suggestion.user.username }} on {{ suggestion.created_on }}
                     </div>
                     <div class="suggestion-actions mt-2">
@@ -227,14 +227,14 @@
         var suggestionText = document.getElementById('id_suggestion_text');
 
         suggestionText.addEventListener('focus', function () {
-            if (this.value === 'Tell me what you are thinking...') {
+            if (this.value === '') {
                 this.value = '';
             }
         });
 
         suggestionText.addEventListener('blur', function () {
             if (this.value === '') {
-                this.value = 'Tell me what you are thinking...';
+                this.value = '';
             }
         });
     });
