@@ -38,7 +38,7 @@
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <!-- Post Title and Excerpt -->
-                                <h2 class="card-title">{{ post.title }}</h2>
+                                <h2 class="card-title-index">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <hr />
@@ -183,7 +183,7 @@
                 {% for comment in comments %}
                 <div class="comment card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title comment-author">{{ comment.name }} <small
+                        <h5 class="card-title-index comment-author">{{ comment.name }} <small
                                 class="text-muted">{{ comment.created_on }}</small></h5>
                         <p class="card-text comment-body">{{ comment.body | linebreaks }}</p>
 
