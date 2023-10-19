@@ -4,8 +4,7 @@
 {% block content %}
 {% include "welcome.html" %}
 
-<!-- Blog Entries Container -->
-<div class="container-fluid mt-5">
+<div class="container mt-5 mx-auto">
     <a id="create-post-link"
         href="{% if user.is_authenticated %}{% url 'create_post' %}{% else %}{% url 'account_login' %}?next={% url 'create_post' %}{% endif %}"
         class="btn btn-success col-md-2 d-none d-lg-block">
