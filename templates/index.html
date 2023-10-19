@@ -6,7 +6,8 @@
 
 <!-- Blog Entries Container -->
 <div class="container-fluid mt-5">
-    <a id="create-post-link" href="{% if user.is_authenticated %}{% url 'create_post' %}{% else %}{% url 'account_login' %}?next={% url 'create_post' %}{% endif %}"
+    <a id="create-post-link"
+        href="{% if user.is_authenticated %}{% url 'create_post' %}{% else %}{% url 'account_login' %}?next={% url 'create_post' %}{% endif %}"
         class="btn btn-success col-md-2 d-none d-lg-block">
         {% if user.is_authenticated %}
         <i class="fa-solid fa-plus"></i> Create a new Post
@@ -26,9 +27,11 @@
                                 <!-- Featured Image -->
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://www.edublin.com.br/wp-content/uploads/2021/07/Green_harp_flag_of_Ireland_17th_century.svg-660x440.png" alt="Standart picture for any post">
+                                    src="https://www.edublin.com.br/wp-content/uploads/2021/07/Green_harp_flag_of_Ireland_17th_century.svg-660x440.png"
+                                    alt="Standart picture for any post">
                                 {% else %}
-                                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="Main  image of the post">
+                                <img class="card-img-top" src="{{ post.featured_image.url }}"
+                                    alt="Main  image of the post">
                                 {% endif %}
                                 <div class="image-flash">
                                     <!-- Author Information -->
@@ -46,36 +49,36 @@
                                 {{ post.number_of_likes }}</p>
 
                             {% if user.is_authenticated and user == post.author or user.is_staff %}
-                                <a href="{% url 'edit_post' post.slug %}" class="btn btn-sm btn-warning">
-                                    <i class="fas fa-edit"></i> Edit
-                                </a>
-                                <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-sm btn-danger">
-                                        <i class="fas fa-trash-alt"></i> Delete
-                                    </button>
-                                </form>
+                            <a href="{% url 'edit_post' post.slug %}" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </button>
+                            </form>
                             {% endif %}
-                            
+
                             <!-- Additional check for is_editable related to posts on home-->
                             {% if post.is_editable %}
-                                <a href="{% url 'edit_post' post.slug %}" class="btn btn-sm btn-warning">
-                                    <i class="fas fa-edit"></i> Edit
-                                </a>
-                                <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-sm btn-danger">
-                                        <i class="fas fa-trash-alt"></i> Delete
-                                    </button>
-                                </form>
+                            <a href="{% url 'edit_post' post.slug %}" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </button>
+                            </form>
                             {% endif %}
-                            
+
                         </div>
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
-                </div>
-                <div class="row">
+            </div>
+            <div class="row">
                 {% endif %}
                 {% endfor %}
             </div>
@@ -86,7 +89,8 @@
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link btn-success">&laquo; PREV </a></li>
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link btn-success">&laquo; PREV </a>
+                </li>
                 {% endif %}
                 {% if page_obj.has_next %}
                 <li><a href="?page={{ page_obj.next_page_number }}" class="page-link btn-success"> NEXT &raquo;</a></li>
@@ -104,19 +108,28 @@
         <div class="col-md-12">
             <!-- Suggestion Form -->
             <h3 class="sub-title">What would you like to see here at <strong>BuzzEireBrazil</strong>?</h3>
-            
-            <!-- Suggestion Submission Form -->
+
+            <!-- Suggestion form for authenticated users -->
             {% if user.is_authenticated %}
             <form method="post" action="{% url 'submit_suggestion' %}">
                 {% csrf_token %}
                 {{ suggestion_form.suggestion_text.label_tag }}
-                <textarea name="suggestion_text" id="id_suggestion_text" rows="" cols="20">
-                    {{ suggestion_form.suggestion_text.value|default:""}}</textarea>
-                    <button type="submit" class="btn btn-success mt-1">Submit</button>
+                <textarea name="suggestion_text" id="id_suggestion_text" rows=""
+                    cols="20">{{ suggestion_form.suggestion_text.value|default:"" }}</textarea>
+
+                <button type="submit" class="btn btn-success mt-1">Submit</button>
                 {% if suggestion_form.errors.suggestion_text %}
                 <p class="error">{{ suggestion_form.errors.suggestion_text }}</p>
                 {% endif %}
             </form>
+            {% else %}
+            <!-- User is not logged in, suggest them to log in -->
+            <div class="alert alert-info" role="alert">
+                Please <a href="{% url 'account_login' %}" class="btn btn-success col-md-2">
+                    <i class="fas fa-sign-in-alt"></i> &nbsp;log in
+                </a> to leave a suggestion.
+            </div>
+            {% endif %}
 
             <!-- Suggestions List -->
             <ul class="list-group mt-4 suggestions-list">
@@ -132,72 +145,79 @@
                         <!-- Like button for suggestions -->
                         <form class="d-inline" action="{% url 'suggestion_like' suggestion.id %}" method="POST">
                             {% csrf_token %}
+                            {% if user.is_authenticated %}
                             {% if user in suggestion.likes.all %}
-                            <button type="submit" name="liked" value="unliked" class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            <button type="submit" name="liked" value="unliked" class="btn-like"><i
+                                    class="fas fa-thumbs-up"></i></button>
                             {% else %}
-                            <button type="submit" name="liked" value="liked" class="btn-like"><i class="far fa-thumbs-up"></i></button>
+                            <button type="submit" name="liked" value="liked" class="btn-like"><i
+                                    class="far fa-thumbs-up"></i></button>
+                            {% endif %}
+                            {% else %}
+                            <button type="submit" name="liked" value="liked" class="btn-like" disabled><i
+                                    class="far fa-thumbs-up"></i></button>
                             {% endif %}
                         </form>
                         <span class="likes">{{ suggestion.total_likes }}</span>
-                        
                         <!-- Dislike button for suggestions -->
                         <form class="d-inline" action="{% url 'suggestion_dislike' suggestion.id %}" method="POST">
                             {% csrf_token %}
+                            {% if user.is_authenticated %}
                             {% if user in suggestion.dislikes.all %}
-                            <button type="submit" name="disliked" value="undisliked" class="btn-dislike"><i class="fas fa-thumbs-down"></i></button>
+                            <button type="submit" name="disliked" value="undisliked" class="btn-dislike"><i
+                                    class="fas fa-thumbs-down"></i></button>
                             {% else %}
-                            <button type="submit" name="disliked" value="disliked" class="btn-dislike"><i class="far fa-thumbs-down"></i></button>
+                            <button type="submit" name="disliked" value="disliked" class="btn-dislike"><i
+                                    class="far fa-thumbs-down"></i></button>
+                            {% endif %}
+                            {% else %}
+                            <button type="submit" name="disliked" value="disliked" class="btn-dislike" disabled><i
+                                    class="far fa-thumbs-down"></i></button>
                             {% endif %}
                         </form>
                         <span class="dislikes">{{ suggestion.total_dislikes }}</span>
-            
+
                         <!-- Edit and Delete buttons for suggestions -->
                         {% if user.is_authenticated %}
-                            {% if user == suggestion.user or user.is_staff %}
-                                <a href="{% url 'edit_suggestion' suggestion.id %}" class="btn btn-sm btn-warning">
-                                    <i class="fas fa-edit"></i> Edit
-                                </a>
-                                <form class="d-inline" action="{% url 'delete_suggestion' suggestion.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-sm btn-danger">
-                                        <i class="fas fa-trash-alt"></i> Delete
-                                    </button>
-                                </form>
-                            {% endif %}
+                        {% if user == suggestion.user or user.is_staff %}
+                        <a href="{% url 'edit_suggestion' suggestion.id %}" class="btn btn-sm btn-warning">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <form class="d-inline" action="{% url 'delete_suggestion' suggestion.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </form>
+                        {% endif %}
                         {% endif %}
                     </div>
                 </li>
                 {% endfor %}
             </ul>
-            {% endif %}
         </div>
     </div>
 </div>
 
 <script>
+    // Set the suggested text for users in the textarea
     document.addEventListener('DOMContentLoaded', function () {
         var suggestionText = document.getElementById('id_suggestion_text');
 
+        suggestionText.value = 'What can you suggest today?';
+        suggestionText.style.color = 'gray';
+
         suggestionText.addEventListener('focus', function () {
-            if (this.value === '') {
-                this.value = '';
+            if (this.value === 'What can you suggest today?') {
+                this.value = ''; 
             }
+            this.style.color = 'black';
         });
 
         suggestionText.addEventListener('blur', function () {
             if (this.value === '') {
-                this.value = '';
-            }
-        });
-    });
-    
-    document.addEventListener('DOMContentLoaded', function () {
-        const createPostLink = document.getElementById('create-post-link');
-
-        createPostLink.addEventListener('click', function (event) {
-
-            if (!userIsAuthenticated) {
-                event.preventDefault();
+                this.value = 'What can you suggest today?';
+                this.style.color = 'gray';
             }
         });
     });

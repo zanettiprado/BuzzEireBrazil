@@ -10,7 +10,7 @@
         <div class="card-body">
 
             <div id="slug-error" class="alert alert-danger" style="display: none;">
-                Do not use spaces in the slug.
+                Do not use neither spaces or uppercase letters in the URL.
             </div>
             
 
@@ -43,8 +43,9 @@
                 </div>
 
                 <!-- Excerpt Field -->
-                <div class="form-group mt-3"> dd
+                <div class="form-group mt-3"> 
                     {{ form.excerpt.label_tag }}
+                    <p>Business sector:</p>
                     <textarea name="{{ form.excerpt.name }}" id="{{ form.excerpt.id_for_label }}"
                               class="form-control">{{ form.excerpt.value }}</textarea>
                 </div>
