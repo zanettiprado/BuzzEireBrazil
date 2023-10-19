@@ -8,11 +8,15 @@
             <h4 class="card-title text-white">Create a New Post</h4>
         </div>
         <div class="card-body">
+            
+            <!-- Success Message (Initially Hidden) -->
+            <div id="success-message" class="alert alert-success" style="display: none;">
+                Your post was successfully created!
+            </div>
 
             <div id="slug-error" class="alert alert-danger" style="display: none;">
                 Do not use neither spaces or uppercase letters in the URL.
             </div>
-            
 
             <div id="required-field-error" class="alert alert-danger" style="display: none;">
                 Please fill in all required fields (Title, Slug, and Content).
@@ -57,7 +61,7 @@
                               class="form-control custom-textarea" required>{{ form.content.value }}</textarea>
                 </div>
 
-                <!-- input element -->
+                <!-- Input element -->
                 <input type="submit" class="btn btn-success mt-5" value="Create Post">
             </form>
         </div>
@@ -69,7 +73,8 @@
         const slugField = document.querySelector('input[name="{{ form.slug.name }}"]');
         const slugError = document.getElementById('slug-error');
         const requiredFieldError = document.getElementById('required-field-error');
-        
+        const successMessage = document.getElementById('success-message');
+
         slugField.addEventListener('blur', function () {
             if (this.value.includes(' ')) {
                 slugError.style.display = 'block';
@@ -98,6 +103,9 @@
             if (hasEmptyRequiredFields) {
                 event.preventDefault(); // Prevent form submission
                 requiredFieldError.style.display = 'block';
+            } else {
+                // Show success message
+                successMessage.style.display = 'block';
             }
         });
     });

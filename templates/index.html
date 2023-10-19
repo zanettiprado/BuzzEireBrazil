@@ -7,13 +7,14 @@
 <div class="container mt-5 mx-auto">
     <a id="create-post-link"
         href="{% if user.is_authenticated %}{% url 'create_post' %}{% else %}{% url 'account_login' %}?next={% url 'create_post' %}{% endif %}"
-        class="btn btn-success col-md-2 d-none d-lg-block">
+        class="btn btn-success col-md-3 mx-auto d-none d-lg-block ">
         {% if user.is_authenticated %}
         <i class="fa-solid fa-plus"></i> Create a new Post
         {% else %}
         <i class="fas fa-sign-in-alt"></i> Login
         {% endif %}
     </a>
+
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">

@@ -27,7 +27,7 @@
 /* Text Colors */
 .card-title-index {
     color: #28a745;
-    /* Use a color that has better contrast for text */
+    text-decoration: none;
 }
 
 /* Text Colors */
@@ -35,7 +35,7 @@
     color: #ffffff;
     font-weight: 400;
     border-radius: 10px;
-
+    text-decoration: none;
 }
 
 .author {
@@ -48,6 +48,7 @@
 .card-text,
 .post-link {
     color: #fd7e14;
+    text-decoration: none;
 }
 
 .link,

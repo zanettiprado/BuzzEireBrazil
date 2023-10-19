@@ -1,0 +1,40 @@
+<!-- Sidebar -->
+<div class="col-md-4 order-md-last bg-light sidebar-scroll text-center">
+    <br>
+    <h4 class="sub-title">Main Sponsors:</h4>
+    <ul class="nav flex-column">
+        <!-- Sponsors' Information -- We have to change manually after sponsors change -->
+        <li class="nav-item">
+            <p>Do you know where is the best place to buy your new Iphone Or maybe a Second hand
+                laptop in Ireland?
+                <a class="nav-link active" href="{% url 'post_detail' 'it-fix' %}"><i
+                        class="fa-solid fa-computer"></i>&nbsp;&nbsp;Click here if you
+                        do</a></p>
+        </li>
+        <li class="nav-item">
+            <p>All you can eat is here... the best place to come and have the most delicious Japanese food in Dublin!
+                <a class="nav-link active" href="{% url 'post_detail' 'Wasabi' %}"><i
+                        class="fa-solid fa-bowl-food"></i>&nbsp;&nbsp;Click here if you are
+                    hungry</a></p>
+        </li>
+        <li class="nav-item">
+            <p>Do you like barbecue? Come here to try the real Brazilian barbecue
+                <a class="nav-link active" href="{% url 'post_detail' 'bah33' %}"><i
+                        class="fa-solid fa-bacon"></i>&nbsp;&nbsp;Barbecue is here.</a></p>
+        </li>
+        <li class="nav-item">
+            <p>Need to get some energy and refresh your day? Visit us!
+                <a class="nav-link active" href="{% url 'post_detail' 'Oakacai' %}"><i
+                        class="fa-solid fa-ice-cream"></i>&nbsp;&nbsp;Take a break with
+                    us!</a></p>
+        </li>
+    </ul>
+
+    <!-- Sponsorship Contact -->
+    <div class="sidebar-sponsorship mt-2">
+        <h4 class="mb-3">Partner with Us!</h4>
+        <p>Gain exposure to a diverse and engaged audience by sponsoring our website. Showcase your brand
+            and products to the biggest Brazilian community in Ireland</p>
+        <a href="{% url 'sponsorship_contact' %}" class="btn btn-success">Contact us!</a>
+    </div>
+</div>
