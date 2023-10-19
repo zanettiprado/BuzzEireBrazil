@@ -341,13 +341,13 @@ def edit_suggestion(request, suggestion_id):
     Edit a user suggestion.
     Allows users to edit their own suggestions.
     """
-    suggestion = get_object_or_404(Suggestion, id=suggestion_id)
+    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
 
     if request.method == 'POST':
         form = SuggestionForm(request.POST, instance=suggestion)
         if form.is_valid():
             form.save()
-            return redirect('suggestions')
+            return redirect('home')
     else:
         form = SuggestionForm(instance=suggestion)
 
@@ -360,13 +360,15 @@ def delete_suggestion(request, suggestion_id):
     Delete a user suggestion.
     Allows users to delete their own suggestions
     """
-    suggestion = get_object_or_404(Suggestion, id=suggestion_id)
+    suggestion = get_object_or_404(UserSuggestion, id=suggestion_id)
 
     if request.method == 'POST':
         suggestion.delete()
-        return redirect('suggestions')
+        return redirect('home')
+    else:
+        form = SuggestionForm(instance=suggestion)
 
-    return render(request, 'delete_suggestion.html', {'suggestion': suggestion})
+    return render(request, 'delete_suggestion.html', {'form': form, 'suggestion': suggestion})
 
 
 def sponsorship_contact(request):
