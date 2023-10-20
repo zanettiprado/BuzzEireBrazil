@@ -28,6 +28,7 @@
 .card-title-index {
     color: #28a745;
     text-decoration: none;
+    /* Use a color that has better contrast for text */
 }
 
 /* Text Colors */
@@ -48,7 +49,6 @@
 .card-text,
 .post-link {
     color: #fd7e14;
-    text-decoration: none;
 }
 
 .link,

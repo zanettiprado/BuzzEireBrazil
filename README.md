@@ -1,110 +1,168 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome zanettiprado,
+# BuzzEireBrazil
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Alt text](documentation/home_lg_screen.PNG)
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+Welcome to BuzzEireBrazil!
 ```
 
-**Anything more?**
+This blog was created to Brazilians living in Ireland, offering a platform for them to promote their businesses or professional services. Additionally, users can seek recommendations and assistance from others within the Brazilian community in Ireland. The primary objective of this project is to connect Brazilians living in Ireland with job opportunities and business prospects.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## Goals
+* Facilitate connections and networking among Brazilians in Ireland, specifically focusing on job and business opportunities.
+* Create a user-friendly and inclusive platform where users can easily share and discover professional services.
+* Foster a supportive community environment for Brazilians living in Ireland.
 
----
+# User Experience
 
-Happy coding!
+* User experience is a central focus of this project. We aim to provide an intuitive and visually appealing interface that enhances user engagement.
+* The website has been designed with the user in mind to ensure seamless navigation and accessibility.
+
+## Agile
+Agile methodologies have been employed to manage and prioritize project tasks using GitHub Project Boards. Here's how we approached it:
+
+1. **Theme Identification:** Initially, we created a spreadsheet to collect details categorized by themes, which helped us define epics. These themes include Account Management, Profile, Post Pool, Navigation, and Admin.
+
+2. **Issue Template:** To expedite the addition of User Stories to the project, we developed an issue template.
+
+3. **Repository Settings:** In the repository settings, we set up templates for features. The Issue Template provides developers with the necessary information to address MVP (Minimum Viable Product) points.
+
+4. **Deployment process:** The project was developed using python and Django and was deployed using Debug = `False` 
+
+## User Stories in Agile
+We've organized the project into the following milestones:
+
+![Agile Methodology](documentation/agile_issues.PNG)
+
+ 1. Start and deploying
+
+2. Setup & Basic Blog Functionality: This phase involves establishing the fundamental blog features, such as user registration and post creation.
+
+    - USER STORY: Navigate Through Pages
+
+    - USER STORY: Browse Blog Entries
+
+    - USER STORY: Access a Post
+  
+3. User Engagement & Interactivity: Here, we focus on enhancing user engagement through features like comments, likes, and sharing.
+    - USER STORY: Profile Creation
+
+    - USER STORY: Participate in Post Discussion
+
+    - USER STORY: Engage with Content
+
+4. Admin Management & Content Creation: In this phase, we develop admin management tools and refine content creation features.
+    - USER STORY: Content Administration
+
+    - USER STORY: Draft Posts `(NOT IMPLEMENTED)`
+
+    - USER STORY: Moderate Comment Section
+    
+    - USER STORY: Search for Posts `(NOT IMPLEMENTED)`
+
+    - USER STORY: Allows to preview before posting `(NOT IMPLEMENTED)`
+
+
+5. Advanced User Features & Enhancements: This milestone concentrates on advanced user features and improvements to existing functionalities.
+
+     - USER STORY: Search for Posts `(NOT IMPLEMENTED)`
+
+     - USER STORY: Notification Preferences `(NOT IMPLEMENTED)`
+
+     - USER STORY: Review Comment Section 
+
+6. Testing & Quality Assurance: The final milestone emphasizes rigorous testing and quality assurance to ensure a stable and reliable platform.
+
+    - Manual Testing Framework
+
+    - Automated Unit Testing
+
+    - UI/UX Testing
+
+    - Performance Testing
+
+
+
+# Design
+## Color Scheme
+The color scheme was chosen to reflect the Irish flag and evoke a sense of Ireland:
+
+![Alt text](documentation/colors.PNG)
+
+
+
+## Typography
+We've selected the `"Secular One"` font for the website. 
+
+## Icons
+Font Awesome icons have been used throughout the site, including for the buttons and social media links.
+
+# Features
+## Pages
+
+**Home Page**
+The heart of the website, the home page, serves as a central hub where users can access a variety of key features. Here's what you'll find on the home page. The logo is also clickable.
+
+**List of Posts:** Users can view a comprehensive list of posts submitted by members of the Brazilian community in Ireland. These posts showcase various businesses, services, or job opportunities.
+
+
+![home page for large screens](documentation/lg-screen.PNG) ![home page for large screens2](documentation/lg_screen_2.PNG)
+
+
+**Main Sponsors:** 
+Prominent on every page, the "Main Sponsors" section highlights four businesses that have chosen to promote their services on the platform. This section offers visibility and recognition to these sponsors.
+
+![main sponsors](documentation/main_sponsors-view.PNG)
+
+**List of Suggestions:** 
+Users can discover and submit requests for assistance or recommendations. This section encourages community members to help one another by connecting individuals seeking specific services with those who can provide them.
+
+![suggestions view](documentation/suggestion-view-if-logged.PNG)
+
+**Post Details Page**
+When a user clicks on a post from the list, they are directed to the "Post Details" page. Here, they can delve deeper into the specifics of a particular business or service. This page includes:
+
+![Post details](documentation/post_details-view.PNG)
+
+**Comments and Feedback:** Users can engage in discussions and provide feedback regarding the business or service. This interactive feature fosters communication and helps community members make informed decisions.
+
+![comments and feedback](documentation/comments_and_feedback.PNG)
+
+**Navigation**
+The navigation bar, situated at the top of the website, provides easy access to essential features and functions. Users can find the following items in the navigation:
+
+![Nav bar for small devices](documentation/nav_bar-sm.PNG) ![Nav bar for large devices](documentation/nav_bar-lg.PNG)
+
+
+**Login/Logout:** Users can log in to their accounts or log out as needed. This functionality is crucial for accessing certain actions on the website.
+
+
+**Sign-In/Sign-on Page:**
+The Sign-In page serves as the entry point for registered users to access their accounts. Key features of this page include:
+
+
+ 
+ ![Sign up large devices](documentation/sign_up-view-lg-screen.PNG)
+ General view for large devices
+
+![Sign up view](documentation/sign_in-view.PNG) 
+![Sign up view](documentation/sign_up-view.PNG)
+
+Full Page view 
+
+![sign_up-view-sm](documentation/sign_up-view-sm.png) 
+![sign_in-view-sm](documentation/sign_in-view-sm.png)
+
+**Clickable Logo:** Clicking on the logo serves as an alternative way to return to the home page, ensuring intuitive navigation.
+
+![Home](documentation/home-sm.PNG)
+
+### Mobile-Friendly Design
+
+For mobile users, the website is optimized with a responsive design. The navigation menu is toggled to accommodate smaller screens, making it convenient for users on mobile devices.
+
+Authentication: Users who are not logged in can still browse and view posts. However, to participate by commenting or making suggestions, they must first log in. If a user doesn't have an account, they can easily sign up to become a part of the community.
+
+![Login request](documentation/login-request.PNG)
+
