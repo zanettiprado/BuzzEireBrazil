@@ -219,27 +219,6 @@ Our commitment to accessibility is evident in every line of code. We've gone the
 
 At BuzzEireBrazil, accessibility isn't an afterthought; it's an integral part of our development process. We believe that everyone should have a seamless and enjoyable experience on our platform, regardless of their abilities or assistive technologies.
 
-
-Creating a Blog Application with Django
-🚀
-
-Welcome to BuzzEireBrazil! In this section, we will guide you through the process of creating a robust blog application using Django. Learn how to build, customize, and launch your own blogging platform.
-
-Installation Steps
-🔧
-
-Let's begin by setting up your development environment. Follow these simple steps to install Django and get ready to embark on your blogging journey.
-
-Main Documentation
-📘
-
-In the main documentation, you'll find comprehensive guidance on building a blog application with Django, including detailed steps for:
-
-Installing Django: Get started by setting up the Django framework.
-Writing Your First Django App, Part 1: Dive into the fundamentals of building your first Django application.
-Technologies Used
-🛠️ This project has been developed using a variety of technologies, ensuring a robust and dynamic platform for our users. Here's a breakdown:
-
 # technologies Used
 ## Languages
 - HTML: The foundation of our website, responsible for structuring the main site content. We have 13 HTML files in the project so far.
@@ -430,5 +409,214 @@ heroku open
 ```
 
 </details>
+
+<br>
+
+# Testing
+## Responsiveness testing 
+
+Test to ensure a consistent user experience across various platforms (desktop, tablet, mobile). 
+
+Our website/application has been thoroughly tested for responsiveness, and it performs exceptionally well across various screen sizes and devices, ensuring a seamless user experience.
+
+
+As infomered we have used Am I responsive web page to get the below image.
+
+![Responsiveness Testing](documentation/am_I_responsive.PNG)
+
+## Browser Compatibility Testing 
+
+We have verified that our project functions flawlessly on multiple web browsers, including Chrome, Firefox, Safari, and Internet Explorer.
+
+Bugs Resolved and Unresolved: All identified issues and bugs have been diligently 
+
+## Code Validation:
+The codebase adheres to industry standards and best practices, ensuring error-free, well-structured, and convention-following code.
+
+## Automated testing 
+
+Automated testing scripts have been employed to streamline our testing process, resulting in consistent and efficient testing outcomes.
+
+<details>
+
+<summary>Forms Validation Tests</summary>
+
+
+### 1. test_post_form_valid_data
+#### Purpose: 
+This test checks if the form for creating a post can tell when you give it the right information.
+#### How It Works: 
+It pretends to fill out the form with the correct info, like a post title and content. Then, it checks if the form thinks everything is good (valid).
+#### Result We Want:
+ We hope this test passes, which means the form knows when you're giving it the right details.
+
+<br>
+
+### 2. test_comment_form_valid_data
+
+
+#### Purpose: 
+This test checks if the form for making comments can recognize when you provide the right data.
+#### How It Works:
+ It pretends to fill out the comment form with proper information, like the comment text. Then, it checks if the form says everything is okay (valid).
+#### Result We Want:
+ We expect this test to pass, showing that the comment form can tell when you're giving it the right data.
+
+
+
+### 3. test_user_suggestion_form_valid_data
+
+
+#### Purpose: 
+This test checks if the form for user suggestions can tell when you provide it with the correct details.
+#### How It Works:
+ It pretends to fill out the suggestion form with good data, like the suggestion text. Then, it checks if the form thinks it's all right (valid).
+#### Result We Want:
+ We want this test to pass, meaning the suggestion form can recognize when you're giving it the right information.
+
+
+### 4. test_sponsorship_contact_form_valid_data
+#### Purpose:
+ This test checks if the form for sponsorship contact can recognize when you give it the right info.
+#### How It Works:
+ It pretends to fill out the sponsorship contact form with proper data, like the name and email. Then, it checks if the form believes everything is fine (valid).
+#### Result We Want:
+ We anticipate this test to pass, showing that the sponsorship contact form can identify when you're providing the right information.
+</details>
+
+<br>
+
+
+<details>
+<summary>Models Validation Tests</summary>
+
+### 1. test_title_max_length
+
+### Purpose:
+ This test checks if the title of a post can't be too long.
+#### How It Works:
+ It pretends to create a post with an extra-long title and then sees if the title is as long as it should be.
+#### Result We Want:
+ We hope this test passes, which means our posts have a limit on how long their titles can be.
+
+### 2. test_object_name_is_title
+#### 
+Purpose: This test checks if the name of a post object is the same as its title.
+#### How It Works:
+ It pretends to create a post and then compares the post's name to what the title should be.
+##### Result We Want:
+ We expect this test to pass, showing that our posts have their names set to their titles.
+
+</details>
+
+<br>
+
+<details>
+<summary>Testing Validation Views</summary>
+
+### Create Post View Test (test_create_post_view):
+
+#### 1. It logs in as a test user.
+Sends a GET request to the 'create_post' URL.
+Checks if the response status code is 200 (OK).
+Verifies that the 'create_post.html' template is used.
+Post Like View Test (test_post_like_view):
+
+#### 2. Logs in as a test user.
+Sends a POST request to the 'post_like' URL for a post.
+Checks if the response status code is 302 (a redirect).
+Post Detail View Test (test_post_detail_view):
+
+#### 3. Sends a GET request to the 'post_detail' URL for a post.
+Checks if the response status code is 200 (OK).
+Verifies that the 'post_detail.html' template is used.
+Edit Post View Test (test_edit_post_view):
+
+##### 4. Logs in as a test user.
+Sends a GET request to the 'edit_post' URL for a post.
+Checks if the response status code is 200 (OK).
+Verifies that the 'edit_post.html' template is used.
+Delete Post View Test (test_delete_post_view):
+
+##### 5. Logs in as a test user.
+Sends a GET request to the 'delete_post' URL for a post.
+Checks if the response status code is 200 (OK).
+Verifies that the 'delete_post.html' template is used.
+Suggestion Dislike View Test (test_suggestion_dislike_view):
+
+#### 6. Logs in as a test user.
+Sends a POST request to the 'suggestion_dislike' URL for a suggestion.
+Checks if the response status code is 302 (a redirect).
+Edit Suggestion View Test (test_edit_suggestion_view):
+
+#### 7. Logs in as a test user.
+Sends a GET request to the 'edit_suggestion' URL for a suggestion.
+Checks if the response status code is 200 (OK).
+Verifies that the 'edit_suggestion.html' template is used.
+
+</details>
+<br>
+
+## Manual Features Testing
+
+PAREI AQUI
+
+# Credits and References
+
+## References
+
+* [Code Institute](https://learn.codeinstitute.net/dashboard) 
+
+* [Pip instalation ](https://pip.pypa.io/en/stable/installation/) 
+
+* [Cental Django](https://djangocentral.com/building-a-blog-application-with-django/)
+
+* [GitHub Documentation](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/)
+
+* [Collapsed sections](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections)
+
+* [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
+* [Allauth](https://docs.allauth.org/en/latest/)
+
+* [Cloudinary documentation ](https://cloudinary.com/documentation/diagnosing_error_codes_tutorial)
+
+* [Djangoproject testing](https://docs.djangoproject.com/en/4.2/topics/testing/tools/#django.test.Client.get)
+
+* [Rocket validator ](https://rocketvalidator.com/d/f22a1876-43ee-4e70-a3bc-ebc7afa2767a)
+
+
+* [Python validator](https://pep8ci.herokuapp.com/#)
+
+* [ Markup Validation Service](https://validator.w3.org/#validate_by_input)
+
+* [CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+## Author
+Felipe Zanetti - Project Milestone 4 for Course Institute
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
