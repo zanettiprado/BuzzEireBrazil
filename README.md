@@ -91,6 +91,13 @@ The color scheme was chosen to reflect the Irish flag and evoke a sense of Irela
 ![Alt text](documentation/colors.PNG)
 
 
+## Mobile-Friendly Design
+
+For mobile users, the website is optimized with a responsive design. The navigation menu is toggled to accommodate smaller screens, making it convenient for users on mobile devices.
+
+Authentication: Users who are not logged in can still browse and view posts. However, to participate by commenting or making suggestions, they must first log in. If a user doesn't have an account, they can easily sign up to become a part of the community.
+
+![Login request](documentation/login-request.PNG)
 
 ## Typography
 We've selected the `"Secular One"` font for the website. 
@@ -168,11 +175,260 @@ Full Page view
 
 ![Alt text](documentation/footer.PNG)
 
-### Mobile-Friendly Design
+## Future implementation 
 
-For mobile users, the website is optimized with a responsive design. The navigation menu is toggled to accommodate smaller screens, making it convenient for users on mobile devices.
+ 1. List of Posts Sorted by Categories:
+In upcoming versions, we will introduce a feature to categorize posts. This will make it easier for users to find content that interests them. Posts will be tagged with relevant categories, and users can filter posts by selecting a category from the navigation menu.
 
-Authentication: Users who are not logged in can still browse and view posts. However, to participate by commenting or making suggestions, they must first log in. If a user doesn't have an account, they can easily sign up to become a part of the community.
+2. Search Bar on the Top of Post List:
+To enhance user experience, we'll add a search bar at the top of the post list. Users can simply enter keywords or phrases related to their interests, and the system will display matching posts in real-time.
 
-![Login request](documentation/login-request.PNG)
+ 3. Reply for Suggestions in Suggestion Section:
+We are committed to fostering engagement within the community. In the next release, users will be able to reply to suggestions, providing feedback or offering assistance. This will create a more interactive and supportive environment.
+
+ 4. Reply for Comments in Post Details:
+To encourage discussions, we will implement a comment reply feature. Users can respond to specific comments within a post's comment section, facilitating meaningful conversations.
+
+ 5. Rate with Star for Services in Post Details:
+We aim to improve the way users evaluate services. Users will have the option to rate services with a star-based system, offering valuable feedback to service providers and helping other users make informed decisions.
+
+ 6. Feed with Updates in Another Page Like a Journal:
+In future updates, we will introduce a dedicated page for updates and announcements. Users can access this journal-like feed to stay informed about the latest community news, events, and changes to the platform.
+
+ 7. Notification Preferences for User:
+Personalization is key. Users will be able to customize their notification preferences. They can choose to receive updates related to specific categories, new posts, comments on their content, and more.
+
+ 8. Reset Password:
+Password management is crucial. Users will have the option to reset their passwords securely through a password reset feature. This ensures account security and accessibility.
+
+ 9. Draft Post for Keeping Posts Saved:
+We understand that not every post is meant for immediate publishing. Users can save drafts of their posts and return to them later for editing and publishing. This feature will ensure that no creative idea is lost.
+
+## Accessibility
+
+
+Our commitment to accessibility is evident in every line of code. We've gone the extra mile to make our website as user-friendly as possible for everyone. Here's how we've achieved this:
+
+- Semantic HTML: We've meticulously crafted our web pages using semantic HTML tags. This means that not only is our code clean and organized, but it also ensures that screen readers and assistive technologies can understand and navigate the content effortlessly.
+
+- Descriptive Alt Attributes: Images on our site are more than just visuals; they're informative. We've provided detailed and meaningful alt attributes for every image. This empowers screen readers to convey the content accurately to users who rely on them.
+
+- Icons with Text Descriptions: Icons can be confusing for some users. To make sure everyone understands their meaning, we've included text descriptions alongside icons where needed. This ensures that all users, regardless of their abilities, can interact with our site effectively.
+
+- Color Contrast: We understand the importance of legibility. To that end, we've maintained a high level of color contrast throughout our site. This not only makes text and content easier to read but also ensures that our site is inclusive and accessible to all.
+
+At BuzzEireBrazil, accessibility isn't an afterthought; it's an integral part of our development process. We believe that everyone should have a seamless and enjoyable experience on our platform, regardless of their abilities or assistive technologies.
+
+
+Creating a Blog Application with Django
+🚀
+
+Welcome to BuzzEireBrazil! In this section, we will guide you through the process of creating a robust blog application using Django. Learn how to build, customize, and launch your own blogging platform.
+
+Installation Steps
+🔧
+
+Let's begin by setting up your development environment. Follow these simple steps to install Django and get ready to embark on your blogging journey.
+
+Main Documentation
+📘
+
+In the main documentation, you'll find comprehensive guidance on building a blog application with Django, including detailed steps for:
+
+Installing Django: Get started by setting up the Django framework.
+Writing Your First Django App, Part 1: Dive into the fundamentals of building your first Django application.
+Technologies Used
+🛠️ This project has been developed using a variety of technologies, ensuring a robust and dynamic platform for our users. Here's a breakdown:
+
+# technologies Used
+## Languages
+- HTML: The foundation of our website, responsible for structuring the main site content. We have 13 HTML files in the project so far.
+- CSS: Provides the styling and layout to create an attractive and user-friendly interface.
+- JavaScript: Adds interactive elements and enhances user engagement.
+- Python 3.8.11: The backbone of our back-end functionality, powering the server and business logic.
+
+## Databases Used
+- ElephantSQL (Postgres database): Our reliable data storage solution. 
+- Cloudinary: An online static file storage service for managing media assets.
+
+## Frameworks Used
+- Django: A high-level Python web framework that streamlines development.
+- Bootstrap (Version 5.2.3): A CSS framework that accelerates front-end design.
+- Crispy Forms: Enhances form rendering for a more user-friendly experience.
+
+## Development Tools
+- Pip: A vital tool for installing Python packages.
+- Jinja: Our templating engine, facilitating dynamic content rendering.
+- Balsamiq: Used for wireframing to plan out the site's layout and structure.
+
+## Version Control
+- Git: The backbone of our version control system.
+- GitHub: Our repository for saving and managing project files.
+
+## Development Environment
+- Gitpod: A cloud-based integrated development environment (IDE) for seamless development.
+
+## Hosting and Deployment
+Heroku: Hosting platform for the deployed back-end site.
+
+## Typography and Styling
+- Google Fonts: Imported fonts to enhance site aesthetics.
+
+## Testing and Debugging
+- Google Chrome Dev Tools: Essential for troubleshooting, testing, and ensuring responsiveness and styling.
+- Am I Responsive?: Used to display website images on various devices.
+
+# Deployment & Local Development
+## Fork the Repository
+
+1. Log in or Sign up: Go to GitHub and log in with your account. If you don't have an account, sign up.
+2. Navigate to the Repository: Go to the repository for your project (replace your-repo-name with the actual repository name). <br>
+Click here [BuzzEireBrazil](https://github.com/zanettiprado/buzzeirebrazil)
+```
+https://github.com/zanettiprado/buzzeirebrazil
+```
+
+3 - Fork the Repository: Click the "Fork" button in the top right corner of the repository page. This will create a copy of the repository under your GitHub account.
+
+## Clone the Repository
+1. Log in to GitHub: If you're not already logged in, log in to GitHub.
+
+2. Navigate to the Repository: Go to the repository for your project (replace your-repo-name with the actual repository name).<br>
+Click here [BuzzEireBrazil](https://github.com/zanettiprado/buzzeirebrazil)
+```
+https://github.com/zanettiprado/buzzeirebrazil
+```
+3. Clone the Repository: Click on the "Code" button on the repository page. Select your preferred method for cloning: HTTPS, SSH, or GitHub CLI. Copy the provided link.
+
+4. Open Terminal: Open your terminal (command prompt or Git Bash on Windows, Terminal on macOS, or any terminal emulator on Linux).
+
+5. Change Directory: Use the cd command to navigate to the location where you want to store the cloned repository.
+
+```
+cd /path/to/your/directory
+```
+6. Clone the Repository: In your terminal, run the following command, pasting the link you copied from step 3:
+
+## Install Project Dependencies
+1. Navigate to Project Directory: Ensure you are in the project directory where the `requirements.txt` file is located.
+
+2. Install Dependencies: In your terminal, run the following command to install the required packages:
+
+```
+pip install -r requirements.txt
+```
+
+## ElephantSQL Database
+In this project, we use ElephantSQL to store our data in a special database called PostgreSQL. To get your own database, follow these steps:
+
+1. Sign up using your GitHub account.
+2. Click on "Create New Instance" to make a new database.
+3. Give it a name (usually the project's name, like "tribe").
+4. Choose the "Tiny Turtle (Free)" plan.
+5. You can ignore the "Tags" part.
+6. Pick a Region and Data Center that's closest to where you are.
+7. Once it's created, click on the new database's name to see the database URL and Password. You'll need these later.
+
+## Cloudinary API
+We use the Cloudinary API in our project to keep our pictures and videos online because Heroku, where we host our project, doesn't save this kind of data. Here's how to get your own Cloudinary API key:
+
+1. Create an account and log in to Cloudinary.
+2. When they ask what you're interested in, pick "Programmable Media" because it's about images and videos.
+3. If you want, change your cloud name to something you can remember easily.
+4. On your Cloudinary Dashboard, you'll find your API Environment Variable. It looks like a long code.
+5. Make sure to remove the "CLOUDINARY_URL=" part from the code because that part is your key.
+
+## Heroku Account and dployment
+<details>
+<summary>How to use HEROKU to deploy the project step by step</summary>
+
+<br>
+
+1. Set Up Your Heroku Account
+
+If you don't have a Heroku account, sign up for one at https://www.heroku.com/. It's free to get started.
+
+2. Install Heroku CLI
+
+Download and install the Heroku Command Line Interface (CLI) for your operating system. You can find installation instructions here: https://devcenter.heroku.com/articles/heroku-cli
+
+3. Log In to Heroku
+
+Open your terminal or command prompt and log in to Heroku by running:
+```
+heroku login
+```
+Follow the prompts to enter your Heroku credentials.
+
+4. Initialize a Git Repository
+
+If your project isn't already in a Git repository, you'll need to initialize one. Navigate to your project's root directory in the terminal and run:
+
+```
+git init
+git add .
+git commit -m "Initial commit"
+```
+5. Create a requirements.txt File
+
+If you don't already have a requirements.txt file, create one. This file lists all the Python packages required for your project. You can generate it by running:
+```
+pip freeze > requirements.txt
+```
+6. Create a Procfile
+
+Create a file named Procfile (without any file extension) in your project's root directory. This file tells Heroku how to run your application. Inside the Procfile, add:
+
+```
+web: python your_app_name/manage.py runserver 0.0.0.0:$PORT
+```
+7. Install Gunicorn
+
+Gunicorn is a WSGI HTTP server for Python applications. Install it by running:
+```
+pip install gunicorn
+```
+
+8. Add Heroku Buildpacks
+Heroku uses buildpacks to determine how to build and run your application. You'll need to add Python and Node.js buildpacks if your project uses JavaScript or CSS. Run the following commands to add buildpacks:
+```
+heroku buildpacks:add heroku/python
+```
+9. Set Environment Variables
+
+Set the environment variables in Heroku that you mentioned earlier. You can do this by running:
+```
+heroku config:set CLOUDINARY_URL=your_cloudinary_api_key
+heroku config:set DATABASE_URL=your_database_url
+heroku config:set DISABLE_COLLECTSTATIC=1
+heroku config:set SECRET_KEY=your_secret_key 
+```
+
+Replace your_cloudinary_api_key, your_database_url, and your_secret_key with your actual keys and URLs.
+
+10. Deploy to Heroku
+
+Now it's time to deploy your project to Heroku. Run:
+``` 
+git push heroku master
+```
+
+This command will push your code to Heroku's servers and trigger the deployment process.
+
+11. Run Migrations
+
+After deploying, run the following command to apply database migrations:
+``` 
+heroku run python manage.py migrate 
+```
+
+12. Open Your App
+
+Your app should be deployed and live on Heroku now! You can open it in your browser using
+``` 
+heroku open
+```
+
+</details>
+
 
