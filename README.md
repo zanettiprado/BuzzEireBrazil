@@ -1,25 +1,37 @@
 
 # BuzzEireBrazil
 
-![Alt text](documentation/home_lg_screen.PNG)
+- ![Alt text](documentation/home_lg_screen.PNG)
 
 ```
 Welcome to BuzzEireBrazil!
 ```
 
+INSERT LIVE VERSION HERE 
+
 This blog was created to Brazilians living in Ireland, offering a platform for them to promote their businesses or professional services. Additionally, users can seek recommendations and assistance from others within the Brazilian community in Ireland. The primary objective of this project is to connect Brazilians living in Ireland with job opportunities and business prospects.
 
+
+
 ## Goals
+
+
 * Facilitate connections and networking among Brazilians in Ireland, specifically focusing on job and business opportunities.
 * Create a user-friendly and inclusive platform where users can easily share and discover professional services.
 * Foster a supportive community environment for Brazilians living in Ireland.
+
 
 # User Experience
 
 * User experience is a central focus of this project. We aim to provide an intuitive and visually appealing interface that enhances user engagement.
 * The website has been designed with the user in mind to ensure seamless navigation and accessibility.
 
-## Agile
+
+<details>
+
+<br>
+
+<summary> Agile</summary>
 Agile methodologies have been employed to manage and prioritize project tasks using GitHub Project Boards. Here's how we approached it:
 
 1. **Theme Identification:** Initially, we created a spreadsheet to collect details categorized by themes, which helped us define epics. These themes include Account Management, Profile, Post Pool, Navigation, and Admin.
@@ -30,10 +42,19 @@ Agile methodologies have been employed to manage and prioritize project tasks us
 
 4. **Deployment process:** The project was developed using python and Django and was deployed using Debug = `False` 
 
-## User Stories in Agile
+<br>
+
+</details>
+
+<br>
+
+<details>
+<summary>User Stories in Agile</summary>
+
+
 We've organized the project into the following milestones:
 
-![Agile Methodology](documentation/agile_issues.PNG)
+- ![Agile Methodology](documentation/agile_issues.PNG)
 
  1. Start and deploying
 
@@ -82,31 +103,69 @@ We've organized the project into the following milestones:
 
     - Performance Testing
 
+</details>
+
+<br>
 
 
 # Design
-## Color Scheme
+<br>
+<details>
+<summary>Color Scheme</summary>
+
 The color scheme was chosen to reflect the Irish flag and evoke a sense of Ireland:
 
-![Alt text](documentation/colors.PNG)
+- ![Alt text](documentation/colors.PNG)
+</details>
+
+<br>
+
+<details>
+<summary>Mobile-Friendly Design</summary>
 
 
-## Mobile-Friendly Design
+
+
 
 For mobile users, the website is optimized with a responsive design. The navigation menu is toggled to accommodate smaller screens, making it convenient for users on mobile devices.
 
 Authentication: Users who are not logged in can still browse and view posts. However, to participate by commenting or making suggestions, they must first log in. If a user doesn't have an account, they can easily sign up to become a part of the community.
 
-![Login request](documentation/login-request.PNG)
+- ![Login request](documentation/login-request.PNG)
+<br>
 
-## Typography
+</details>
+
+<br>
+
+
+<details>
+<summary>Typography</summary>
 We've selected the `"Secular One"` font for the website. 
+</details>
 
-## Icons
+
+<br>
+
+
+<details>
+<summary>Icons</summary>
 Font Awesome icons have been used throughout the site, including for the buttons and social media links.
+</details>
+
+<br>
+
+
+
 
 # Features
-## Pages and elements
+
+
+<br>
+
+<details>
+<summary>Pages and elements</summary>
+
 
 1 - **Home Page**
 The heart of the website, the home page, serves as a central hub where users can access a variety of key features. Here's what you'll find on the home page. The logo is also clickable.
@@ -114,40 +173,46 @@ The heart of the website, the home page, serves as a central hub where users can
 2 - **List of Posts:** Users can view a comprehensive list of posts submitted by members of the Brazilian community in Ireland. These posts showcase various businesses, services, or job opportunities.
 
 
-![home page for large screens](documentation/lg-screen.PNG) ![home page for large screens2](documentation/lg_screen_2.PNG)
+- ![home page for large screens](documentation/lg-screen.PNG) ![home page for large screens2](documentation/lg_screen_2.PNG)
 
 
 3 - **Main Sponsors:** 
 Prominent on every page, the "Main Sponsors" section highlights four businesses that have chosen to promote their services on the platform. This section offers visibility and recognition to these sponsors.
 
- * 3.1 ![main sponsors](documentation/main_sponsors-view.PNG)
+ * 3.1 
+ <br>
+
+ -  ![main sponsors](documentation/main_sponsors-view.PNG)
 
  Clicking in the contact us button you will be redirect for a form to be filled in order to check how to become a sponsor.
 
- * 3.2 ![sponsors form](documentation/Contact_us.PNG)
+ * 3.2  <br>
+ 
+ - ![sponsors form](documentation/Contact_us.PNG)
 
  After submitting the form you will get a message thanking you for your interest in become a sponsor
  
- * 3.3 ![submitted form](documentation/Contact_us_submitted.PNG)
+ * 3.3  <br>
+ -  ![submitted form](documentation/Contact_us_submitted.PNG)
 
 4 - **List of Suggestions:** 
 Users can discover and submit requests for assistance or recommendations. This section encourages community members to help one another by connecting individuals seeking specific services with those who can provide them.
 
-![suggestions view](documentation/suggestion-view-if-logged.PNG)
+- ![suggestions view](documentation/suggestion-view-if-logged.PNG)
 
 5 - **Post Details Page**
 When a user clicks on a post from the list, they are directed to the "Post Details" page. Here, they can delve deeper into the specifics of a particular business or service. This page includes:
 
-![Post details](documentation/post_details-view.PNG)
+- ![Post details](documentation/post_details-view.PNG)
 
 6 - **Comments and Feedback:** Users can engage in discussions and provide feedback regarding the business or service. This interactive feature fosters communication and helps community members make informed decisions.
 
-![comments and feedback](documentation/comments_and_feedback.PNG)
+- ![comments and feedback](documentation/comments_and_feedback.PNG)
 
 7 - **Navigation**
 The navigation bar, situated at the top of the website, provides easy access to essential features and functions. Users can find the following items in the navigation:
 
-![Nav bar for small devices](documentation/nav_bar-sm.PNG) ![Nav bar for large devices](documentation/nav_bar-lg.PNG)
+- ![Nav bar for small devices](documentation/nav_bar-sm.PNG) ![Nav bar for large devices](documentation/nav_bar-lg.PNG)
 
 
 8 - **Login/Logout:** Users can log in to their accounts or log out as needed. This functionality is crucial for accessing certain actions on the website.
@@ -156,26 +221,36 @@ The navigation bar, situated at the top of the website, provides easy access to 
 9 - **Sign-In/Sign-on Page:**
 The Sign-In page serves as the entry point for registered users to access their accounts. Key features of this page include:
  
- * 9.1 ![Sign up large devices](documentation/sign_up-view-lg-screen.PNG)
+ * 9.1  <br> 
+ - ![Sign up large devices](documentation/sign_up-view-lg-screen.PNG)
  General view for large device
 
- * 9.2 ![Sign up view](documentation/sign_in-view.PNG) 
-![Sign up view](documentation/sign_up-view.PNG)
+ * 9.2  <br> 
+- ![Sign up view](documentation/sign_in-view.PNG) 
+- ![Sign up view](documentation/sign_up-view.PNG)
 
 Full Page view 
 
-* 9.3 ![sign_up-view-sm](documentation/sign_up-view-sm.png) 
-![sign_in-view-sm](documentation/sign_in-view-sm.png)
+* 9.3  <br> 
+- ![sign_up-view-sm](documentation/sign_up-view-sm.png) 
+- ![sign_in-view-sm](documentation/sign_in-view-sm.png)
 
 * 10 **Clickable Logo:** Clicking on the logo serves as an alternative way to return to the home page, ensuring intuitive navigation.
 
-![Alt text](documentation/logo-image.PNG)
+- ![Alt text](documentation/logo-image.PNG)
 
 * 11 **Footer**: footer is quite clean. It brings few elements. The information about the me and LinkedIn and GitHub link pages
 
-![Alt text](documentation/footer.PNG)
+- ![Alt text](documentation/footer.PNG)
 
-## Future implementation 
+</details>
+
+<br>
+
+<details>
+<summary>Future implementation </summary>
+
+
 
  1. List of Posts Sorted by Categories:
 In upcoming versions, we will introduce a feature to categorize posts. This will make it easier for users to find content that interests them. Posts will be tagged with relevant categories, and users can filter posts by selecting a category from the navigation menu.
@@ -204,7 +279,12 @@ Password management is crucial. Users will have the option to reset their passwo
  9. Draft Post for Keeping Posts Saved:
 We understand that not every post is meant for immediate publishing. Users can save drafts of their posts and return to them later for editing and publishing. This feature will ensure that no creative idea is lost.
 
-## Accessibility
+</details>
+
+<br>
+
+<details>
+<summary>Accessibility</summary>
 
 
 Our commitment to accessibility is evident in every line of code. We've gone the extra mile to make our website as user-friendly as possible for everyone. Here's how we've achieved this:
@@ -218,47 +298,112 @@ Our commitment to accessibility is evident in every line of code. We've gone the
 - Color Contrast: We understand the importance of legibility. To that end, we've maintained a high level of color contrast throughout our site. This not only makes text and content easier to read but also ensures that our site is inclusive and accessible to all.
 
 At BuzzEireBrazil, accessibility isn't an afterthought; it's an integral part of our development process. We believe that everyone should have a seamless and enjoyable experience on our platform, regardless of their abilities or assistive technologies.
+</details>
 
-# technologies Used
-## Languages
+<br>
+
+# Technologies Used in the project
+
+<br>
+
+<details>
+<summary>Languages</summary>
+
+
+## 
 - HTML: The foundation of our website, responsible for structuring the main site content. We have 13 HTML files in the project so far.
 - CSS: Provides the styling and layout to create an attractive and user-friendly interface.
 - JavaScript: Adds interactive elements and enhances user engagement.
 - Python 3.8.11: The backbone of our back-end functionality, powering the server and business logic.
+</details>
 
-## Databases Used
+<br>
+
+<details>
+<summary>Databases Used</summary>
+
 - ElephantSQL (Postgres database): Our reliable data storage solution. 
 - Cloudinary: An online static file storage service for managing media assets.
+</details>
 
-## Frameworks Used
+<br>
+
+<details>
+<summary>Frameworks Used</summary>
+
 - Django: A high-level Python web framework that streamlines development.
 - Bootstrap (Version 5.2.3): A CSS framework that accelerates front-end design.
 - Crispy Forms: Enhances form rendering for a more user-friendly experience.
+</details>
 
-## Development Tools
+<br>
+
+<details>
+<summary>Development Tools</summary>
+
 - Pip: A vital tool for installing Python packages.
 - Jinja: Our templating engine, facilitating dynamic content rendering.
 - Balsamiq: Used for wireframing to plan out the site's layout and structure.
+</details>
 
-## Version Control
+
+<br>
+
+<details>
+<summary>Version Control</summary>
+
 - Git: The backbone of our version control system.
 - GitHub: Our repository for saving and managing project files.
+</details>
 
-## Development Environment
+<br>
+
+<details>
+<summary>Development Environment</summary>
+
+ 
 - Gitpod: A cloud-based integrated development environment (IDE) for seamless development.
+</details>
 
-## Hosting and Deployment
+<br>
+
+<details>
+<summary>Hosting and Deployment</summary>
+
 Heroku: Hosting platform for the deployed back-end site.
+</details>
 
-## Typography and Styling
+<br>
+
+<details>
+<summary>Typography and Styling</summary>
+
+ 
 - Google Fonts: Imported fonts to enhance site aesthetics.
+</details>
 
-## Testing and Debugging
+<br>
+
+
+<details>
+<summary>Testing and Debugging</summary>
 - Google Chrome Dev Tools: Essential for troubleshooting, testing, and ensuring responsiveness and styling.
 - Am I Responsive?: Used to display website images on various devices.
+</details>
+
+<br>
+
+
+
 
 # Deployment & Local Development
-## Fork the Repository
+
+<br>
+
+<details>
+<summary>Fork the Repository</summary>
+
+
 
 1. Log in or Sign up: Go to GitHub and log in with your account. If you don't have an account, sign up.
 2. Navigate to the Repository: Go to the repository for your project (replace your-repo-name with the actual repository name). <br>
@@ -268,8 +413,15 @@ https://github.com/zanettiprado/buzzeirebrazil
 ```
 
 3 - Fork the Repository: Click the "Fork" button in the top right corner of the repository page. This will create a copy of the repository under your GitHub account.
+</details>
 
-## Clone the Repository
+<br>
+
+<details>
+<summary>Clone the Repository</summary>
+
+
+## 
 1. Log in to GitHub: If you're not already logged in, log in to GitHub.
 
 2. Navigate to the Repository: Go to the repository for your project (replace your-repo-name with the actual repository name).<br>
@@ -287,8 +439,14 @@ https://github.com/zanettiprado/buzzeirebrazil
 cd /path/to/your/directory
 ```
 6. Clone the Repository: In your terminal, run the following command, pasting the link you copied from step 3:
+</details>
 
-## Install Project Dependencies
+<br>
+
+<details>
+<summary>Install Project Dependencies</summary>
+
+
 1. Navigate to Project Directory: Ensure you are in the project directory where the `requirements.txt` file is located.
 
 2. Install Dependencies: In your terminal, run the following command to install the required packages:
@@ -296,8 +454,13 @@ cd /path/to/your/directory
 ```
 pip install -r requirements.txt
 ```
+</details>
 
-## ElephantSQL Database
+<br>
+
+<details>
+<summary>ElephantSQL Database</summary>
+
 In this project, we use ElephantSQL to store our data in a special database called PostgreSQL. To get your own database, follow these steps:
 
 1. Sign up using your GitHub account.
@@ -308,7 +471,14 @@ In this project, we use ElephantSQL to store our data in a special database call
 6. Pick a Region and Data Center that's closest to where you are.
 7. Once it's created, click on the new database's name to see the database URL and Password. You'll need these later.
 
-## Cloudinary API
+</details>
+
+<br>
+
+<details>
+<summary>Cloudinary API</summary>
+
+
 We use the Cloudinary API in our project to keep our pictures and videos online because Heroku, where we host our project, doesn't save this kind of data. Here's how to get your own Cloudinary API key:
 
 1. Create an account and log in to Cloudinary.
@@ -317,9 +487,12 @@ We use the Cloudinary API in our project to keep our pictures and videos online 
 4. On your Cloudinary Dashboard, you'll find your API Environment Variable. It looks like a long code.
 5. Make sure to remove the "CLOUDINARY_URL=" part from the code because that part is your key.
 
-## Heroku Account and dployment
+</details>
+
+<br>
+
 <details>
-<summary>How to use HEROKU to deploy the project step by step</summary>
+<summary>Heroku Account and dployment</summary>
 
 <br>
 
@@ -413,7 +586,11 @@ heroku open
 <br>
 
 # Testing
-## Responsiveness testing 
+
+<br>
+
+<details>
+<summary>Responsiveness testing </summary>
 
 Test to ensure a consistent user experience across various platforms (desktop, tablet, mobile). 
 
@@ -424,25 +601,45 @@ As infomered we have used Am I responsive web page to get the below image.
 
 ![Responsiveness Testing](documentation/am_I_responsive.PNG)
 
-## Browser Compatibility Testing 
+</details>
+
+<br>
+
+<details>
+<summary>Browser Compatibility Testing </summary>
+
 
 We have verified that our project functions flawlessly on multiple web browsers, including Chrome, Firefox, Safari, and Internet Explorer.
 
 Bugs Resolved and Unresolved: All identified issues and bugs have been diligently 
+</details>
 
-## Code Validation:
-The codebase adheres to industry standards and best practices, ensuring error-free, well-structured, and convention-following code.
-
-## Automated testing 
-
-Automated testing scripts have been employed to streamline our testing process, resulting in consistent and efficient testing outcomes.
+<br>
 
 <details>
+<summary>Code Validation</summary>
 
-<summary>Forms Validation Tests</summary>
 
 
-### 1. test_post_form_valid_data
+## 
+The codebase adheres to industry standards and best practices, ensuring error-free, well-structured, and convention-following code.
+</details>
+
+<br>
+
+
+<details>
+<summary>Automated Tests </summary>
+
+
+
+### Automated testing scripts have been employed to streamline our testing process, resulting in consistent and efficient testing outcomes. We ran tests for Models.py, Views.py and Forms.py in three differents files. 
+
+
+
+## Forms Validation Tests
+
+## 1. test_post_form_valid_data
 #### Purpose: 
 This test checks if the form for creating a post can tell when you give it the right information.
 #### How It Works: 
@@ -450,9 +647,8 @@ It pretends to fill out the form with the correct info, like a post title and co
 #### Result We Want:
  We hope this test passes, which means the form knows when you're giving it the right details.
 
-<br>
 
-### 2. test_comment_form_valid_data
+## 2. test_comment_form_valid_data
 
 
 #### Purpose: 
@@ -464,7 +660,7 @@ This test checks if the form for making comments can recognize when you provide 
 
 
 
-### 3. test_user_suggestion_form_valid_data
+## 3. test_user_suggestion_form_valid_data
 
 
 #### Purpose: 
@@ -475,22 +671,22 @@ This test checks if the form for user suggestions can tell when you provide it w
  We want this test to pass, meaning the suggestion form can recognize when you're giving it the right information.
 
 
-### 4. test_sponsorship_contact_form_valid_data
+## 4. test_sponsorship_contact_form_valid_data
 #### Purpose:
  This test checks if the form for sponsorship contact can recognize when you give it the right info.
 #### How It Works:
  It pretends to fill out the sponsorship contact form with proper data, like the name and email. Then, it checks if the form believes everything is fine (valid).
 #### Result We Want:
  We anticipate this test to pass, showing that the sponsorship contact form can identify when you're providing the right information.
-</details>
+
+![Test Form.py](documentation/tests_form.PNG)
 
 <br>
 
 
-<details>
-<summary>Models Validation Tests</summary>
+## Models Validation Tests
 
-### 1. test_title_max_length
+## 1. test_title_max_length
 
 ### Purpose:
  This test checks if the title of a post can't be too long.
@@ -499,7 +695,7 @@ This test checks if the form for user suggestions can tell when you provide it w
 #### Result We Want:
  We hope this test passes, which means our posts have a limit on how long their titles can be.
 
-### 2. test_object_name_is_title
+## 2. test_object_name_is_title
 #### 
 Purpose: This test checks if the name of a post object is the same as its title.
 #### How It Works:
@@ -507,14 +703,14 @@ Purpose: This test checks if the name of a post object is the same as its title.
 ##### Result We Want:
  We expect this test to pass, showing that our posts have their names set to their titles.
 
-</details>
+![Test models.py](documentation/tests_model.PNG)
 
 <br>
 
-<details>
-<summary>Testing Validation Views</summary>
 
-### Create Post View Test (test_create_post_view):
+## Testing Validation Views
+
+## 1. Create Post View Test (test_create_post_view):
 
 #### 1. It logs in as a test user.
 Sends a GET request to the 'create_post' URL.
@@ -554,16 +750,85 @@ Sends a GET request to the 'edit_suggestion' URL for a suggestion.
 Checks if the response status code is 200 (OK).
 Verifies that the 'edit_suggestion.html' template is used.
 
+![Test view.py](documentation/tests_view.PNG)
+
 </details>
+
+
 <br>
 
-## Manual Features Testing
+<details>
+<summary>Manual Features Testing</summary>
 
-PAREI AQUI
+
+| Page | User Action | Expected Result| Notes |
+| --- | --- | --- | --- |
+|  **Home Page**   |  |  | |
+| Landing - unlogged user | Click on Logo | Redirection to Home page | Pass |
+| | Click on Login button  | Redirection to Sign In page | Pass |
+| | Click on Sign Up button  | Redirection to Sign Up page | Pass |
+| | Click on Post card  | Redirection to Post Details page | Pass |
+| | Click on Next button | Redirection to Next page | Pass |
+| | Click on Prev button | Redirection to Previous page | Pass |
+| | Click on Contact us! button | Redirection to Contact Us for Sponsorship | Pass |
+| Landing - logged user | Click on Logo | Redirection to Home page | Pass |
+| | Click on Logout button  | Redirection to Home page | Pass |
+| | Click on Post card  | Redirection to Post Details page | Pass |
+| | Click on Next button | Redirection to Next page | Pass |
+| | Click on Prev button | Redirection to Previous page | Pass |
+| | Click on Contact us! button | Redirects user to Contact Us for Sponsorship | 
+| | Suggestion text box | Change the text message to clean box | Pass |
+| | Submit button new suggestion | Redirects user to home with a new list of suggestion | Pass |
+| | Create a new Post button | Redirects user to create post form | Pass |
+| | Create a new Post button | Redirects user to create post form | Pass |
+| **Sign Up** |  |  |  |
+| | Enter Username | Field accept any username | Pass |
+| | Enter valid password (twice) | Field will only accept password format | Pass |
+| | Click Sign Up button on sign up page  | Redirects Home page | Pass |
+| | Click on Sign In link | Redirection to Sign In page | Pass |
+| **Sing In** |  |  |  |
+| | Enter User name | Field accept any username | Pass |
+| | Enter valid password | Field will only accept password format | Pass |
+| | Click Login button on login page | Redirects user to Home page | Pass |
+| **Sing Out** |  |  |  |
+| | Click Logout | Redirects to Home page | Pass |
+| **Navigation bar** | | | | 
+| | Logo, Home, (Login), Logout | Button tested above| Pass | 
+| **Post card** | | | | 
+| | Card button |Return the orignal post for view only | Pass | 
+| **Edit Post** | | | | 
+| | Edit post button |Return the orignal post for editing all details again | Pass | 
+| | Save Change button | User will be redirected to edited post | Pass | 
+| **Delete Post** | | | | 
+| | Click on the Delete button | Post will be permanently deleted | Pass |  
+| **Post details page** | | | | 
+|Looged user | Like post heart button |Return the orignal post showing a red heart and updated likes counter | Pass | 
+| | Comment box |Give a option to user post a comment or feedback in the post | Pass | 
+| | Submit button Comment box |Return the orignal post showing a new comment and updated comment counter | Pass | 
+| **Post details page** | | | | 
+|Unlooged user | Login button |Return the user to login page | Pass |
+| **Edit Suggestion** | | | | 
+| | Edit post button |Return the orignal suggestion for editing all details again | Pass | 
+| | Save Change button | User will be redirected to Home | Pass | 
+| **Delete Suggestion** | | | | 
+| | Click on the Delete button | Suggestion will be permanently deleted | Pass |  
+| **Sidebar** | | | | 
+| | Click on Contact us! button | Redirects user to Contact Us for Sponsorship | 
+| **Contact Us for Sponsorship** | | | | 
+| | Filed name, Email address and Type of business | Redirects user to Contact Us for Thank You for Contacting Us! page | 
+| **Footer** | | | | 
+| | LinkedIn logo | Redirects user to my linkedIn | Pass | 
+| | GitHub logo | Redirects user to my GitHub page | Pass | 
+
+</details>
+
+<br>
 
 # Credits and References
 
-## References
+<details>
+<summary>References</summary>
+
 
 * [Code Institute](https://learn.codeinstitute.net/dashboard) 
 
@@ -585,15 +850,20 @@ PAREI AQUI
 
 * [Rocket validator ](https://rocketvalidator.com/d/f22a1876-43ee-4e70-a3bc-ebc7afa2767a)
 
-
 * [Python validator](https://pep8ci.herokuapp.com/#)
 
 * [ Markup Validation Service](https://validator.w3.org/#validate_by_input)
 
 * [CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
-## Author
+</details>
+
+<br>
+
+# Author
 Felipe Zanetti - Project Milestone 4 for Course Institute
+
+
 
 
 
