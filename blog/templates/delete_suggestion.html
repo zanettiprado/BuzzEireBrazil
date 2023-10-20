@@ -4,7 +4,7 @@
     <p>Are you sure you want to delete the suggestion "{{ suggestion.suggestion_text }}"?</p>
     <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Delete</button>
+        <button type="submit" class="btn btn-danger" aria-label="delete-button">Delete</button>
     </form>
     <a href="{% url 'suggestions' %}" class="btn btn-secondary">Cancel</a>
 {% endblock content %}

@@ -37,6 +37,14 @@
                     {{ form.featured_image }}
                 </div>
 
+                <!-- Alt Text Field for Featured Image -->
+                <div class="form-group mt-3">
+                    {{ form.featured_image_alt.label_tag }}
+                    <label for="{{ form.featured_image_alt.id_for_label }}">Image name</label>
+                    <input type="text" name="{{ form.featured_image_alt.name }}" id="{{ form.featured_image_alt.id_for_label }}"
+                        class="form-control" value="{{ form.featured_image_alt.value }}">
+                </div>
+
                 <!-- Excerpt Field -->
                 <div class="form-group mt-3">
                     {{ form.excerpt.label_tag }}
@@ -52,7 +60,7 @@
                 </div>
 
                 <!-- Save Changes Button -->
-                <button type="submit" class="btn btn-success mt-5">Save Changes</button>
+                <button type="submit" class="btn btn-success mt-5" aria-label="submit-button">Save Changes</button>
             </form>
         </div>
     </div>
@@ -81,5 +89,4 @@
         });
     });
 </script>
-
-{% endblock content %}
+{% endblock %}

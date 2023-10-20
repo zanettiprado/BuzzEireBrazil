@@ -22,7 +22,14 @@ def create_post(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             new_post = form.save(commit=False)
-            new_post.author = request.user  
+            new_post.author = request.user
+
+            # Get the alt text for the featured image from the form
+            image_alt = request.POST.get('featured_image_alt', '')
+
+            # Assign the alt text to the new_post object
+            new_post.featured_image_alt = image_alt
+
             new_post.save()
             return redirect(reverse('post_detail', kwargs={"slug": new_post.slug}))
     else:
@@ -150,15 +157,22 @@ def edit_post(request, slug):
     Allows logged-in users to edit their own blog posts.
     """
     post = get_object_or_404(Post, slug=slug)
+
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
+            # Get the alt text for the featured image from the form
+            featured_image_alt = form.cleaned_data.get('featured_image_alt', '')
+
+            # Save the alt text to the post instance
+            post.featured_image_alt = featured_image_alt
+
             form.save()
             return redirect('post_detail', slug=post.slug)
     else:
         form = PostForm(instance=post)
-    return render(request, 'edit_post.html', {'form': form})
 
+    return render(request, 'edit_post.html', {'form': form, 'post': post})
 
 @login_required
 def delete_post(request, slug):

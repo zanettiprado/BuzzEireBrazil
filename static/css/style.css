@@ -1,13 +1,13 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Secular+One&display=swap');
 
 /* Typography */
-.body {
-    font-family: 'Secular One', sans-serif;
-    font-weight: 400; /* Adjust the font weight for better readability */
-}
 
-/* Background Colors */
+body {
+    font-family: 'Roboto', 'Secular One', sans-serif;
+    /* Adjust the font weight for better readability */
+}
+/* Background Colors */ 
 .main-bg {
     background-color: #e9ecef;
 }
@@ -24,6 +24,10 @@
     background-color: #fd7e14;
 }
 
+.logo {
+    letter-spacing: 2px;
+}
+
 /* Text Colors */
 .card-title-index {
     color: #28a745;
@@ -32,7 +36,8 @@
 }
 
 /* Text Colors */
-.card-title, .card-header {
+.card-title,
+.card-header {
     color: #ffffff;
     font-weight: 400;
     border-radius: 10px;
@@ -123,7 +128,8 @@
 /* Sidebar */
 .sidebar-scroll {
     position: sticky;
-    top: 60px; /* Fixed the typo and adjusted the value */
+    top: 60px;
+    /* Fixed the typo and adjusted the value */
     width: 30%;
     border: 1px solid #FFA500;
     max-height: calc(100vh - 60px);
@@ -254,8 +260,13 @@
     width: 96%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
+/* footer icon */
+.white-icon {
+    color: white;
+}
 
-@media (max-width: 800px) and (min-width: 180px) {
+/* screen reduced  */
+@media (max-width: 768px) and (min-width: 180px) {
     .sidebar-scroll {
         position: relative;
         display: block;

@@ -44,6 +44,7 @@
                 <div class="form-group mt-3">
                     {{ form.featured_image.label_tag }}
                     {{ form.featured_image }}
+                    <input type="text" name="{{ form.featured_image.name }}_alt" placeholder="Image name" required><span class="text-danger">*</span>
                 </div>
 
                 <!-- Excerpt Field -->

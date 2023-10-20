@@ -99,64 +99,74 @@ We've selected the `"Secular One"` font for the website.
 Font Awesome icons have been used throughout the site, including for the buttons and social media links.
 
 # Features
-## Pages
+## Pages and elements
 
-**Home Page**
+1 - **Home Page**
 The heart of the website, the home page, serves as a central hub where users can access a variety of key features. Here's what you'll find on the home page. The logo is also clickable.
 
-**List of Posts:** Users can view a comprehensive list of posts submitted by members of the Brazilian community in Ireland. These posts showcase various businesses, services, or job opportunities.
+2 - **List of Posts:** Users can view a comprehensive list of posts submitted by members of the Brazilian community in Ireland. These posts showcase various businesses, services, or job opportunities.
 
 
 ![home page for large screens](documentation/lg-screen.PNG) ![home page for large screens2](documentation/lg_screen_2.PNG)
 
 
-**Main Sponsors:** 
+3 - **Main Sponsors:** 
 Prominent on every page, the "Main Sponsors" section highlights four businesses that have chosen to promote their services on the platform. This section offers visibility and recognition to these sponsors.
 
-![main sponsors](documentation/main_sponsors-view.PNG)
+ * 3.1 ![main sponsors](documentation/main_sponsors-view.PNG)
 
-**List of Suggestions:** 
+ Clicking in the contact us button you will be redirect for a form to be filled in order to check how to become a sponsor.
+
+ * 3.2 ![sponsors form](documentation/Contact_us.PNG)
+
+ After submitting the form you will get a message thanking you for your interest in become a sponsor
+ 
+ * 3.3 ![submitted form](documentation/Contact_us_submitted.PNG)
+
+4 - **List of Suggestions:** 
 Users can discover and submit requests for assistance or recommendations. This section encourages community members to help one another by connecting individuals seeking specific services with those who can provide them.
 
 ![suggestions view](documentation/suggestion-view-if-logged.PNG)
 
-**Post Details Page**
+5 - **Post Details Page**
 When a user clicks on a post from the list, they are directed to the "Post Details" page. Here, they can delve deeper into the specifics of a particular business or service. This page includes:
 
 ![Post details](documentation/post_details-view.PNG)
 
-**Comments and Feedback:** Users can engage in discussions and provide feedback regarding the business or service. This interactive feature fosters communication and helps community members make informed decisions.
+6 - **Comments and Feedback:** Users can engage in discussions and provide feedback regarding the business or service. This interactive feature fosters communication and helps community members make informed decisions.
 
 ![comments and feedback](documentation/comments_and_feedback.PNG)
 
-**Navigation**
+7 - **Navigation**
 The navigation bar, situated at the top of the website, provides easy access to essential features and functions. Users can find the following items in the navigation:
 
 ![Nav bar for small devices](documentation/nav_bar-sm.PNG) ![Nav bar for large devices](documentation/nav_bar-lg.PNG)
 
 
-**Login/Logout:** Users can log in to their accounts or log out as needed. This functionality is crucial for accessing certain actions on the website.
+8 - **Login/Logout:** Users can log in to their accounts or log out as needed. This functionality is crucial for accessing certain actions on the website.
 
 
-**Sign-In/Sign-on Page:**
+9 - **Sign-In/Sign-on Page:**
 The Sign-In page serves as the entry point for registered users to access their accounts. Key features of this page include:
-
-
  
- ![Sign up large devices](documentation/sign_up-view-lg-screen.PNG)
- General view for large devices
+ * 9.1 ![Sign up large devices](documentation/sign_up-view-lg-screen.PNG)
+ General view for large device
 
-![Sign up view](documentation/sign_in-view.PNG) 
+ * 9.2 ![Sign up view](documentation/sign_in-view.PNG) 
 ![Sign up view](documentation/sign_up-view.PNG)
 
 Full Page view 
 
-![sign_up-view-sm](documentation/sign_up-view-sm.png) 
+* 9.3 ![sign_up-view-sm](documentation/sign_up-view-sm.png) 
 ![sign_in-view-sm](documentation/sign_in-view-sm.png)
 
-**Clickable Logo:** Clicking on the logo serves as an alternative way to return to the home page, ensuring intuitive navigation.
+* 10 **Clickable Logo:** Clicking on the logo serves as an alternative way to return to the home page, ensuring intuitive navigation.
 
-![Home](documentation/home-sm.PNG)
+![Alt text](documentation/logo-image.PNG)
+
+* 11 **Footer**: footer is quite clean. It brings few elements. The information about the me and LinkedIn and GitHub link pages
+
+![Alt text](documentation/footer.PNG)
 
 ### Mobile-Friendly Design
 
