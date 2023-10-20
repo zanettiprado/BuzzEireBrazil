@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - BuzzEireBrazil</title>
+</head>
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
@@ -54,7 +59,7 @@
                             </a>
                             <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-danger" aria-label="submit-button">
+                                <button type="submit" class="btn btn-sm btn-danger" aria-label="Delete post">
                                     <i class="fas fa-trash-alt"></i> Delete
                                 </button>
                             </form>
@@ -67,7 +72,7 @@
                             </a>
                             <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-danger" aria-label="submit-button-check">
+                                <button type="submit" class="btn btn-sm btn-danger" aria-label="Delete Post">
                                     <i class="fas fa-trash-alt"></i> Delete
                                 </button>
                             </form>
@@ -147,15 +152,15 @@
                             {% csrf_token %}
                             {% if user.is_authenticated %}
                             {% if user in suggestion.likes.all %}
-                            <button type="submit" name="liked" value="unliked" class="btn-like" aria-label="Like this post"><i
+                            <button type="submit" name="liked" value="unliked" class="btn-like" aria-label="Liked button"><i
                                     class="fas fa-thumbs-up"></i></button>
                             {% else %}
                             <button type="submit" name="liked" value="liked" class="btn-like"><i
-                                    class="far fa-thumbs-up" aria-label="Like this post"></i></button>
+                                    class="far fa-thumbs-up" aria-label="Liked button"></i></button>
                             {% endif %}
                             {% else %}
                             <button type="submit" name="liked" value="liked" class="btn-like" disabled><i
-                                    class="far fa-thumbs-up" aria-label="Like this post"></i></button>
+                                    class="far fa-thumbs-up" aria-label="Liked button"></i></button>
                             {% endif %}
                         </form>
                         <span class="likes">{{ suggestion.total_likes }}</span>
@@ -165,14 +170,14 @@
                             {% if user.is_authenticated %}
                             {% if user in suggestion.dislikes.all %}
                             <button type="submit" name="disliked" value="undisliked" class="btn-dislike"><i
-                                    class="fas fa-thumbs-down" aria-label="Dislike this post"></i></button>
+                                    class="fas fa-thumbs-down" aria-label="Disliked button"></i></button>
                             {% else %}
                             <button type="submit" name="disliked" value="disliked" class="btn-dislike"><i
-                                    class="far fa-thumbs-down" aria-label="Dislike this post"></i></button>
+                                    class="far fa-thumbs-down" aria-label="Disliked button"></i></button>
                             {% endif %}
                             {% else %}
                             <button type="submit" name="disliked" value="disliked" class="btn-dislike" disabled><i
-                                    class="far fa-thumbs-down" aria-label="Dislike this post"></i></button>
+                                    class="far fa-thumbs-down" aria-label="Disliked button"></i></button>
                             {% endif %}
                         </form>
                         <span class="dislikes">{{ suggestion.total_dislikes }}</span>
@@ -186,7 +191,7 @@
                         <form class="d-inline" action="{% url 'delete_suggestion' suggestion.id %}" method="POST">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash-alt" aria-label="delete this post"></i> Delete
+                                <i class="fas fa-trash-alt" aria-label="Delete Suggestion"></i> Delete
                             </button>
                         </form>
                         {% endif %}

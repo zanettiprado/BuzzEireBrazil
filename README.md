@@ -1,30 +1,53 @@
 
 # BuzzEireBrazil
 
+
+
+This blog was created to Brazilians living in Ireland, offering a platform for them to promote their businesses or professional services. Additionally, users can seek recommendations and assistance from others within the Brazilian community in Ireland. The primary objective of this project is to connect Brazilians living in Ireland with job opportunities and business prospects.
+
+<br> 
+
+If you want to check the lastest version of my Blog 
+
+## [Click here](https://buzzeirebrazil-4d2838e0aec6.herokuapp.com/)
+
+INSERT LIVE VERSION HERE 
+
+<br>
+
 - ![Alt text](documentation/home_lg_screen.PNG)
 
 ```
 Welcome to BuzzEireBrazil!
 ```
 
-INSERT LIVE VERSION HERE 
 
-This blog was created to Brazilians living in Ireland, offering a platform for them to promote their businesses or professional services. Additionally, users can seek recommendations and assistance from others within the Brazilian community in Ireland. The primary objective of this project is to connect Brazilians living in Ireland with job opportunities and business prospects.
-
-
-
-## Goals
-
+<details>
+<summary>Goals</summary>
 
 * Facilitate connections and networking among Brazilians in Ireland, specifically focusing on job and business opportunities.
 * Create a user-friendly and inclusive platform where users can easily share and discover professional services.
 * Foster a supportive community environment for Brazilians living in Ireland.
 
 
+</details>
+
+<br>
+
+
 # User Experience
+
+
+
+<details>
+<summary>Expectation of user</summary>
 
 * User experience is a central focus of this project. We aim to provide an intuitive and visually appealing interface that enhances user engagement.
 * The website has been designed with the user in mind to ensure seamless navigation and accessibility.
+
+</details>
+
+<br>
 
 
 <details>
@@ -56,42 +79,44 @@ We've organized the project into the following milestones:
 
 - ![Agile Methodology](documentation/agile_issues.PNG)
 
- 1. Start and deploying
+ 1. Start and deploying [#21](https://github.com/zanettiprado/BuzzEireBrazil/issues/21)
 
 2. Setup & Basic Blog Functionality: This phase involves establishing the fundamental blog features, such as user registration and post creation.
 
-    - USER STORY: Navigate Through Pages
+    - USER STORY: Navigate Through Pages [#11](https://github.com/zanettiprado/BuzzEireBrazil/issues/11)
 
-    - USER STORY: Browse Blog Entries
+    - USER STORY: Browse Blog Entries [#4](https://github.com/zanettiprado/BuzzEireBrazil/issues/4)
 
-    - USER STORY: Access a Post
+    - USER STORY: Access a Post [#5](https://github.com/zanettiprado/BuzzEireBrazil/issues/5)
   
 3. User Engagement & Interactivity: Here, we focus on enhancing user engagement through features like comments, likes, and sharing.
-    - USER STORY: Profile Creation
 
-    - USER STORY: Participate in Post Discussion
+    - USER STORY: Profile Creation [#8](https://github.com/zanettiprado/BuzzEireBrazil/issues/8)
 
-    - USER STORY: Engage with Content
+    - USER STORY: Participate in Post Discussion [#9](https://github.com/zanettiprado/BuzzEireBrazil/issues/9)
+
+    - USER STORY: Engage with Content [#10](https://github.com/zanettiprado/BuzzEireBrazil/issues/10)
 
 4. Admin Management & Content Creation: In this phase, we develop admin management tools and refine content creation features.
-    - USER STORY: Content Administration
 
-    - USER STORY: Draft Posts `(NOT IMPLEMENTED)`
+    - USER STORY: Content Administration [#11](https://github.com/zanettiprado/BuzzEireBrazil/issues/11)
 
-    - USER STORY: Moderate Comment Section
+    - USER STORY: Draft Posts `(NOT IMPLEMENTED)` [#12](https://github.com/zanettiprado/BuzzEireBrazil/issues/12)
+
+    - USER STORY: Moderate Comment Section [#13](https://github.com/zanettiprado/BuzzEireBrazil/issues/13)
     
-    - USER STORY: Search for Posts `(NOT IMPLEMENTED)`
+    - USER STORY: Search for Posts `(NOT IMPLEMENTED)` [#1](https://github.com/zanettiprado/BuzzEireBrazil/issues/1)
 
-    - USER STORY: Allows to preview before posting `(NOT IMPLEMENTED)`
+    - USER STORY: Allows to preview before posting `(NOT IMPLEMENTED)` [#14](https://github.com/zanettiprado/BuzzEireBrazil/issues/14)
 
 
 5. Advanced User Features & Enhancements: This milestone concentrates on advanced user features and improvements to existing functionalities.
 
-     - USER STORY: Search for Posts `(NOT IMPLEMENTED)`
+     - USER STORY: Search for Posts `(NOT IMPLEMENTED)` [#1](https://github.com/zanettiprado/BuzzEireBrazil/issues/1)
 
-     - USER STORY: Notification Preferences `(NOT IMPLEMENTED)`
+     - USER STORY: Notification Preferences `(NOT IMPLEMENTED)` [#2](https://github.com/zanettiprado/BuzzEireBrazil/issues/2)
 
-     - USER STORY: Review Comment Section 
+     - USER STORY: Review Comment Section [#7](https://github.com/zanettiprado/BuzzEireBrazil/issues/7)
 
 6. Testing & Quality Assurance: The final milestone emphasizes rigorous testing and quality assurance to ensure a stable and reliable platform.
 
