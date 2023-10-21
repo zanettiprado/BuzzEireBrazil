@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 
 # Block to define posts
 
+
 @login_required
 def create_post(request):
     """
@@ -31,9 +32,11 @@ def create_post(request):
             new_post.featured_image_alt = image_alt
 
             new_post.save()
-            return redirect(reverse('post_detail', kwargs={"slug": new_post.slug}))
+            return redirect(reverse('post_detail',
+                                    kwargs={"slug": new_post.slug}))
     else:
-        form = PostForm(initial={'title': '', 'slug': '', 'excerpt': '', 'content': '', 'status': 0})
+        form = PostForm(initial={'title': '', 'slug': '', 'excerpt': '',
+                                 'content': '', 'status': 0})
 
     return render(request, 'create_post.html', {'form': form})
 
@@ -50,7 +53,8 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('post_detail',
+                                            args=[slug]))
 
 
 class PostList(generic.ListView):
@@ -65,7 +69,8 @@ class PostList(generic.ListView):
         paginate_by (int): The number of posts to display per page.
 
     Methods:
-        get_context_data(**kwargs): Get the context data for rendering the list.
+        get_context_data(**kwargs): Get the context data for rendering
+        the list.
     Returns:
         HttpResponse: Renders the list of blog posts.
     """
@@ -88,10 +93,14 @@ class PostDetail(View):
     including its comments and allows users to post comments.
 
     Attributes:
-        template_name (str): The HTML template to use for rendering the post detail page.
+        template_name (str): The HTML template to use for rendering the post
+        detail page.
     Methods:
-        get(self, request, slug, *args, **kwargs): Handle GET requests to view the post details.
-        post(self, request, slug, *args, **kwargs): Handle POST requests to post comments.
+        get(self, request, slug, *args, **kwargs): Handle GET requests to view
+        the post details.
+        post(self, request, slug, *args, **kwargs):
+        Handle POST requests to post
+        comments.
     Returns:
         HttpResponse: Renders the blog post detail page.
     """
@@ -161,7 +170,8 @@ def edit_post(request, slug):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            featured_image_alt = form.cleaned_data.get('featured_image_alt', '')
+            featured_image_alt = form.cleaned_data.get('featured_image_alt',
+                                                       '')
 
             post.featured_image_alt = featured_image_alt
 
@@ -170,7 +180,9 @@ def edit_post(request, slug):
     else:
         form = PostForm(instance=post)
 
-    return render(request, 'edit_post.html', {'form': form, 'post': post})
+    return render(request,
+                  'edit_post.html', {'form': form, 'post': post})
+
 
 @login_required
 def delete_post(request, slug):
@@ -183,30 +195,11 @@ def delete_post(request, slug):
         if request.method == "POST":
             post.delete()
             return redirect('home')
-        return render(request, 'delete_post.html', {'post': post})
-
-
-# @login_required
-# def index_view(request):
-#     """
-#     View to display a list of blog posts.
-#     Retrieves and displays a list of all blog posts, allowing users to filter
-#     and search for posts.
-#     """
-#     post_list = Post.objects.all()
-#     context = {
-#         'post_list': post_list,
-#         'user': request.user,
-#     }
-
-#     if request.user.is_authenticated:
-#         for post in post_list:
-#             post.is_editable = request.user == post.author or request.user.is_staff
-
-#     return render(request,'index.html', context)
-
+        return render(request,
+                      'delete_post.html', {'post': post})
 
 # Block to define comments
+
 
 class CommentLike(View):
     """
@@ -233,7 +226,6 @@ class CommentDislike(View):
     def post(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
         disliked = request.POST.get("disliked")
-
         if disliked == "disliked" and request.user not in comment.dislikes.all():
             comment.dislikes.add(request.user)
         elif disliked == "undisliked" and request.user in comment.dislikes.all():
@@ -241,59 +233,8 @@ class CommentDislike(View):
 
         return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
-
-@login_required
-def edit_comment(request, slug, comment_id):
-    """
-    Edit an existing comment.
-    Allows users to edit their own comments on blog posts.
-    """
-    comment = get_object_or_404(Comment, id=comment_id)
-    
-    if request.user == comment.name:
-        if request.method == "POST":
-            comment_form = CommentForm(data=request.POST, instance=comment)
-            if comment_form.is_valid():
-                comment_form.save()
-                return redirect('post_detail', slug=slug)
-        else:
-            comment_form = CommentForm(instance=comment)
-        return render(
-            request,
-            "edit_comment.html",
-            {
-                "comment_form": comment_form,
-                "comment": comment,
-            },
-        )
-    else:
-        return redirect('home', slug=slug)
-
-
-@login_required
-def delete_comment(request, slug, comment_id):
-    """
-    Delete a comment.
-    Allows users to delete their own comments on blog posts.
-    """
-    
-    comment = get_object_or_404(Comment, id=comment_id)
-    if request.user == comment.name:
-        if request.method == "POST":
-            comment.delete()
-            return redirect('home', slug=slug)
-        else:
-            return render(
-                request,
-                "delete_comment.html",
-                {
-                    "comment": comment,
-                },
-            )
-    else:
-        return redirect('post_detail', slug=slug)
-
 # Block to define suggestion section
+
 
 class UserSuggestionView(View):
     """
@@ -312,7 +253,9 @@ class UserSuggestionView(View):
     def get(self, request, *args, **kwargs):
         suggestions = UserSuggestion.objects.all()
         suggestion_form = UserSuggestionForm()
-        return render(request, 'suggestions.html', {'suggestions': suggestions, 'suggestion_form': suggestion_form})
+        return render(request,
+                      'suggestions.html', {'suggestions': suggestions,
+                                           'suggestion_form': suggestion_form})
 
 
 class SuggestionLike(View):
@@ -363,7 +306,10 @@ def edit_suggestion(request, suggestion_id):
     else:
         form = SuggestionForm(instance=suggestion)
 
-    return render(request, 'edit_suggestion.html', {'form': form, 'suggestion': suggestion})
+    return render(request,
+                  'edit_suggestion.html',
+                  {'form': form,
+                   'suggestion': suggestion})
 
 
 @login_required
@@ -380,7 +326,11 @@ def delete_suggestion(request, suggestion_id):
     else:
         form = SuggestionForm(instance=suggestion)
 
-    return render(request, 'delete_suggestion.html', {'form': form, 'suggestion': suggestion})
+    return render(request,
+                  'delete_suggestion.html',
+                  {'form': form, 'suggestion': suggestion})
+
+# Block to define main sponsors tab
 
 
 def sponsorship_contact(request):
@@ -403,4 +353,3 @@ def sponsorship_thank_you(request):
     Display the sponsorship thank-you page.
     """
     return render(request, 'sponsorship_thank_you.html')
-

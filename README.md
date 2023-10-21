@@ -11,7 +11,6 @@ If you want to check the lastest version of my Blog
 
 ## [Click here](https://buzzeirebrazil-4d2838e0aec6.herokuapp.com/)
 
-INSERT LIVE VERSION HERE 
 
 <br>
 
@@ -25,9 +24,24 @@ Welcome to BuzzEireBrazil!
 <details>
 <summary>Goals</summary>
 
-* Facilitate connections and networking among Brazilians in Ireland, specifically focusing on job and business opportunities.
-* Create a user-friendly and inclusive platform where users can easily share and discover professional services.
+<h3>Please refer to my "User Stories in Agile" to check in details each topic in the Goals below</h3>
+
+* Facilitating User Onboarding: We strive to make it effortless for new users to join our community. Creating a new user profile is a straightforward process, enabling users to quickly access and interact with others.
+
+* Expanding the Community: Our platform aims to expand our user base continually. We encourage users to invite others to join the community, fostering connections and broadening the network. More users mean more opportunities for job postings, business promotion, and meaningful interactions.
+
+* Enhancing User Engagement: We're committed to enhancing user engagement by allowing users to comment and provide feedback on existing blog posts. Users can share their thoughts and experiences, helping others make informed decisions about businesses and services.
+
+* Endorsing Recommendations: Users have the power to recommend and endorse businesses or services they've had positive experiences with. This recommendation system builds trust within the community, allowing users to discover highly-rated businesses and services easily.
+
+* Suggesting New Ideas: Our platform encourages users to suggest new features or content they'd like to see. By reading and posting suggestions, users have a direct say in shaping the platform and making it more responsive to their needs.
+
+* Interacting with Posts and Suggestions: Users can engage with existing posts and suggestions by liking or disliking them. This interaction system helps surface the most valuable and relevant content within the community.
+
+* Sponsorship Opportunities: For businesses seeking more visibility, our "Contact Us" feature enables them to explore sponsorship options. Becoming a sponsor allows businesses to showcase their services to a wider audience on the platform.
+
 * Foster a supportive community environment for Brazilians living in Ireland.
+
 
 
 </details>
@@ -42,8 +56,19 @@ Welcome to BuzzEireBrazil!
 <details>
 <summary>Expectation of user</summary>
 
-* User experience is a central focus of this project. We aim to provide an intuitive and visually appealing interface that enhances user engagement.
-* The website has been designed with the user in mind to ensure seamless navigation and accessibility.
+User experience is a central focus of this project. We aim to provide an intuitive and visually appealing interface that enhances user engagement. The website has been designed with the user in mind to ensure seamless navigation and accessibility.
+
+* Get Started with Ireland Colors: When you first visit our website, you'll notice that it's designed with the colors of Ireland's flag. It's a warm welcome to Brazilians into the Irish community!
+
+* User-Centric Design: Our project puts you, the user, first and foremost. We've built everything with your needs and preferences in mind to make sure it's easy for you to use.
+
+* Easy to Get Around: Moving around the website is simple and doesn't require any special skills. You can easily go from one part of the website to another, whether you're reading blog posts, suggesting new ideas, or talking to other users.
+
+* For Everyone: We've made sure that everyone can use our website, including people with disabilities. We've used special technology to make it easier for everyone to read and use the site.
+
+* Works on Any Device: Whether you're using a computer, a tablet, or even a phone, our website will work great and look nice on your device.
+
+
 
 </details>
 
@@ -75,7 +100,7 @@ Agile methodologies have been employed to manage and prioritize project tasks us
 <summary>User Stories in Agile</summary>
 
 
-We've organized the project into the following milestones:
+### We've structured our journey into achievable milestones to ensure we stay on track and deliver the best experience for you:
 
 - ![Agile Methodology](documentation/agile_issues.PNG)
 
@@ -153,6 +178,8 @@ The color scheme was chosen to reflect the Irish flag and evoke a sense of Irela
 
 
 For mobile users, the website is optimized with a responsive design. The navigation menu is toggled to accommodate smaller screens, making it convenient for users on mobile devices.
+- ![Alt text](documentation/nav_bar-sm.PNG)
+
 
 Authentication: Users who are not logged in can still browse and view posts. However, to participate by commenting or making suggestions, they must first log in. If a user doesn't have an account, they can easily sign up to become a part of the community.
 
@@ -166,7 +193,12 @@ Authentication: Users who are not logged in can still browse and view posts. How
 
 <details>
 <summary>Typography</summary>
-We've selected the `"Secular One"` font for the website. 
+We've carefully chosen the "Secular One" font for our website.
+
+<br>
+
+The "Secular One" font was selected to enhance readability and visual appeal. Its clean and modern design ensures that content is easy to read, creating a more enjoyable browsing experience for our users. Additionally, this font complements our overall design aesthetic, making it a perfect fit for our platform. We believe that a visually pleasing and easily readable font contributes to a positive user experience.
+
 </details>
 
 
@@ -412,7 +444,9 @@ Heroku: Hosting platform for the deployed back-end site.
 
 <details>
 <summary>Testing and Debugging</summary>
+
 - Google Chrome Dev Tools: Essential for troubleshooting, testing, and ensuring responsiveness and styling.
+
 - Am I Responsive?: Used to display website images on various devices.
 </details>
 
@@ -880,6 +914,13 @@ Verifies that the 'edit_suggestion.html' template is used.
 * [ Markup Validation Service](https://validator.w3.org/#validate_by_input)
 
 * [CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+## Disclaimer:
+For the installation and initial setup of this project, we drew inspiration from two valuable resources:
+
+1. The "I think therefore I blog" project from Code Institute.
+2. The tutorial on building a blog application with Django available at Django Central.
+These resources provided foundational insights and guidance in implementing key features of our project. While we have customized and expanded upon these foundations to meet the specific needs of our platform, we acknowledge and appreciate the contribution of these resources to our development process. We thank Code Institute and Django Central for sharing their knowledge and making it accessible to the developer community.
 
 </details>
 

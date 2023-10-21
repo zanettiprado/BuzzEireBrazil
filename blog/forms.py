@@ -6,13 +6,20 @@ class PostForm(forms.ModelForm):
     """
     Form for creating or editing a blog post.
     """
-    title = forms.CharField(max_length=200, required=True, help_text="The title of the blog post.")  
-    slug = forms.SlugField(max_length=200, required=True, help_text="A URL-friendly version of the title.")
-    content = forms.CharField(widget=forms.Textarea, required=True, help_text="The content of the blog post.")
+    title = forms.CharField(max_length=200,
+                            required=True,
+                            help_text="The title of the blog post.")
+    slug = forms.SlugField(max_length=200,
+                           required=True,
+                           help_text="A URL-friendly version of the title.")
+    content = forms.CharField(widget=forms.Textarea,
+                              required=True,
+                              help_text="The content of the blog post.")
 
     class Meta:
         model = Post
-        fields = ['title', 'slug', 'featured_image', 'excerpt', 'content']
+        fields = ['title', 'slug',
+                  'featured_image', 'excerpt', 'content']
         # The fields to include in the form, based on the 'Post' model.
 
 
@@ -30,10 +37,6 @@ class UserSuggestionForm(forms.ModelForm):
     """
     Form for users to provide suggestions.
     """
-    suggestion_text = forms.CharField(
-        widget=forms.Textarea(attrs={'placeholder': 'Tell us what you are thinking...'}),
-        help_text="Provide your suggestions or feedback here.")
-
     class Meta:
         model = UserSuggestion
         fields = ['suggestion_text']
@@ -54,16 +57,21 @@ class SuggestionForm(forms.ModelForm):
     class Meta:
         model = UserSuggestion
         fields = ['suggestion_text']
-        # The 'suggestion_text' field for a simplified user suggestion form.
+    # The 'suggestion_text' field for a simplified user suggestion form.
 
 
 class SponsorshipContactForm(forms.Form):
     """
     Contact form for sponsorship inquiries.
     """
-    name = forms.CharField(label='Name', max_length=100, required=True, help_text="Your name.")
-    email = forms.EmailField(label='Email Address', required=True, help_text="Your email address.")
+    name = forms.CharField(label='Name',
+                           max_length=100,
+                           required=True, help_text="Your name.")
+    email = forms.EmailField(label='Email Address',
+                             required=True,
+                             help_text="Your email address.")
     business_type = forms.CharField(
-        label='Type of Business', max_length=100, required=True,
-        help_text="The type of business you represent or inquire on behalf of.")
-        # Fields for collecting contact information for sponsorship inquiries.
+        label='Type of Business', max_length=100,
+        required=True,
+        help_text="Type of business you represent or inquire on behalf of.")
+    # Fields for collecting contact information for sponsorship inquiries.

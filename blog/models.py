@@ -28,15 +28,16 @@ class Post(models.Model):
 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name="blog_posts")
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=1)
-    likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
-
+    likes = models.ManyToManyField(User, related_name='blogpost_like',
+                                   blank=True)
 
     class Meta:
         ordering = ["-created_on"]
@@ -47,6 +48,7 @@ class Post(models.Model):
     def number_of_likes(self):
         """Returns the total number of likes for this post."""
         return self.likes.count()
+
 
 class Comment(models.Model):
     """
@@ -63,20 +65,24 @@ class Comment(models.Model):
         dislikes (ManyToManyField): Users who have disliked the comment.
     """
 
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,
+                             related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
-    likes = models.ManyToManyField(User, related_name='comment_likes', blank=True)
-    dislikes = models.ManyToManyField(User, related_name='disliked_comments', blank=True)
+    likes = models.ManyToManyField(User, related_name='comment_likes',
+                                   blank=True)
+    dislikes = models.ManyToManyField(User, related_name='disliked_comments',
+                                      blank=True)
 
     class Meta:
         ordering = ["created_on"]
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
 
 class UserSuggestion(models.Model):
     """
@@ -105,6 +111,7 @@ class UserSuggestion(models.Model):
     @classmethod
     def total_suggestions(cls):
         return cls.objects.count()
+
 
 class Suggestion(models.Model):
     """
