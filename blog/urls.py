@@ -20,4 +20,3 @@ urlpatterns = [
     path('sponsorship/contact/', views.sponsorship_contact, name='sponsorship_contact'),
     path('sponsorship/thank-you/', views.sponsorship_thank_you, name='sponsorship_thank_you'),
 ]
-

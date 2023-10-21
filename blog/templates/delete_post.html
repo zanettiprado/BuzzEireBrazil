@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Delete post</title>
 </head>
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <!-- Delete Post Confirmation Container -->
-<div class="container mt-5">
-    <h2>Confirm Deletion</h2>
-    <p>Are you sure you want to delete this post? This action cannot be undone.</p>
-    <form method="POST" action="{% url 'delete_post' post.slug %}">
-        {% csrf_token %}
-        <input type="submit" value="Delete">
-    </form>
+<div class="col-md-8 mt-5 mx-auto">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h4 class="card-title">Confirm Deletion</h4>
+        </div>
+        <div class="card-body">
+            <p class="text-muted">Are you sure you want to delete this post? This action cannot be undone.</p>
+            <form method="POST" action="{% url 'delete_post' post.slug %}">
+                {% csrf_token %}
+                <div class="row justify-content-between">
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-danger btn-block">
+                            <i class="fas fa-trash-alt" aria-label="Delete Post"></i> Delete
+                        </button>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <a href="{% url 'home' %}" class="btn btn-success rounded">
+                            <i class="fas fa-home" aria-label="Delete Post"></i> Return
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock content %}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Home - BuzzEireBrazil</title>
 </head>
@@ -36,7 +37,7 @@
                                     alt="Standart picture for any post">
                                 {% else %}
                                 <img class="card-img-top" src="{{ post.featured_image.url }}"
-                                    alt="Main  image of the post">
+                                    alt="Main image of the post">
                                 {% endif %}
                                 <div class="image-flash">
                                     <!-- Author Information -->
@@ -49,35 +50,19 @@
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <hr/>
-                            <!-- Post Created Date and Likes -->
+                            <!-- Post Created Date and Likes ------------------------->
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
 
+                            <!-- Post Edit and Delete opition ------------------------->
                             {% if user.is_authenticated and user == post.author or user.is_staff %}
                             <a href="{% url 'edit_post' post.slug %}" class="btn btn-sm btn-warning">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-danger" aria-label="Delete post">
-                                    <i class="fas fa-trash-alt"></i> Delete
-                                </button>
-                            </form>
-                            {% endif %}
-
-                            <!-- Additional check for is_editable related to posts on home-->
-                            {% if post.is_editable %}
-                            <a href="{% url 'edit_post' post.slug %}" class="btn btn-sm btn-warning">
-                                <i class="fas fa-edit"></i> Edit
+                            <a href="{% url 'delete_post' post.slug %}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash-alt"></i> Delete
                             </a>
-                            <form class="d-inline" action="{% url 'delete_post' post.slug %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-danger" aria-label="Delete Post">
-                                    <i class="fas fa-trash-alt"></i> Delete
-                                </button>
-                            </form>
                             {% endif %}
-
                         </div>
                     </div>
                 </div>
@@ -152,8 +137,8 @@
                             {% csrf_token %}
                             {% if user.is_authenticated %}
                             {% if user in suggestion.likes.all %}
-                            <button type="submit" name="liked" value="unliked" class="btn-like" aria-label="Liked button"><i
-                                    class="fas fa-thumbs-up"></i></button>
+                            <button type="submit" name="liked" value="unliked" class="btn-like"
+                                aria-label="Liked button"><i class="fas fa-thumbs-up"></i></button>
                             {% else %}
                             <button type="submit" name="liked" value="liked" class="btn-like"><i
                                     class="far fa-thumbs-up" aria-label="Liked button"></i></button>
@@ -214,7 +199,7 @@
 
         suggestionText.addEventListener('focus', function () {
             if (this.value === 'What can you suggest today?') {
-                this.value = ''; 
+                this.value = '';
             }
             this.style.color = 'black';
         });

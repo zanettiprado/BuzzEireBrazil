@@ -161,10 +161,8 @@ def edit_post(request, slug):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            # Get the alt text for the featured image from the form
             featured_image_alt = form.cleaned_data.get('featured_image_alt', '')
 
-            # Save the alt text to the post instance
             post.featured_image_alt = featured_image_alt
 
             form.save()
@@ -188,24 +186,24 @@ def delete_post(request, slug):
         return render(request, 'delete_post.html', {'post': post})
 
 
-@login_required
-def index_view(request):
-    """
-    View to display a list of blog posts.
-    Retrieves and displays a list of all blog posts, allowing users to filter
-    and search for posts.
-    """
-    post_list = Post.objects.all()
-    context = {
-        'post_list': post_list,
-        'user': request.user,
-    }
+# @login_required
+# def index_view(request):
+#     """
+#     View to display a list of blog posts.
+#     Retrieves and displays a list of all blog posts, allowing users to filter
+#     and search for posts.
+#     """
+#     post_list = Post.objects.all()
+#     context = {
+#         'post_list': post_list,
+#         'user': request.user,
+#     }
 
-    if request.user.is_authenticated:
-        for post in post_list:
-            post.is_editable = request.user == post.author or request.user.is_staff
+#     if request.user.is_authenticated:
+#         for post in post_list:
+#             post.is_editable = request.user == post.author or request.user.is_staff
 
-    return render(request,'index.html', context)
+#     return render(request,'index.html', context)
 
 
 # Block to define comments
@@ -405,3 +403,4 @@ def sponsorship_thank_you(request):
     Display the sponsorship thank-you page.
     """
     return render(request, 'sponsorship_thank_you.html')
+
