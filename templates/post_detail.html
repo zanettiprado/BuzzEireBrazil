@@ -21,7 +21,7 @@
                         <div class="col-md-9">
                             {% if "placeholder" in post.featured_image.url %}
                             <img src="https://www.edublin.com.br/wp-content/webp-express/webp-images/uploads/2017/07/shutterstock_265691192.jpg.webp"
-                                class="img-fluid mb-3" style="width: 100%;">
+                                class="img-fluid mb-3" style="width: 100%;" alt="Regular image if they miss">
                             {% else %}
                             <img src="{{ post.featured_image.url }}" class="img-fluid mb-3" style="width: 100%;">
                             {% endif %}

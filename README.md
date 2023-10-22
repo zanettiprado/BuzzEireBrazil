@@ -676,16 +676,97 @@ Bugs Resolved and Unresolved: All identified issues and bugs have been diligentl
 <br>
 
 <details>
+<summary>Bugs Resolved and unresolved</summary>
+
+
+The issues listed in the table below were identified during the development of the project. Some of these issues have been resolved, while others remain unresolved due to the specific technologies and constraints of the project, such as using Python Django in HTML.
+
+| Issue Description                                      | Resolution Status |
+|--------------------------------------------------------|-------------------|
+| Non-space characters found without a doctype declaration. Expected <!DOCTYPE html>. | Resolved         |
+| Element head is missing a required instance of the child element title. | Resolved         |
+| Bad value {% url 'create_post' %} for the attribute action on the form element: Illegal character in path segment: { is not allowed. | Resolved         |
+| Bad value {{ form.title.id_for_label }} for the attribute 'for' on the label element: An ID must not contain whitespace. | Resolved         |
+| Bad value {{ form.title.id_for_label|striptags }} for the attribute id on the input element: An ID must not contain whitespace. | Resolved         |
+| Bad value {{ form.slug.id_for_label }} for the attribute 'for' on the label element: An ID must not contain whitespace. | Resolved         |
+| Bad value {{ form.slug.id_for_label|striptags }} for the attribute id on the input element: An ID must not contain whitespace. | Resolved         |
+| Bad value {{ form.excerpt.id_for_label|striptags }} for the attribute id on the textarea element: An ID must not contain whitespace. | Resolved         |
+| Bad value {{ form.content.id_for_label }} for the attribute 'for' on the label element: An ID must not contain whitespace. | Resolved         |
+| Bad value {{ form.content.id_for_label|striptags }} for the attribute id on the textarea element: An ID must not contain whitespace. | Resolved         |
+| The value of the 'for' attribute of the label element must be the ID of a non-hidden form control. | Resolved         |
+
+Please note that while the above issues have been resolved, there may still be other unresolved issues or constraints specific to the project's technology stack. Further testing and validation may be required to address any remaining issues.
+
+</details>
+
+<br>
+
+<details>
 <summary>Code Validation</summary>
+
+
+
+The issues listed in the table below were identified during the development of the project. Some could not be resolved due to the project's use of Python Django in HTML.
+
+
+| Contact Us page| ![Contact Us](documentation/validation/contact_form_validation.PNG)|
+| Contact Form| COLAR IMAGE  |
+| Create a Post |![Create a Post](documentation/validation/create_post_validation.PNG) |
+| Home Page | COLAR IMAGE |
+| Home Page not logged | COLAR IMAGE  |
+| Post Details | ![Home Page not logged](documentation/validation/post_details_validation.PNG)|
+| Sign In| COLAR IMAGE  |
+| Side Bar|![Side Bar](documentation/validation/sidebar_validation.PNG) |
+| Welcome|![Welcome](documentation/validation/welcome_html_validation.PNG) |
+
+### PEP8 Python validation
+
+| Forms | ![Forms](documentation/validation/forms_pyPEP8.PNG)|
+| Models | ![ Models](documentation/validation/models_pyPEP8.PNG)|
+| View | ![View](documentation/validation/view_pyPEP8.PNG)|
+
+### CSS validation
+
+| CSS check |![Alt text](documentation/validation/css_validation.PNG) |
+
+
+Note: Unresolved issues may require further investigation due to the project's specific implementation.
+
+</details>
+
+<br>
+
+<details>
+<summary>Light House Test</summary>
 
 
 
 ## 
 The codebase adheres to industry standards and best practices, ensuring error-free, well-structured, and convention-following code.
+
+
+|Page | Screenshot | 
+|:---:|:---: |
+| Contact Us page|![contact_us](documentation/lighthouse_outcome/contact_us_test.PNG)|
+| Create a Post | ![Create a Post](documentation/lighthouse_outcome/create_post_page.PNG)|
+| Home Page | ![Home Page](documentation/lighthouse_outcome/homepage_test.PNG)|
+| Home Page not logged | ![Home Page not logged](documentation/lighthouse_outcome/homepage_unlogged_test.PNG)|
+| Post Details |![Post Details](documentation/lighthouse_outcome/post_details_test.PNG) |
+| Sign In|![Sign In](documentation/lighthouse_outcome/sign_in_page.PNG) |
+| Sign Up|![Sign Up](documentation/lighthouse_outcome/sign_up_page.PNG) |
+| Thanks Page | ![Thanks Page](documentation/lighthouse_outcome/thanks_page.PNG)|
+
+
+
+| | |
+| | |
+
+
+
+
 </details>
 
 <br>
-
 
 <details>
 <summary>Automated Tests </summary>
