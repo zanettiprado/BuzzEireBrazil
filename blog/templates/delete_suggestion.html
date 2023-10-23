@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Delete Suggestion</title>
 </head>
 {% extends "base.html" %}
+{% load crispy_forms_tags %} 
+
 {% block content %}
-    <h2>Delete Suggestion</h2>
-    <p>Are you sure you want to delete the suggestion "{{ suggestion.suggestion_text }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger" aria-label="delete-button">Delete</button>
-    </form>
-    <a href="{% url 'suggestions' %}" class="btn btn-secondary">Cancel</a>
+<!-- Delete Post Suggestion Container -->
+<div class="col-md-8 mt-5 mx-auto">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h4 class="card-title">Confirm Suggestion Deletion</h4>
+        </div>
+        <div class="card-body">
+            <p class="text-muted">Are you sure you want to delete the suggestion "{{ suggestion.suggestion_text }}"? This action cannot be undone.</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row justify-content-between">
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-danger btn-block">
+                            <i class="fas fa-trash-alt" aria-label="Delete Suggestion"></i> Delete
+                        </button>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <a href="{% url 'home' %}" class="btn btn-success rounded">
+                            <i class="fas fa-home" aria-label="Return to Home"></i> Cancel
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

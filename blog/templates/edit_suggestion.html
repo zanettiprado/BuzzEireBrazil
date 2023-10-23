@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Edit Suggestion</title>
 </head>
 {% extends "base.html" %}
+{% load crispy_forms_tags %}  <!-- Including this for consistency, even if not utilized -->
+
 {% block content %}
-    <h2>Edit Suggestion</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-success" aria-label="edit-button">Save</button>
-    </form>
+
+<div class="col-md-8 mt-5 mx-auto">
+    <div class="card">
+        <div class="card-header-sg text-white">
+            <h4 class="card-title">Edit Suggestion</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.as_p }}  <!-- Displaying the form fields -->
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save" aria-label="Edit Suggestion"></i> Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}

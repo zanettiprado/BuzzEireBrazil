@@ -173,12 +173,9 @@
                         <a href="{% url 'edit_suggestion' suggestion.id %}" class="btn btn-sm btn-warning">
                             <i class="fas fa-edit"></i> Edit
                         </a>
-                        <form class="d-inline" action="{% url 'delete_suggestion' suggestion.id %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash-alt" aria-label="Delete Suggestion"></i> Delete
-                            </button>
-                        </form>
+                        <a href="{% url 'delete_suggestion' suggestion.id %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash-can"></i> Delete</i>
+                        </a>
                         {% endif %}
                         {% endif %}
                     </div>

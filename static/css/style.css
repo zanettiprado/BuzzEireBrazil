@@ -4,8 +4,8 @@
 /* Typography */
 
 body {
-    font-family: 'Roboto', 'Secular One', sans-serif;
-    /* Adjust the font weight for better readability */
+    font-family: sans-serif, 'Times New Roman', Times;
+    
 }
 /* Background Colors */ 
 .main-bg {
@@ -42,6 +42,10 @@ body {
     font-weight: 400;
     border-radius: 10px;
     text-decoration: none;
+}
+
+.card-header-sg {
+    background-color: #fd7e14;
 }
 
 .author {
