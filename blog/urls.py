@@ -14,7 +14,7 @@ urlpatterns = [
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'), # Post main page with details
     path('like/<slug:slug>/', views.PostLike.as_view(), name='post_like'), # Like post
     path('comment-like/<int:comment_id>/', views.CommentLike.as_view(), name='comment_like'), # Like comment
-    path('comment_dislike/<int:comment_id>/', views.CommentDislike.as_view(), name='comment_dislike'), # Dislike Comment 
+    path('comment_dislike/<int:comment_id>/', views.CommentDislike.as_view(), name='comment_dislike'), # Dislike Comment
     path('sponsorship/contact/', views.sponsorship_contact, name='sponsorship_contact'), # Contact page
     path('sponsorship/thank-you/', views.sponsorship_thank_you, name='sponsorship_thank_you'), #Thank you page
 ]

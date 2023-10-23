@@ -2,8 +2,13 @@
 # BuzzEireBrazil
 
 
+This blog, aptly named "Buzz Eire Brazil," was conceived with a mission to serve Brazilians living in Ireland. Designed to attract both those looking to establish and promote their business ventures and those interested in connecting with these enterprises, the platform serves as a bridge between small entrepreneurs and their target audience. Whether you're a seasoned resident or a newcomer seeking to understand the market landscape, our blog offers insights, recommendations, and opportunities tailored for you.
 
-This blog was created to Brazilians living in Ireland, offering a platform for them to promote their businesses or professional services. Additionally, users can seek recommendations and assistance from others within the Brazilian community in Ireland. The primary objective of this project is to connect Brazilians living in Ireland with job opportunities and business prospects.
+"Buzz" in the blog's name captures the essence of conversation and engagement. "Eire" nods to our Irish setting, while "Brazil" honors the community we primarily serve. Together, these elements represent the triad of communication, location, and community.
+
+The user-friendly layout, designed for accessibility across all age groups, underscores our commitment to inclusivity. Its simplicity is deliberate, signaling that this is the inaugural version of our platform. We're in a dynamic phase of growth and anticipate introducing new tools, layouts, colors, and sections in the near future. Our chosen color scheme further establishes our niche, providing a warm and welcoming environment for Brazilians in Ireland, whether they're longtime residents or recent arrivals.
+
+Ultimately, our goal is to foster connections and open doors—whether you're looking to promote your business, discover professional services, or simply seeking recommendations within the Brazilian community in Ireland. We are here to support and facilitate these interactions, empowering our community with resources and opportunities.
 
 <br> 
 
@@ -14,7 +19,7 @@ If you want to check the lastest version of my Blog
 
 <br>
 
-- ![Alt text](documentation/home_lg_screen.PNG)
+- ![Home Large Screen](documentation/home_lg_screen.PNG)
 
 ```
 Welcome to BuzzEireBrazil!
@@ -165,7 +170,7 @@ Agile methodologies have been employed to manage and prioritize project tasks us
 
 The color scheme was chosen to reflect the Irish flag and evoke a sense of Ireland:
 
-- ![Alt text](documentation/colors.PNG)
+- ![Colours](documentation/colors.PNG)
 </details>
 
 <br>
@@ -178,7 +183,7 @@ The color scheme was chosen to reflect the Irish flag and evoke a sense of Irela
 
 
 For mobile users, the website is optimized with a responsive design. The navigation menu is toggled to accommodate smaller screens, making it convenient for users on mobile devices.
-- ![Alt text](documentation/nav_bar-sm.PNG)
+- ![Nav Bar](documentation/nav_bar-sm.PNG)
 
 
 Authentication: Users who are not logged in can still browse and view posts. However, to participate by commenting or making suggestions, they must first log in. If a user doesn't have an account, they can easily sign up to become a part of the community.
@@ -192,13 +197,15 @@ Authentication: Users who are not logged in can still browse and view posts. How
 
 
 <details>
-<summary>Typography</summary>
-We've carefully chosen the "Secular One" font for our website.
+<summary>Typography Evolution in Our Blog</summary>
 
 <br>
 
-The "Secular One" font was selected to enhance readability and visual appeal. Its clean and modern design ensures that content is easy to read, creating a more enjoyable browsing experience for our users. Additionally, this font complements our overall design aesthetic, making it a perfect fit for our platform. We believe that a visually pleasing and easily readable font contributes to a positive user experience.
+In the initial stages of our blog design, we adopted the "Secular One" font. It had a unique flair and gave our content a distinct identity. However, as we pondered the direction and growth trajectory of our blog, we felt a need for something more foundational.
 
+We've chosen to transition to "sans-serif" for our current version. This decision stems not from a desire for simplicity, but rather from a strategic perspective. Many iconic platforms begin with a foundational aesthetic, progressively building upon it to carve out a unique identity. Adopting a basic font at this juncture gives us the flexibility and space to evolve, signaling to our audience that this is just the beginning. We're in a phase of continuous improvement and growth.
+
+Our typography change is symbolic. It reflects our commitment to refinement and our openness to adaptation based on user feedback and emerging design trends. In essence, we're laying the groundwork for future implementations, fostering the idea that our platform is ever-evolving and always striving for excellence.
 </details>
 
 
@@ -294,11 +301,23 @@ Full Page view
 
 * 10 **Clickable Logo:** Clicking on the logo serves as an alternative way to return to the home page, ensuring intuitive navigation.
 
-- ![Alt text](documentation/logo-image.PNG)
+- ![Logo Image](documentation/logo-image.PNG)
 
 * 11 **Footer**: footer is quite clean. It brings few elements. The information about the me and LinkedIn and GitHub link pages
 
-- ![Alt text](documentation/footer.PNG)
+- ![Footer](documentation/footer.PNG)
+
+- 12 **Notifications**
+
+- ![Url Notification](documentation/url_notification.PNG)
+
+- ![Post notification](documentation/post_notification.PNG)
+
+- ![Comment notification](documentation/comment_notification.PNG)
+
+- ![Login comment notification](documentation/login_comment_notification.PNG)
+
+- ![Login suggestion notification](documentation/login_suggestion_notification.PNG)
 
 </details>
 
@@ -727,7 +746,7 @@ The issues listed in the table below were identified during the development of t
 
 ### CSS validation
 
-| CSS check |![Alt text](documentation/validation/css_validation.PNG) |
+| CSS check |![Css Check](documentation/validation/css_validation.PNG) |
 
 
 Note: Unresolved issues may require further investigation due to the project's specific implementation.
@@ -1002,6 +1021,58 @@ For the installation and initial setup of this project, we drew inspiration from
 1. The "I think therefore I blog" project from Code Institute.
 2. The tutorial on building a blog application with Django available at Django Central.
 These resources provided foundational insights and guidance in implementing key features of our project. While we have customized and expanded upon these foundations to meet the specific needs of our platform, we acknowledge and appreciate the contribution of these resources to our development process. We thank Code Institute and Django Central for sharing their knowledge and making it accessible to the developer community.
+
+</details>
+
+
+# How to use
+
+<details>
+
+<br>
+
+<summary>How to Use the Buzz Eire Brazil Blog</summary>
+
+
+
+
+
+Welcome to the Buzz Eire Brazil Blog – your dedicated platform to explore, connect, and interact with the vibrant Brazilian business community in Ireland. Here's a brief guide on how to navigate and utilize our blog:
+
+1. Homepage & Posts:
+
+The homepage predominantly features various posts.
+Anyone can create a post, but its primary purpose is to highlight new businesses and ventures.
+Each post offers a space for readers to comment and leave feedback, fostering a collaborative environment.
+
+2. Seeking Specific Services:
+
+If you're in search of a specific business or service not yet highlighted in a post, navigate to the 'Suggestions' section.
+Here, you can leave a question or even suggest a potential post topic to help connect you with the right resources.
+
+3. Sidebar Features:
+
+The sidebar showcases our key business sponsors. These are trusted entities we believe can be of significant value to our users.
+4. Interacting with Content:
+
+Engage with posts and suggestions using the like and dislike buttons to show your agreement or disagreement.
+Comments are highly encouraged! Share your thoughts, experiences, or further queries on posts.
+5. Account Creation & Interaction:
+
+To create posts, make suggestions, or engage with content, you'll need to create an account.
+However, even if you're not logged in, you can still view all posts and gather insights.
+
+6. Becoming a Sponsor:
+
+Interested in featuring your business on our sidebar as a sponsor? Send us a notification, and we'll guide you through the process.
+Remember, our main objective is to foster connections within the Brazilian community in Ireland, whether you're looking to promote your business, discover professional services, or simply seeking recommendations. We hope this guide makes your experience seamless and enjoyable. Dive in and explore!
+
+### Some buttons
+- ![Login](documentation/htu_login.PNG)
+- ![Like Post](documentation/htu_likepost.PNG)
+- ![Contact Us button](documentation/htu_contactus.PNG)
+- ![Button Like](documentation/htu_buttons_lik.PNG)
+- ![Comment button](documentation/htu_buttons_commetn.PNG)
 
 </details>
 
