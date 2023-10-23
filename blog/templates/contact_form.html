@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Contact Form</title>
 </head>
@@ -7,7 +8,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
 <div class="container mt-5">
+
+    <!-- Return button -->
+    <div class="col-md-12 mb-3">
+        <div class="row">{% include "return_button.html" %}</div>
+    </div>
+    <!-- Form -->
     <h2>Contact Us for Sponsorship</h2>
     <form method="post" action="{% url 'sponsorship_contact' %}" class="mt-4">
         {% csrf_token %}
