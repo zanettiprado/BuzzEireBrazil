@@ -102,10 +102,12 @@ Agile methodologies have been employed to manage and prioritize project tasks us
 <br>
 
 <details>
-<summary>User Stories in Agile</summary>
+<summary>User Stories</summary>
 
 
-### We've structured our journey into achievable milestones to ensure we stay on track and deliver the best experience for you:
+We've structured our journey into achievable milestones to ensure we stay on track and deliver the best experience for users:
+
+<br>
 
 - ![Agile Methodology](documentation/agile_issues.PNG)
 
@@ -113,7 +115,7 @@ Agile methodologies have been employed to manage and prioritize project tasks us
 
 2. Setup & Basic Blog Functionality: This phase involves establishing the fundamental blog features, such as user registration and post creation.
 
-    - USER STORY: Navigate Through Pages [#11](https://github.com/zanettiprado/BuzzEireBrazil/issues/11)
+    - USER STORY: Navigate Through Pages [#3](https://github.com/zanettiprado/BuzzEireBrazil/issues/3)
 
     - USER STORY: Browse Blog Entries [#4](https://github.com/zanettiprado/BuzzEireBrazil/issues/4)
 
@@ -162,6 +164,69 @@ Agile methodologies have been employed to manage and prioritize project tasks us
 
 <br>
 
+<details>
+<summary> User Story Prioritization - MoSCoW Method</summary>
+
+<br>
+
+In order to work and decide what task I would implement first and what task I could leave under an "if" categorie I applied the agile MoSCoW methodology
+
+<br>
+
+- Must-have: Essential requirements that the project must deliver.
+- Should-have: Important but not essential; can be postponed if necessary.
+- Could-have: Desirable but not necessary; can be delayed or omitted.
+- Won't-have this time: Recognized as not being necessary for this delivery but could be considered in the future.
+
+Within our development cycle, user stories are prioritized using the MoSCoW approach. Below is an outline of our current sprint's story allocation:
+
+<br>
+
+| Priority       | User Story                                               | Story Points |
+|----------------|----------------------------------------------------------|--------------|
+| Must-have      | Navigate Through Pages                                   |Check             |
+| Must-have      | Profile Creation                                         |Check             |
+| Must-have      | Content Administration                                   |Check             |
+| Must-have      | Access a Post                                            |Check             |
+| Must-have      | Engage with Content                                      |Check             |
+| Must-have      | Participate in Post Discussion                           |Check             |
+| Must-have      | Delete or Edit my previous suggestions                   |Check             |
+| Must-have      | Moderate Comment Section                                 |Check             |
+| Must-have      | Browse Blog Entries                                      |Check             |
+| Must-have      | Test the functions on the page                           |Check             |
+| Should-have    | See Popularity Metrics                                   |Check             |
+| Could-have     | Dislike button                                           |Check             |
+| Could-have     | Suggesting posts                                         |Check             |
+| Could-have     | Add a Sidebar to Blog for Sponsors                       |Check             |
+| Could-have     | Implement the button like and dislike for suggestions    |Check             |
+| Could-have     | Review Comment Section                                   |Check             |
+| Could-have     | Notification preferences                                 | X                |
+| Could-have     | Search for Posts                                         | X                |
+| Could-have     | First page as Login page                                 | X                |
+| Could-have     | Reply suggestions                                        | X                |
+| Won't-have     | Draft Posts                                              | X                |
+
+<br>
+
+
+</details>
+
+<br>
+
+
+<details>
+<summary>Acceptance Criteria</summary>
+
+<br>
+Each issue is accompanied by its unique acceptance criteria, along with the tasks associated with it. This structure allows for clear tracking of whether each task has been completed or remains pending.
+
+<br>
+
+![Acceptance Agile and Tasks](documentation/acceptance_agile.PNG)
+
+</details>
+
+<br>
 
 # Design
 <br>
