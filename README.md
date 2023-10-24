@@ -484,7 +484,7 @@ At BuzzEireBrazil, accessibility isn't an afterthought; it's an integral part of
 
 - Pip: A vital tool for installing Python packages.
 - Jinja: Our templating engine, facilitating dynamic content rendering.
-- Balsamiq: Used for wireframing to plan out the site's layout and structure.
+
 </details>
 
 
@@ -754,7 +754,10 @@ As infomered we have used Am I responsive web page to get the below image.
 
 We have verified that our project functions flawlessly on multiple web browsers, including Chrome, Firefox, Safari, and Internet Explorer.
 
-Bugs Resolved and Unresolved: All identified issues and bugs have been diligently 
+- ![Browser](documentation/browser.PNG)
+
+<br>
+
 </details>
 
 <br>
@@ -767,19 +770,19 @@ The issues listed in the table below were identified during the development of t
 
 | Issue Description                                      | Resolution Status |
 |--------------------------------------------------------|-------------------|
-| Non-space characters found without a doctype declaration. Expected <!DOCTYPE html>. | Resolved         |
-| Element head is missing a required instance of the child element title. | Resolved         |
-| Bad value {% url 'create_post' %} for the attribute action on the form element: Illegal character in path segment: { is not allowed. | Resolved         |
-| Bad value {{ form.title.id_for_label }} for the attribute 'for' on the label element: An ID must not contain whitespace. | Resolved         |
+| Non-space characters found without a doctype declaration. Expected <!DOCTYPE html>. | unresolved         |
+| Element head is missing a required instance of the child element title. | unresolved         |
+| Bad value {% url 'create_post' %} for the attribute action on the form element: Illegal character in path segment: { is not allowed. | unresolved         |
+| Bad value {{ form.title.id_for_label }} for the attribute 'for' on the label element: An ID must not contain whitespace. | unresolved         |
 | Bad value {{ form.title.id_for_label|striptags }} for the attribute id on the input element: An ID must not contain whitespace. | Resolved         |
 | Bad value {{ form.slug.id_for_label }} for the attribute 'for' on the label element: An ID must not contain whitespace. | Resolved         |
-| Bad value {{ form.slug.id_for_label|striptags }} for the attribute id on the input element: An ID must not contain whitespace. | Resolved         |
-| Bad value {{ form.excerpt.id_for_label|striptags }} for the attribute id on the textarea element: An ID must not contain whitespace. | Resolved         |
+| Bad value {{ form.slug.id_for_label|striptags }} for the attribute id on the input element: An ID must not contain whitespace. | unresolved         |
+| Bad value {{ form.excerpt.id_for_label|striptags }} for the attribute id on the textarea element: An ID must not contain whitespace. | unresolved         |
 | Bad value {{ form.content.id_for_label }} for the attribute 'for' on the label element: An ID must not contain whitespace. | Resolved         |
 | Bad value {{ form.content.id_for_label|striptags }} for the attribute id on the textarea element: An ID must not contain whitespace. | Resolved         |
 | The value of the 'for' attribute of the label element must be the ID of a non-hidden form control. | Resolved         |
 
-Please note that while the above issues have been resolved, there may still be other unresolved issues or constraints specific to the project's technology stack. Further testing and validation may be required to address any remaining issues.
+Please note that while some of the above issues have been resolved, there some may still unresolved issues or constraints specific to the project's technology stack until the submission date of this project. Further testing and validation may be required to address any remaining issues in order to fix all.
 
 </details>
 
@@ -790,7 +793,7 @@ Please note that while the above issues have been resolved, there may still be o
 
 
 
-The issues listed in the table below were identified during the development of the project. Some could not be resolved due to the project's use of Python Django in HTML.
+The issues listed in the table below were identified during the development of the project. Some could not be resolved due to the project's use of Python Django in HTML. Please refer to resolved bug section to check more details.
 
 
 | Contact Us page| ![Contact Us](documentation/validation/contact_form_validation.PNG)|
@@ -841,13 +844,6 @@ The codebase adheres to industry standards and best practices, ensuring error-fr
 | Thanks Page | ![Thanks Page](documentation/lighthouse_outcome/thanks_page.PNG)|
 
 
-
-| | |
-| | |
-
-
-
-
 </details>
 
 <br>
@@ -857,9 +853,9 @@ The codebase adheres to industry standards and best practices, ensuring error-fr
 
 
 
-### Automated testing scripts have been employed to streamline our testing process, resulting in consistent and efficient testing outcomes. We ran tests for Models.py, Views.py and Forms.py in three differents files. 
+Automated testing scripts have been employed to streamline our testing process, resulting in consistent and efficient testing outcomes. We ran tests for Models.py, Views.py and Forms.py in three differents files. 
 
-
+<br>
 
 ## Forms Validation Tests
 
@@ -1118,10 +1114,12 @@ Here, you can leave a question or even suggest a potential post topic to help co
 3. Sidebar Features:
 
 The sidebar showcases our key business sponsors. These are trusted entities we believe can be of significant value to our users.
+
 4. Interacting with Content:
 
 Engage with posts and suggestions using the like and dislike buttons to show your agreement or disagreement.
 Comments are highly encouraged! Share your thoughts, experiences, or further queries on posts.
+
 5. Account Creation & Interaction:
 
 To create posts, make suggestions, or engage with content, you'll need to create an account.
@@ -1132,7 +1130,7 @@ However, even if you're not logged in, you can still view all posts and gather i
 Interested in featuring your business on our sidebar as a sponsor? Send us a notification, and we'll guide you through the process.
 Remember, our main objective is to foster connections within the Brazilian community in Ireland, whether you're looking to promote your business, discover professional services, or simply seeking recommendations. We hope this guide makes your experience seamless and enjoyable. Dive in and explore!
 
-### Some buttons
+7. Some buttons
 - ![Login](documentation/htu_login.PNG)
 - ![Like Post](documentation/htu_likepost.PNG)
 - ![Contact Us button](documentation/htu_contactus.PNG)
@@ -1144,7 +1142,7 @@ Remember, our main objective is to foster connections within the Brazilian commu
 <br>
 
 # Author
-Felipe Zanetti - Project Milestone 4 for Course Institute
+Felipe Zanetti - Project Milestone 4 for Code Institute
 
 
 
